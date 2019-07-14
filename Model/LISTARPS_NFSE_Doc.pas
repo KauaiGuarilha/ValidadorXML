@@ -2,10 +2,15 @@ unit LISTARPS_NFSE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TLISTARPS_NFSE_Doc = class
 
   private
     EDataEmiss, ESeriePrest, EDescRPS, EOperac, ENatOperc, ERegEspTrib, EOptSimpNac, EIncCult, EStats, EMotCanc : String;
+
+    FNodeListaRPS : IXMLNode;
+
     function getEDataEmiss: String;
     function getEDescRPS: String;
     function getEIncCult: String;
@@ -31,6 +36,9 @@ type TLISTARPS_NFSE_Doc = class
     Constructor Create_TLISTARPS_NFSE_Doc;
     Destructor Destroy_TLISTARPS_NFSE_Doc;
 
+    procedure PreencherListaRPS;
+
+    property NodeListaRPS : IXMLNode read FNodeListaRPS write FNodeListaRPS;
     property TEDataEmiss : String read getEDataEmiss write setEDataEmiss;
     property TESeriePrest : String read getESeriePrest write setESeriePrest;
     property TEDescRPS : String read getEDescRPS write setEDescRPS;
@@ -156,6 +164,43 @@ end;
 procedure TLISTARPS_NFSE_Doc.setEStats(const Value: String);
 begin
   EStats := Value;
+end;
+
+procedure TLISTARPS_NFSE_Doc.PreencherListaRPS;
+begin
+  if Assigned(FNodeListaRPS) then
+  begin
+    if FNodeListaRPS.ChildNodes.FindNode('DataEmissao') <> nil then
+       EDataEmiss := FNodeListaRPS.ChildNodes.FindNode('DataEmissao').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('SeriePrestacao') <> nil then
+       ESeriePrest := FNodeListaRPS.ChildNodes.FindNode('SeriePrestacao').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('DescricaoRPS') <> nil then
+       EDescRPS := FNodeListaRPS.ChildNodes.FindNode('DescricaoRPS').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('Operacao') <> nil then
+       EOperac := FNodeListaRPS.ChildNodes.FindNode('Operacao').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('NaturezaOperacao') <> nil then
+       ENatOperc := FNodeListaRPS.ChildNodes.FindNode('NaturezaOperacao').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('RegimeEspecialTributacao') <> nil then
+       ERegEspTrib := FNodeListaRPS.ChildNodes.FindNode('RegimeEspecialTributacao').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('OptanteSimplesNacional') <> nil then
+       EOptSimpNac := FNodeListaRPS.ChildNodes.FindNode('OptanteSimplesNacional').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('IncentivadorCultural') <> nil then
+       EIncCult := FNodeListaRPS.ChildNodes.FindNode('IncentivadorCultural').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('Status') <> nil then
+       EStats := FNodeListaRPS.ChildNodes.FindNode('Status').Text;
+
+    if FNodeListaRPS.ChildNodes.FindNode('MotCancelamento') <> nil then
+       EMotCanc := FNodeListaRPS.ChildNodes.FindNode('MotCancelamento').Text;
+  end;
+
 end;
 
 end.

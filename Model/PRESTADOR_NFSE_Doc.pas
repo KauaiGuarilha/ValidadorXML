@@ -2,11 +2,14 @@ unit PRESTADOR_NFSE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
 
 type TPRESTADOR_NFSE_Doc = class
 
   private
     PCNPJ, PInscriMun, PRazaoSoc, Pddd, PTelefone, PEmail : String;
+
+    FNodePrestador: IXMLNode;
 
     function getPCNPJ: String;
     function getPddd: String;
@@ -25,6 +28,9 @@ type TPRESTADOR_NFSE_Doc = class
     Constructor Create_TPRESTADOR_NFSE_Doc;
     Destructor Destroy_TPRESTADOR_NFSE_Doc;
 
+    procedure PreencherPrestador;
+
+    property NodePrestador : IXMLNode read FNodePrestador write FNodePrestador;
     property TPCNPJ : String read getPCNPJ write setPCNPJ;
     property TPInscriMun : String read getPInscriMun write setPInscriMun;
     property TPRazaoSoc : String read getPRazaoSoc write setPRazaoSoc;
@@ -106,6 +112,31 @@ end;
 procedure TPRESTADOR_NFSE_Doc.setPTelefone(const Value: String);
 begin
   PTelefone := Value;
+end;
+
+procedure TPRESTADOR_NFSE_Doc.PreencherPrestador;
+begin
+  if Assigned(FNodePrestador) then
+  begin
+    if FNodePrestador.ChildNodes.FindNode('Cnpj') <> nil then
+       PCNPJ := FNodePrestador.ChildNodes.FindNode('Cnpj').Text;
+
+    if FNodePrestador.ChildNodes.FindNode('InscricaoMunicipal') <> nil then
+       PInscriMun := FNodePrestador.ChildNodes.FindNode('InscricaoMunicipal').Text;
+
+    if FNodePrestador.ChildNodes.FindNode('RazaoSocial') <> nil then
+       PRazaoSoc := FNodePrestador.ChildNodes.FindNode('RazaoSocial').Text;
+
+    if FNodePrestador.ChildNodes.FindNode('DDDTelefone') <> nil then
+       Pddd := FNodePrestador.ChildNodes.FindNode('DDDTelefone').Text;
+
+    if FNodePrestador.ChildNodes.FindNode('Telefone') <> nil then
+       PTelefone := FNodePrestador.ChildNodes.FindNode('Telefone').Text;
+
+    if FNodePrestador.ChildNodes.FindNode('Email') <> nil then
+       PEmail := FNodePrestador.ChildNodes.FindNode('Email').Text;
+  end;
+
 end;
 
 end.

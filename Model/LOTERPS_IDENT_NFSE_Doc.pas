@@ -2,10 +2,14 @@ unit LOTERPS_IDENT_NFSE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TLOTERPS_IDENT_NFSE_Doc = class
 
   private
     ENumero, ESerie, ETipo : String;
+
+    FNodeLoteRPSIndet : IXMLNode;
 
     function getEnumero: String;
     function getESerie: String;
@@ -18,6 +22,9 @@ type TLOTERPS_IDENT_NFSE_Doc = class
     Constructor Create_TLOTERPS_IDENT_NFSE_Doc;
     Destructor Destroy_TLOTERPS_IDENT_NFSE_Doc;
 
+    procedure PreencherLoteRPSIdent;
+
+    property NodeLoteRPSIdent : IXMLNode read FNodeLoteRPSIndet write FNodeLoteRPSIndet;
     property TEnumero : String read getEnumero write setEnumero;
     property TESerie : String read getESerie write setESerie;
     property TETipo : String read getETipo write setETipo;
@@ -66,6 +73,22 @@ end;
 procedure TLOTERPS_IDENT_NFSE_Doc.setETipo(const Value: String);
 begin
   ETipo := Value;
+end;
+
+procedure TLOTERPS_IDENT_NFSE_Doc.PreencherLoteRPSIdent;
+begin
+  if Assigned(FNodeLoteRPSIndet) then
+  begin
+    if FNodeLoteRPSIndet.ChildNodes.FindNode('Numero') <> nil then
+       ENumero := FNodeLoteRPSIndet.ChildNodes.FindNode('Numero').Text;
+
+    if FNodeLoteRPSIndet.ChildNodes.FindNode('Serie') <> nil then
+       ESerie := FNodeLoteRPSIndet.ChildNodes.FindNode('Serie').Text;
+
+    if FNodeLoteRPSIndet.ChildNodes.FindNode('Tipo') <> nil then
+       ETipo := FNodeLoteRPSIndet.ChildNodes.FindNode('Tipo').Text;
+  end;
+
 end;
 
 end.

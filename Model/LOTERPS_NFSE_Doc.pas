@@ -2,10 +2,14 @@ unit LOTERPS_NFSE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TLOTERPS_NFSE_Doc = class
 
   private
     ECNPJ, EInsMun, EQtdRps, ENmLote : String;
+
+    FNodeLoteRPS : IXMLNode;
 
     function getECNPJ: String;
     function getEInsMun: String;
@@ -20,6 +24,9 @@ type TLOTERPS_NFSE_Doc = class
     Constructor Create_TLOTERPS_NFSE_Doc;
     Destructor Destroy_TLOTERPS_NFSE_Doc;
 
+    procedure PreencherLoteRPS;
+
+    property NodeLoteRPS : IXMLNode read FNodeLoteRPS write FNodeLoteRPS;
     property TECNPJ : String read getECNPJ write setECNPJ;
     property TEInsMun : String read getEInsMun write setEInsMun;
     property TEQtdRps : String read getEQtdRps write setEQtdRps;
@@ -79,6 +86,28 @@ end;
 procedure TLOTERPS_NFSE_Doc.setENmLote(const Value: String);
 begin
   ENmLote := Value;
+end;
+
+procedure TLOTERPS_NFSE_Doc.PreencherLoteRPS;
+begin
+  if Assigned(FNodeLoteRPS) then
+  begin
+   if FNodeLoteRPS.ChildNodes.FindNode('Cnpj') <> nil then
+       ECNPJ := FNodeLoteRPS.ChildNodes.FindNode('Cnpj').Text;
+
+   if FNodeLoteRPS.ChildNodes.FindNode('InscricaoMunicipal') <> nil then
+       EInsMun := FNodeLoteRPS.ChildNodes.FindNode('InscricaoMunicipal').Text;
+
+   if FNodeLoteRPS.ChildNodes.FindNode('QuantidadeRps') <> nil then
+       EQtdRps := FNodeLoteRPS.ChildNodes.FindNode('QuantidadeRps').Text;
+
+   if FNodeLoteRPS.ChildNodes.FindNode('NumeroLote') <> nil then
+       ENmLote := FNodeLoteRPS.ChildNodes.FindNode('NumeroLote').Text;
+
+   if FNodeLoteRPS.ChildNodes.FindNode('Cnpj') <> nil then
+       ECNPJ := FNodeLoteRPS.ChildNodes.FindNode('Cnpj').Text;
+  end;
+
 end;
 
 end.

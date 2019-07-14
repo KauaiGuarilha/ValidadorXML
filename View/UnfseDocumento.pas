@@ -164,166 +164,43 @@ begin
 
        {LoteRPS}
 
-       if nodeEnviaLot_loteRps.ChildValues['Cnpj'] = null then
-       begin
-           self.edtECNPJ.Text := '';
-       end else
-       begin
-          FLOTERPS_NFSE_Doc.TECNPJ := nodeEnviaLot_loteRps.ChildValues['Cnpj'];
-          self.edtECNPJ.Text :=  FLOTERPS_NFSE_Doc.TECNPJ;
-       end;
+       FLOTERPS_NFSE_Doc.NodeLoteRPS := nodeEnviaLot_loteRps;
+       FLOTERPS_NFSE_Doc.PreencherLoteRPS;
 
-       if nodeEnviaLot_loteRps.ChildValues['InscricaoMunicipal'] = null then
-       begin
-           self.edtEInsMun.Text := '';
-       end else
-       begin
-          FLOTERPS_NFSE_Doc.TEInsMun :=  nodeEnviaLot_loteRps.ChildValues['InscricaoMunicipal'];
-          self.edtEInsMun.Text := FLOTERPS_NFSE_Doc.TEInsMun;
-       end;
-
-       if nodeEnviaLot_loteRps.ChildValues['QuantidadeRps'] = null then
-       begin
-           self.edtEQtdRps.Text := '';
-       end else
-       begin
-          FLOTERPS_NFSE_Doc.TEQtdRps := nodeEnviaLot_loteRps.ChildValues['QuantidadeRps'];
-          self.edtEQtdRps.Text := FLOTERPS_NFSE_Doc.TEQtdRps;
-       end;
-
-       if nodeEnviaLot_loteRps.ChildValues['NumeroLote'] = null then
-       begin
-           self.edtENmLote.Text := '';
-       end else
-       begin
-          FLOTERPS_NFSE_Doc.TENmLote := nodeEnviaLot_loteRps.ChildValues['NumeroLote'];
-          self.edtENmLote.Text := FLOTERPS_NFSE_Doc.TENmLote;
-       end;
+       self.edtECNPJ.Text :=  FLOTERPS_NFSE_Doc.TECNPJ;
+       self.edtEInsMun.Text := FLOTERPS_NFSE_Doc.TEInsMun;
+       self.edtEQtdRps.Text := FLOTERPS_NFSE_Doc.TEQtdRps;
+       self.edtENmLote.Text := FLOTERPS_NFSE_Doc.TENmLote;
 
        {ListaRPS identicacaoRPS}
 
-       if nodeListaIdentRps.ChildValues['Numero'] = null then
-       begin
-           self.edtENumero.Text := '';
-       end else
-       begin
-          FLOTERPS_IDENT_NFSE_Doc.TEnumero := nodeListaIdentRps.ChildValues['Numero'];
-          self.edtENumero.Text := FLOTERPS_IDENT_NFSE_Doc.TEnumero;
-       end;
+       FLOTERPS_IDENT_NFSE_Doc.NodeLoteRPSIdent := nodeListaIdentRps;
+       FLOTERPS_IDENT_NFSE_Doc.PreencherLoteRPSIdent;
 
-       if nodeListaIdentRps.ChildValues['Serie'] = null then
-       begin
-           self.edtESerie.Text := '';
-       end else
-       begin
-          FLOTERPS_IDENT_NFSE_Doc.TESerie := nodeListaIdentRps.ChildValues['Serie'];
-          self.edtESerie.Text := FLOTERPS_IDENT_NFSE_Doc.TESerie;
-       end;
-
-       if nodeListaIdentRps.ChildValues['Tipo'] = null then
-       begin
-           self.edtETipo.Text := '';
-       end else
-       begin
-          FLOTERPS_IDENT_NFSE_Doc.TETipo := nodeListaIdentRps.ChildValues['Tipo'];
-          self.edtETipo.Text := FLOTERPS_IDENT_NFSE_Doc.TETipo;
-       end;
+       self.edtENumero.Text := FLOTERPS_IDENT_NFSE_Doc.TEnumero;
+       self.edtESerie.Text := FLOTERPS_IDENT_NFSE_Doc.TESerie;
+       self.edtETipo.Text := FLOTERPS_IDENT_NFSE_Doc.TETipo;
 
        {Lista RPS}
 
-       if nodeListaInfRps.ChildValues['DataEmissao'] = null then
-       begin
-           self.edtEDataEmi.Text := '';
-       end else
-       begin
-           FLISTARPS_NFSE_Doc.TEDataEmiss := nodeListaInfRps.ChildValues['DataEmissao'];
-           self.edtEDataEmi.Text := FLISTARPS_NFSE_Doc.TEDataEmiss;
-       end;
+       FLISTARPS_NFSE_Doc.NodeListaRPS := nodeListaInfRps;
+       FLISTARPS_NFSE_Doc.PreencherListaRPS;
 
-       if nodeListaInfRps.ChildValues['SeriePrestacao'] = null then
-       begin
-           self.edtESeriePres.Text := '';
-       end else
-       begin
-          FLISTARPS_NFSE_Doc.TESeriePrest := nodeListaInfRps.ChildValues['SeriePrestacao'];
-          self.edtESeriePres.Text := FLISTARPS_NFSE_Doc.TESeriePrest;
-       end;
+       self.edtEDataEmi.Text := FLISTARPS_NFSE_Doc.TEDataEmiss;
+       self.edtESeriePres.Text := FLISTARPS_NFSE_Doc.TESeriePrest;
+       self.edtEDescRPS.Text := FLISTARPS_NFSE_Doc.TEDescRPS;
+       self.edtEOperac.Text := FLISTARPS_NFSE_Doc.TEOperac;
+       self.edtENatOperc.Text := FLISTARPS_NFSE_Doc.TENatOperc;
+       self.edtERegEspTrib.Text := FLISTARPS_NFSE_Doc.TERegEspTrib;
+       self.edtEOptSimpNac.Text := FLISTARPS_NFSE_Doc.TEOptSimpNac;
+       self.edtEIncCult.Text := FLISTARPS_NFSE_Doc.TEIncCult;
+       self.edtEStatus.Text := FLISTARPS_NFSE_Doc.TEStats;
+       self.edtEMotCanc.Text := FLISTARPS_NFSE_Doc.TEMotCanc;
 
-       if nodeListaInfRps.ChildValues['DescricaoRPS'] = null then
-       begin
-           self.edtEDescRPS.Text := '';
-       end else
-       begin
-          FLISTARPS_NFSE_Doc.TEDescRPS := nodeListaInfRps.ChildValues['DescricaoRPS'];
-          self.edtEDescRPS.Text := FLISTARPS_NFSE_Doc.TEDescRPS;
-       end;
-
-       if nodeListaInfRps.ChildValues['Operacao'] = null then
-       begin
-           self.edtEOperac.Text := '';
-       end else
-       begin
-          FLISTARPS_NFSE_Doc.TEOperac := nodeListaInfRps.ChildValues['Operacao'];
-          self.edtEOperac.Text := FLISTARPS_NFSE_Doc.TEOperac;
-       end;
-
-       if nodeListaInfRps.ChildValues['NaturezaOperacao'] = null then
-       begin
-           self.edtENatOperc.Text := '';
-       end else
-       begin
-          FLISTARPS_NFSE_Doc.TENatOperc := nodeListaInfRps.ChildValues['NaturezaOperacao'];
-          self.edtENatOperc.Text := FLISTARPS_NFSE_Doc.TENatOperc;
-       end;
-
-       if nodeListaInfRps.ChildValues['RegimeEspecialTributacao'] = null then
-       begin
-           self.edtERegEspTrib.Text := '';
-       end else
-       begin
-          FLISTARPS_NFSE_Doc.TERegEspTrib := nodeListaInfRps.ChildValues['RegimeEspecialTributacao'];
-          self.edtERegEspTrib.Text := FLISTARPS_NFSE_Doc.TERegEspTrib;
-       end;
-
-       if nodeListaInfRps.ChildValues['OptanteSimplesNacional'] = null then
-       begin
-           self.edtEOptSimpNac.Text := '';
-       end else
-       begin
-           FLISTARPS_NFSE_Doc.TEOptSimpNac := nodeListaInfRps.ChildValues['OptanteSimplesNacional'];
-           self.edtEOptSimpNac.Text := FLISTARPS_NFSE_Doc.TEOptSimpNac;
-       end;
-
-       if nodeListaInfRps.ChildValues['IncentivadorCultural'] = null then
-       begin
-           self.edtEIncCult.Text := '';
-       end else
-       begin
-           FLISTARPS_NFSE_Doc.TEIncCult := nodeListaInfRps.ChildValues['IncentivadorCultural'];
-           self.edtEIncCult.Text := FLISTARPS_NFSE_Doc.TEIncCult;
-       end;
-
-       if nodeListaInfRps.ChildValues['Status'] = null then
-       begin
-           self.edtEStatus.Text := '';
-       end else
-       begin
-          FLISTARPS_NFSE_Doc.TEStats := nodeListaInfRps.ChildValues['Status'];
-          self.edtEStatus.Text := FLISTARPS_NFSE_Doc.TEStats;
-       end;
-
-       if nodeListaInfRps.ChildValues['MotCancelamento'] = null then
-       begin
-          self.edtEMotCanc.Text := '';
-          self.edtEMotCanc.Visible := false;
-          self.lbnEMotCanc.Visible := false;
-       end else
-       begin
-          FLISTARPS_NFSE_Doc.TEMotCanc := nodeListaInfRps.ChildValues['MotCancelamento'];
-          self.edtEMotCanc.Text := FLISTARPS_NFSE_Doc.TEMotCanc;
-       end;
 
        {Prestador}
+
+
 
        if nodeListaPresta.ChildValues['Cnpj'] = null then
        begin
