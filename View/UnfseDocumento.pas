@@ -200,260 +200,71 @@ begin
 
        {Prestador}
 
+       FPRESTADOR_NFSE_Doc.NodePrestador := nodeListaPresta;
+       FPRESTADOR_NFSE_Doc.PreencherPrestador;
 
+       self.edtPCnpj.Text := FPRESTADOR_NFSE_Doc.TPCNPJ;
+       self.edtPInscMun.Text := FPRESTADOR_NFSE_Doc.TPInscriMun;
+       self.edtPRazaoSoci.Text := FPRESTADOR_NFSE_Doc.TPRazaoSoc;
+       self.edtPDDD.Text := FPRESTADOR_NFSE_Doc.TPddd;
+       self.edtPTelefone.Text := FPRESTADOR_NFSE_Doc.TPTelefone;
+       self.edtPEmail.Text := FPRESTADOR_NFSE_Doc.TPEmail;
 
-       if nodeListaPresta.ChildValues['Cnpj'] = null then
-       begin
-          self.edtPCnpj.Text := '';
-       end else
-       begin
-          FPRESTADOR_NFSE_Doc.TPCNPJ := nodeListaPresta.ChildValues['Cnpj'];
-          self.edtPCnpj.Text := FPRESTADOR_NFSE_Doc.TPCNPJ;
-       end;
+       FPRESTADOR_NFSE_Doc.NodePrestador := nodeListaPrestaCont;
+       FPRESTADOR_NFSE_Doc.PreencherPrestador;
 
-       if nodeListaPresta.ChildValues['InscricaoMunicipal'] = null then
-       begin
-          self.edtPInscMun.Text := '';
-       end else
-       begin
-          FPRESTADOR_NFSE_Doc.TPInscriMun := nodeListaPresta.ChildValues['InscricaoMunicipal'];
-          self.edtPInscMun.Text := FPRESTADOR_NFSE_Doc.TPInscriMun;
-       end;
+       self.edtPDDD.Text := FPRESTADOR_NFSE_Doc.TPddd;
+       self.edtPTelefone.Text := FPRESTADOR_NFSE_Doc.TPTelefone;
+       self.edtPEmail.Text := FPRESTADOR_NFSE_Doc.TPEmail;
+       self.edtPECodMun.Text := FPRESTADORENDER_NFSE_Doc.TPECodMun;
 
-       if nodeListaPresta.ChildValues['RazaoSocial'] = null then
-       begin
-          self.edtPRazaoSoci.Text := '';
-       end else
-       begin
-          FPRESTADOR_NFSE_Doc.TPRazaoSoc := nodeListaPresta.ChildValues['RazaoSocial'];
-          self.edtPRazaoSoci.Text := FPRESTADOR_NFSE_Doc.TPRazaoSoc;
-       end;
-
-       if nodeListaPrestaCont.ChildValues['DDDTelefone'] = null then
-       begin
-          self.edtPDDD.Text := '';
-       end else
-       begin
-          FPRESTADOR_NFSE_Doc.TPddd := nodeListaPrestaCont.ChildValues['DDDTelefone'];
-          self.edtPDDD.Text := FPRESTADOR_NFSE_Doc.TPddd;
-       end;
-
-       if nodeListaPrestaCont.ChildValues['Telefone'] = null then
-       begin
-          self.edtPTelefone.Text := '';
-       end else
-       begin
-          FPRESTADOR_NFSE_Doc.TPTelefone := nodeListaPrestaCont.ChildValues['Telefone'];
-          self.edtPTelefone.Text := FPRESTADOR_NFSE_Doc.TPTelefone;
-       end;
-
-       if nodeListaPrestaCont.ChildValues['Email'] = null then
-       begin
-           self.edtPEmail.Text := '';
-           self.edtPEmail.Visible := false;
-           self.lbnPEmail.Visible := false;
-       end else
-       begin
-           FPRESTADOR_NFSE_Doc.TPEmail := nodeListaPrestaCont.ChildValues['Email'];
-           self.edtPEmail.Text := FPRESTADOR_NFSE_Doc.TPEmail;
-       end;
 
        {Prestador_end}
 
-       if nodeListaPrestaEnd.ChildValues['Endereco'] = null then
-       begin
-          self.edtPEndereco.Text := '';
-       end else
-       begin
-           FPRESTADORENDER_NFSE_Doc.TPEndereco := nodeListaPrestaEnd.ChildValues['Endereco'];
-           self.edtPEndereco.Text := FPRESTADORENDER_NFSE_Doc.TPEndereco;
-       end;
+       FPRESTADORENDER_NFSE_Doc.NodePrestadorEnder := nodeListaPrestaEnd;
+       FPRESTADORENDER_NFSE_Doc.PreencherPrestadorEnder;
 
-       if nodeListaPrestaEnd.ChildValues['Numero'] = null then
-       begin
-          self.edtPENumero.Text := '';
-       end else
-       begin
-           FPRESTADORENDER_NFSE_Doc.TPENumero := nodeListaPrestaEnd.ChildValues['Numero'];
-           self.edtPENumero.Text := FPRESTADORENDER_NFSE_Doc.TPENumero;
-       end;
+       self.edtPEndereco.Text := FPRESTADORENDER_NFSE_Doc.TPEndereco;
+       self.edtPENumero.Text := FPRESTADORENDER_NFSE_Doc.TPENumero;
+       self.edtPEBairro.Text := FPRESTADORENDER_NFSE_Doc.TPEBairro;
+       self.edtPETipoBairr.Text := FPRESTADORENDER_NFSE_Doc.TPETipoBairr;
+       self.edtPEDescMun.Text := FPRESTADORENDER_NFSE_Doc.TPEDescMun;
+       self.edtPEUf.Text := FPRESTADORENDER_NFSE_Doc.TPEUf;
+       self.edtPECEP.Text := FPRESTADORENDER_NFSE_Doc.TPECEP;
 
-       if nodeListaPrestaEnd.ChildValues['Bairro'] = null then
-       begin
-          self.edtPEBairro.Text := '';
-       end else
-       begin
-           FPRESTADORENDER_NFSE_Doc.TPEBairro := nodeListaPrestaEnd.ChildValues['Bairro'];
-           self.edtPEBairro.Text := FPRESTADORENDER_NFSE_Doc.TPEBairro;
-       end;
+       {Tomador idenficador}
 
-       if nodeListaPrestaEnd.ChildValues['TipoBairro'] = null then
-       begin
-          self.edtPETipoBairr.Text := '';
-          self.edtPETipoBairr.Visible := false;
-          self.lbnPETipoBairr.Visible := false;
-       end else
-       begin
-          FPRESTADORENDER_NFSE_Doc.TPETipoBairr := nodeListaPrestaEnd.ChildValues['TipoBairro'];
-          self.edtPETipoBairr.Text := FPRESTADORENDER_NFSE_Doc.TPETipoBairr;
-       end;
+       FTOMADORIDENT_NFSE_Doc.NodeTomador := nodeListaTomadInde;
+       FTOMADORIDENT_NFSE_Doc.PreencherTomador;
 
-       if nodeListaPrestaEnd.ChildValues['CodigoMunicipio'] = null then
-       begin
-          self.edtPECodMun.Text := '';
-       end else
-       begin
-          FPRESTADORENDER_NFSE_Doc.TPECodMun := nodeListaPrestaEnd.ChildValues['CodigoMunicipio'];
-          self.edtPECodMun.Text := FPRESTADORENDER_NFSE_Doc.TPECodMun;
-       end;
+       self.edtTICnpj.Text := FTOMADORIDENT_NFSE_Doc.TTICnpj;
+       self.edtTICpf.Text := FTOMADORIDENT_NFSE_Doc.TTICpf;
 
-       if nodeListaPrestaEnd.ChildValues['DescricaoMunicipio'] = null then
-       begin
-          self.edtPEDescMun.Text := '';
-       end else
-       begin
-          FPRESTADORENDER_NFSE_Doc.TPEDescMun := nodeListaPrestaEnd.ChildValues['DescricaoMunicipio'];
-          self.edtPEDescMun.Text := FPRESTADORENDER_NFSE_Doc.TPEDescMun;
-       end;
+       {Tomador}
 
-       if nodeListaPrestaEnd.ChildValues['Uf'] = null then
-       begin
-          self.edtPEUf.Text := '';
-       end else
-       begin
-          FPRESTADORENDER_NFSE_Doc.TPEUf := nodeListaPrestaEnd.ChildValues['Uf'];
-          self.edtPEUf.Text := FPRESTADORENDER_NFSE_Doc.TPEUf;
-       end;
+       FTOMADORIDENT_NFSE_Doc.NodeTomador := nodeListaTomador;
+       FTOMADORIDENT_NFSE_Doc.PreencherTomador;
 
-       if nodeListaPrestaEnd.ChildValues['Cep'] = null then
-       begin
-          self.edtPECEP.Text := '';
-       end else
-       begin
-          FPRESTADORENDER_NFSE_Doc.TPECEP := nodeListaPrestaEnd.ChildValues['Cep'];
-          self.edtPECEP.Text := FPRESTADORENDER_NFSE_Doc.TPECEP;
-       end;
-
-        {Tomador idenficador}
-
-       if nodeListaTomadInde.ChildValues['Cnpj'] = null then
-       begin
-          self.edtTICnpj.Text := '';
-       end else
-       begin
-          FTOMADORIDENT_NFSE_Doc.TTICnpj := nodeListaTomadInde.ChildValues['Cnpj'];
-          self.edtTICnpj.Text := FTOMADORIDENT_NFSE_Doc.TTICnpj;
-       end;
-
-       if nodeListaTomadInde.ChildValues['Cpf'] = null then
-       begin
-          self.edtTICpf.Text := '';
-          self.edtTICpf.Visible := false;
-          self.lbnTICpf.Visible := false;
-       end else
-       begin
-          FTOMADORIDENT_NFSE_Doc.TTICpf := nodeListaTomadorCont.ChildValues['Cpf'];
-          self.edtTICpf.Text := FTOMADORIDENT_NFSE_Doc.TTICpf;
-       end;
-
-        {Tomador}
-
-       if nodeListaTomador.ChildValues['RazaoSocial'] = null then
-       begin
-          self.edtTRazaoSoc.Text := '';
-       end else
-       begin
-          FTOMADORIDENT_NFSE_Doc.TTRazaoSoc := nodeListaTomador.ChildValues['RazaoSocial'];
-          self.edtTRazaoSoc.Text := FTOMADORIDENT_NFSE_Doc.TTRazaoSoc;
-       end;
-
-       if nodeListaTomadorCont.ChildValues['Email'] = null then
-       begin
-          self.edtTEmail.Text := '';
-       end else
-       begin
-          FTOMADORIDENT_NFSE_Doc.TTEmail := nodeListaTomadorCont.ChildValues['Email'];
-          self.edtTEmail.Text := FTOMADORIDENT_NFSE_Doc.TTEmail;
-       end;
+       self.edtTRazaoSoc.Text := FTOMADORIDENT_NFSE_Doc.TTRazaoSoc;
+       self.edtTEmail.Text := FTOMADORIDENT_NFSE_Doc.TTEmail;
 
        {Endereco}
 
-       if nodeListaTomadorEnd.ChildValues['Endereco'] = null then
-       begin
-          self.edtTEEndereco.Text := '';
-       end else
-       begin
-          FTOMADORENDER_NFSE_Doc.TTEndereco := nodeListaTomadorEnd.ChildValues['Endereco'];
-          self.edtTEEndereco.Text := FTOMADORENDER_NFSE_Doc.TTEndereco;
-       end;
+       FTOMADORENDER_NFSE_Doc.NodeTomadorEnder := nodeListaTomadorEnd;
+       FTOMADORENDER_NFSE_Doc.PreencherTomadorEnder;
 
-       if nodeListaTomadorEnd.ChildValues['Numero'] = null then
-       begin
-          self.edtTENum.Text := '';
-       end else
-       begin
-          FTOMADORENDER_NFSE_Doc.TTENumero := nodeListaTomadorEnd.ChildValues['Numero'];
-          self.edtTENum.Text := FTOMADORENDER_NFSE_Doc.TTENumero;
-       end;
-
-       if nodeListaTomadorEnd.ChildValues['Bairro'] = null then
-       begin
-          self.edtTEBairro.Text := '';
-       end else
-       begin
-          FTOMADORENDER_NFSE_Doc.TTEBairro := nodeListaTomadorEnd.ChildValues['Bairro'];
-          self.edtTEBairro.Text := FTOMADORENDER_NFSE_Doc.TTEBairro;
-       end;
-
-       if nodeListaTomadorEnd.ChildValues['Complemento'] = null then
-       begin
-          self.edtTEComple.Text := '';
-       end else
-       begin
-          FTOMADORENDER_NFSE_Doc.TTEComple := nodeListaTomadorEnd.ChildValues['Complemento'];
-          self.edtTEComple.Text := FTOMADORENDER_NFSE_Doc.TTEComple;
-       end;
-
-       if nodeListaTomadorEnd.ChildValues['CodigoMunicipio'] = null then
-       begin
-          self.edtTECodMun.Text := '';
-       end else
-       begin
-          FTOMADORENDER_NFSE_Doc.TTECodMun := nodeListaTomadorEnd.ChildValues['CodigoMunicipio'];
-          self.edtTECodMun.Text := FTOMADORENDER_NFSE_Doc.TTECodMun;
-       end;
-
-       if nodeListaTomadorEnd.ChildValues['DescricaoMunicipio'] = null then
-       begin
-          self.edtTEDescMun.Text := '';
-       end else
-       begin
-          FTOMADORENDER_NFSE_Doc.TTEdescMun := nodeListaTomadorEnd.ChildValues['DescricaoMunicipio'];
-          self.edtTEDescMun.Text := FTOMADORENDER_NFSE_Doc.TTEdescMun;
-       end;
-
-       if nodeListaTomadorEnd.ChildValues['Uf'] = null then
-       begin
-          self.edtTEUf.Text := '';
-       end else
-       begin
-          FTOMADORENDER_NFSE_Doc.TTEUf := nodeListaTomadorEnd.ChildValues['Uf'];
-          self.edtTEUf.Text := FTOMADORENDER_NFSE_Doc.TTEUf;
-       end;
-
-       if nodeListaTomadorEnd.ChildValues['Cep'] = null then
-       begin
-          self.edtTECep.Text := '';
-       end else
-       begin
-           FTOMADORENDER_NFSE_Doc.TTECep := nodeListaTomadorEnd.ChildValues['Cep'];
-           self.edtTECep.Text := FTOMADORENDER_NFSE_Doc.TTECep;
-       end;
+       self.edtTEEndereco.Text := FTOMADORENDER_NFSE_Doc.TTEndereco;
+       self.edtTENum.Text := FTOMADORENDER_NFSE_Doc.TTENumero;
+       self.edtTEBairro.Text := FTOMADORENDER_NFSE_Doc.TTEBairro;
+       self.edtTEComple.Text := FTOMADORENDER_NFSE_Doc.TTEComple;
+       self.edtTECodMun.Text := FTOMADORENDER_NFSE_Doc.TTECodMun;
+       self.edtTEDescMun.Text := FTOMADORENDER_NFSE_Doc.TTEdescMun;
+       self.edtTEUf.Text := FTOMADORENDER_NFSE_Doc.TTEUf;
+       self.edtTECep.Text := FTOMADORENDER_NFSE_Doc.TTECep;
 
      except on E: Exception do
 
      end;
-
 end;
 
 procedure TfrmNFSe_Documento.Button1Click(Sender: TObject);

@@ -2,10 +2,14 @@ unit PRESTADORENDER_NFSE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TPRESTADORENDER_NFSE_Doc = class
 
   private
     PEndereco, PENumero, PEBairro, PECodMun, PEDescMun, PEUf, PECEP, PETipoBairr : String;
+
+    FNodePrestadorEnder: IXMLNode;
 
     function getPEBairro: String;
     function getPECEP: String;
@@ -29,6 +33,9 @@ type TPRESTADORENDER_NFSE_Doc = class
     Constructor Create_TPRESTADORENDER_NFSE_Doc;
     Destructor Destroy_TPRESTADORENDER_NFSE_Doc;
 
+    procedure PreencherPrestadorEnder;
+
+    property NodePrestadorEnder : IXMLNode read FNodePrestadorEnder write FNodePrestadorEnder;
     property TPEndereco : String read getPEndereco write setPEndereco;
     property TPENumero : String read getPENumero write setPENumero;
     property TPEBairro : String read getPEBairro write setPEBairro;
@@ -132,6 +139,37 @@ end;
 procedure TPRESTADORENDER_NFSE_Doc.setPEUf(const Value: String);
 begin
   PEUf := Value;
+end;
+
+procedure TPRESTADORENDER_NFSE_Doc.PreencherPrestadorEnder;
+begin
+  if Assigned(FNodePrestadorEnder) then
+  begin
+    if FNodePrestadorEnder.ChildNodes.FindNode('Endereco') <> nil then
+       PEndereco := FNodePrestadorEnder.ChildNodes.FindNode('Endereco').Text;
+
+    if FNodePrestadorEnder.ChildNodes.FindNode('Numero') <> nil then
+       PENumero := FNodePrestadorEnder.ChildNodes.FindNode('Numero').Text;
+
+    if FNodePrestadorEnder.ChildNodes.FindNode('Bairro') <> nil then
+       PEBairro := FNodePrestadorEnder.ChildNodes.FindNode('Bairro').Text;
+
+    if FNodePrestadorEnder.ChildNodes.FindNode('TipoBairro') <> nil then
+       PETipoBairr := FNodePrestadorEnder.ChildNodes.FindNode('TipoBairro').Text;
+
+    if FNodePrestadorEnder.ChildNodes.FindNode('CodigoMunicipio') <> nil then
+       PECodMun := FNodePrestadorEnder.ChildNodes.FindNode('CodigoMunicipio').Text;
+
+    if FNodePrestadorEnder.ChildNodes.FindNode('DescricaoMunicipio') <> nil then
+       PEDescMun := FNodePrestadorEnder.ChildNodes.FindNode('DescricaoMunicipio').Text;
+
+    if FNodePrestadorEnder.ChildNodes.FindNode('Uf') <> nil then
+       PEUf := FNodePrestadorEnder.ChildNodes.FindNode('Uf').Text;
+
+    if FNodePrestadorEnder.ChildNodes.FindNode('Cep') <> nil then
+       PECEP := FNodePrestadorEnder.ChildNodes.FindNode('Cep').Text;
+  end;
+
 end;
 
 end.

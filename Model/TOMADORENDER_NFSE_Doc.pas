@@ -2,10 +2,14 @@ unit TOMADORENDER_NFSE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TTOMADORENDER_NFSE_Doc = class
 
   private
     TEndereco, TENumero, TEComple, TEBairro, TECodMun, TEdescMun, TEUf, TECep : String;
+
+    FNodeTomadorEnder: IXMLNode;
 
     function getTEBairro: String;
     function getTECep: String;
@@ -28,6 +32,9 @@ type TTOMADORENDER_NFSE_Doc = class
     Constructor Create_TTOMADORENDER_NFSE_Doc;
     Destructor Destroy_TTOMADORENDER_NFSE_Doc;
 
+    procedure PreencherTomadorEnder;
+
+    property NodeTomadorEnder : IXMLNode read FNodeTomadorEnder write FNodeTomadorEnder;
     property TTEndereco : String read getTEndereco write setTEndereco;
     property TTENumero : String read getTENumero write setTENumero;
     property TTEComple : String read getTEComple write setTEComple;
@@ -131,6 +138,37 @@ end;
 procedure TTOMADORENDER_NFSE_Doc.setTEUf(const Value: String);
 begin
   TEUf := Value;
+end;
+
+procedure TTOMADORENDER_NFSE_Doc.PreencherTomadorEnder;
+begin
+  if Assigned(FNodeTomadorEnder) then
+  begin
+    if FNodeTomadorEnder.ChildNodes.FindNode('Endereco') <> nil then
+       TEndereco := FNodeTomadorEnder.ChildNodes.FindNode('Endereco').Text;
+
+    if FNodeTomadorEnder.ChildNodes.FindNode('Numero') <> nil then
+       TENumero := FNodeTomadorEnder.ChildNodes.FindNode('Numero').Text;
+
+    if FNodeTomadorEnder.ChildNodes.FindNode('Bairro') <> nil then
+       TEBairro := FNodeTomadorEnder.ChildNodes.FindNode('Bairro').Text;
+
+    if FNodeTomadorEnder.ChildNodes.FindNode('Complemento') <> nil then
+       TEComple := FNodeTomadorEnder.ChildNodes.FindNode('Complemento').Text;
+
+    if FNodeTomadorEnder.ChildNodes.FindNode('CodigoMunicipio') <> nil then
+       TECodMun := FNodeTomadorEnder.ChildNodes.FindNode('CodigoMunicipio').Text;
+
+    if FNodeTomadorEnder.ChildNodes.FindNode('DescricaoMunicipio') <> nil then
+       TEdescMun := FNodeTomadorEnder.ChildNodes.FindNode('DescricaoMunicipio').Text;
+
+    if FNodeTomadorEnder.ChildNodes.FindNode('Uf') <> nil then
+       TEUf := FNodeTomadorEnder.ChildNodes.FindNode('Uf').Text;
+
+    if FNodeTomadorEnder.ChildNodes.FindNode('Cep') <> nil then
+       TECEP := FNodeTomadorEnder.ChildNodes.FindNode('Cep').Text;
+  end;
+
 end;
 
 end.

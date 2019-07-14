@@ -2,11 +2,15 @@ unit TOMADORIDENT_NFSE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TTOMADORIDENT_NFSE_Doc = class
 
   private
     TICnpj, TICpf : String; {Tomador idenficador}
     TRazaoSoc, TEmail : String;  {Tomador}
+
+    FNodeTomador: IXMLNode;
 
     function getTEmail: String;
     function getTICnpj: String;
@@ -21,6 +25,9 @@ type TTOMADORIDENT_NFSE_Doc = class
     Constructor Create_TTOMADORIDENT_NFSE_Doc;
     Destructor Destroy_TTOMADORIDENT_NFSE_Doc;
 
+    procedure PreencherTomador;
+
+    property NodeTomador : IXMLNode read FNodeTomador write FNodeTomador;
     property TTICnpj : String read getTICnpj write setTICnpj;
     property TTICpf : String read getTICpf write setTICpf;
     property TTRazaoSoc : String read getTRazaoSoc write setTRazaoSoc;
@@ -81,5 +88,26 @@ procedure TTOMADORIDENT_NFSE_Doc.setTRazaoSoc(const Value: String);
 begin
   TRazaoSoc := Value;
 end;
+
+procedure TTOMADORIDENT_NFSE_Doc.PreencherTomador;
+begin
+  if Assigned(FNodeTomador) then
+  begin
+    if FNodeTomador.ChildNodes.FindNode('Cnpj') <> nil then        {Tomador idenficador}
+       TICnpj := FNodeTomador.ChildNodes.FindNode('Cnpj').Text;
+
+    if FNodeTomador.ChildNodes.FindNode('Cpf') <> nil then
+       TICpf := FNodeTomador.ChildNodes.FindNode('Cpf').Text;
+
+    if FNodeTomador.ChildNodes.FindNode('RazaoSocial') <> nil then  {Tomador}
+       TRazaoSoc := FNodeTomador.ChildNodes.FindNode('RazaoSocial').Text;
+
+    if FNodeTomador.ChildNodes.FindNode('Email') <> nil then
+       TEmail := FNodeTomador.ChildNodes.FindNode('Email').Text;
+
+  end;
+
+end;
+
 
 end.
