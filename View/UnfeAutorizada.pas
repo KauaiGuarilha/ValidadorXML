@@ -170,166 +170,87 @@ begin
 
        {ide}
 
-       FIDE_NFE_Doc.TcUf :=  nodeInfNfe_ide.ChildValues['cUF'];
+       FIDE_NFE_Doc.NodeIde := nodeInfNfe_ide;
+       FIDE_NFE_Doc.PreencherIDE;
+
        self.edtUF.Text := FIDE_NFE_Doc.TcUf;
-
-       FIDE_NFE_Doc.TcNF :=  nodeInfNfe_ide.ChildValues['cNF'];
        self.edtCnfe.Text := FIDE_NFE_Doc.TcNF;
-
-       FIDE_NFE_Doc.TNatOp := nodeInfNfe_ide.ChildValues['natOp'];
        self.edtNatOp.Text := FIDE_NFE_Doc.TNatOp;
-
-       FIDE_NFE_Doc.TMood := nodeInfNfe_ide.ChildValues['mod'];
        self.edtMod.Text := FIDE_NFE_Doc.TMood;
-
-       FIDE_NFE_Doc.TSerie := nodeInfNfe_ide.ChildValues['serie'];
        self.edtSerie.Text := FIDE_NFE_Doc.TSerie;
-
-       FIDE_NFE_Doc.TNNF := nodeInfNfe_ide.ChildValues['nNF'];
        self.edtNNF.Text := FIDE_NFE_Doc.TNNF;
-
-       FIDE_NFE_Doc.TDhEmi := nodeInfNfe_ide.ChildValues['dhEmi'];
        self.edtDhEmi.Text := FIDE_NFE_Doc.TDhEmi;
-
-       FIDE_NFE_Doc.TDhSaiEnt := nodeInfNfe_ide.ChildValues['dhSaiEnt'];
        self.edtDhSaiEnt.Text := FIDE_NFE_Doc.TDhSaiEnt;
-
-       FIDE_NFE_Doc.TTpNF := nodeInfNfe_ide.ChildValues['tpNF'];
        self.edtTpNF.Text := FIDE_NFE_Doc.TTpNF;
-
-       FIDE_NFE_Doc.TIdDest := nodeInfNfe_ide.ChildValues['idDest'];
        self.edtIdDest.Text := FIDE_NFE_Doc.TIdDest;
-
-       FIDE_NFE_Doc.TCMunFG := nodeInfNfe_ide.ChildValues['cMunFG'];
        self.edtCMunFG.Text := FIDE_NFE_Doc.TCMunFG;
-
-       FIDE_NFE_Doc.TTpImp := nodeInfNfe_ide.ChildValues['tpImp'];
        self.edtTpImp.Text := FIDE_NFE_Doc.TTpImp;
-
-       FIDE_NFE_Doc.TTpEmis := nodeInfNfe_ide.ChildValues['tpEmis'];
        self.edtTpEmis.Text := FIDE_NFE_Doc.TTpEmis;
-
-       FIDE_NFE_Doc.TCDV := nodeInfNfe_ide.ChildValues['cDV'];
        self.edtCDV.Text := FIDE_NFE_Doc.TCDV;
-
-       FIDE_NFE_Doc.TTpAmb := nodeInfNfe_ide.ChildValues['tpAmb'];
        self.edtTpAmb.Text := FIDE_NFE_Doc.TTpAmb;
-
-       FIDE_NFE_Doc.TFinNFe := nodeInfNfe_ide.ChildValues['finNFe'];
        self.edtFinNFe.Text := FIDE_NFE_Doc.TFinNFe;
-
-       FIDE_NFE_Doc.TIndFinal := nodeInfNfe_ide.ChildValues['indFinal'];
        self.edtIndFinal.Text := FIDE_NFE_Doc.TIndFinal;
-
-       FIDE_NFE_Doc.TIndPres := nodeInfNfe_ide.ChildValues['indPres'];
        self.edtIndPres.Text := FIDE_NFE_Doc.TIndPres;
-
-       FIDE_NFE_Doc.TProcEmi := nodeInfNfe_ide.ChildValues['procEmi'];
        self.edtProcEmi.Text := FIDE_NFE_Doc.TProcEmi;
-
-       FIDE_NFE_Doc.TVerProc := nodeInfNfe_ide.ChildValues['verProc'];
        self.edtVerProc.Text := FIDE_NFE_Doc.TVerProc;
 
        {emit}
 
-       FEMIT_NFE_Doc.TCNPJ := nodeInfNfe_emit.ChildValues['CNPJ'];
+       FEMIT_NFE_Doc.NodeEmit := nodeInfNfe_emit;
+       FEMIT_NFE_Doc.PreencheEmit;
+
        self.edtCnpj.Text := FEMIT_NFE_Doc.TCNPJ;
-
-       FEMIT_NFE_Doc.TXNome := nodeInfNfe_emit.ChildValues['xNome'];
        self.edtXNome.Text := FEMIT_NFE_Doc.TXNome;
-
-       FEMIT_NFE_Doc.TXFant := nodeInfNfe_emit.ChildValues['xFant'];
        self.edtXFant.Text := FEMIT_NFE_Doc.TXFant;
-
-       FEMIT_NFE_Doc.TIE := nodeInfNfe_emit.ChildValues['IE'];
        self.edtIE.Text := FEMIT_NFE_Doc.TIE;
-
-       FEMIT_NFE_Doc.TIEST := nodeInfNfe_emit.ChildValues['IEST'];
        self.edtIEST.Text := FEMIT_NFE_Doc.TIEST;
-
-       FEMIT_NFE_Doc.TCRT := nodeInfNfe_emit.ChildValues['CRT'];
        self.edtCRT.Text := FEMIT_NFE_Doc.TCRT;
 
        {enderEmit}
 
-        FENDEREMIT_NFE_Doc.TXLgr := nodeInfNfe_enderEmit.ChildValues['xLgr'];
-        self.edtXLgr.Text := FENDEREMIT_NFE_Doc.TXLgr;
+       FENDEREMIT_NFE_Doc.NodeEnderEmit := nodeInfNfe_enderEmit;
+       FENDEREMIT_NFE_Doc.PreencherEnderEmit;
 
-        FENDEREMIT_NFE_Doc.TNro := nodeInfNfe_enderEmit.ChildValues['nro'];
-        self.edtNro.Text := FENDEREMIT_NFE_Doc.TNro;
+       self.edtXLgr.Text := FENDEREMIT_NFE_Doc.TXLgr;
+       self.edtNro.Text := FENDEREMIT_NFE_Doc.TNro;
+       self.edtXCpl.Text := FENDEREMIT_NFE_Doc.TXCpl; //Opcional
+       self.edtXBairro.Text := FENDEREMIT_NFE_Doc.TXBairro;
+       self.edtCMun.Text := FENDEREMIT_NFE_Doc.TCMun;
+       self.edtXMun.Text := FENDEREMIT_NFE_Doc.TXMun;
+       self.edtEUF.Text := FENDEREMIT_NFE_Doc.TEUF;
+       self.edtCEP.Text := FENDEREMIT_NFE_Doc.TCEP;
+       self.edtCPais.Text := FENDEREMIT_NFE_Doc.TCPais;
+       self.edtXPais.Text := FENDEREMIT_NFE_Doc.TXPais;
+       self.edtFone.Text := FENDEREMIT_NFE_Doc.TFone;
 
-        FENDEREMIT_NFE_Doc.TXCpl := nodeInfNfe_enderEmit.ChildValues['xCpl'];
-        self.edtXCpl.Text := FENDEREMIT_NFE_Doc.TXCpl;
+       {dest}
 
-        FENDEREMIT_NFE_Doc.TXBairro := nodeInfNfe_enderEmit.ChildValues['xBairro'];
-        self.edtXBairro.Text := FENDEREMIT_NFE_Doc.TXBairro;
+       FDEST_NFE_Doc.NodeDest := nodeInfNfe_dest;
+       FDEST_NFE_Doc.PreencherDest;
 
-        FENDEREMIT_NFE_Doc.TCMun := nodeInfNfe_enderEmit.ChildValues['cMun'];
-        self.edtCMun.Text := FENDEREMIT_NFE_Doc.TCMun;
+       self.edtCPF.Text := FDEST_NFE_Doc.TCPF; //Opcional
+       //self.edtDCNPJ.Text := FDEST_NFE_Doc.TDCNPJ; //Opcional
+       self.edtDXNome.Text := FDEST_NFE_Doc.TDxNome;
+       self.edtIndIEDest.Text := FDEST_NFE_Doc.TIndIEDest;
+       //self.edtDIE.Text := FDEST_NFE_Doc.TDIE; //Opcional
+       //self.edtDEmail.Text := FDEST_NFE_Doc.TDEmail;
 
-        FENDEREMIT_NFE_Doc.TXMun :=  nodeInfNfe_enderEmit.ChildValues['xMun'];
-        self.edtXMun.Text := FENDEREMIT_NFE_Doc.TXMun;
+       {enderDest}
 
-        FENDEREMIT_NFE_Doc.TEUF := nodeInfNfe_enderEmit.ChildValues['UF'];
-        self.edtEUF.Text := FENDEREMIT_NFE_Doc.TEUF;
+       FENDERDEST_NFE_Doc.NodeEnderDest := nodeInfNfe_enderDest;
+       FENDERDEST_NFE_Doc.PreencherEnderDest;
 
-        FENDEREMIT_NFE_Doc.TCEP := nodeInfNfe_enderEmit.ChildValues['CEP'];
-        self.edtCEP.Text := FENDEREMIT_NFE_Doc.TCEP;
-
-        FENDEREMIT_NFE_Doc.TCPais := nodeInfNfe_enderEmit.ChildValues['cPais'];
-        self.edtCPais.Text := FENDEREMIT_NFE_Doc.TCPais;
-
-        FENDEREMIT_NFE_Doc.TXPais := nodeInfNfe_enderEmit.ChildValues['xPais'];
-        self.edtXPais.Text := FENDEREMIT_NFE_Doc.TXPais;
-
-        FENDEREMIT_NFE_Doc.TFone := nodeInfNfe_enderEmit.ChildValues['fone'];
-        self.edtFone.Text := FENDEREMIT_NFE_Doc.TFone;
-
-        {dest}
-
-        FDEST_NFE_Doc.TCPF := nodeInfNfe_dest.ChildValues['CPF'];
-        self.edtCPF.Text := FDEST_NFE_Doc.TCPF;
-
-        FDEST_NFE_Doc.TDxNome := nodeInfNfe_dest.ChildValues['xNome'];
-        self.edtDXNome.Text := FDEST_NFE_Doc.TDxNome;
-
-        FDEST_NFE_Doc.TIndIEDest := nodeInfNfe_dest.ChildValues['indIEDest'];
-        self.edtIndIEDest.Text := FDEST_NFE_Doc.TIndIEDest;
-
-        {enderDest}
-
-        FENDERDEST_NFE_Doc.TDxLgr := nodeInfNfe_enderDest.ChildValues['xLgr'];
-        self.edtDxLgr.Text := FENDERDEST_NFE_Doc.TDxLgr;
-
-        FENDERDEST_NFE_Doc.TDnro := nodeInfNfe_enderDest.ChildValues['nro'];
-        self.edtDnro.Text := FENDERDEST_NFE_Doc.TDnro;
-
-        FENDERDEST_NFE_Doc.TDxCpl := nodeInfNfe_enderDest.ChildValues['xCpl'];
-        self.edtDxCpl.Text := FENDERDEST_NFE_Doc.TDxCpl;
-
-        FENDERDEST_NFE_Doc.TDxBairro := nodeInfNfe_enderDest.ChildValues['xBairro'];
-        self.edtDxBairro.Text := FENDERDEST_NFE_Doc.TDxBairro;
-
-        FENDERDEST_NFE_Doc.TDcMun := nodeInfNfe_enderDest.ChildValues['cMun'];
-        self.edtDcMun.Text := FENDERDEST_NFE_Doc.TDcMun;
-
-        FENDERDEST_NFE_Doc.TDxMun := nodeInfNfe_enderDest.ChildValues['xMun'];
-        self.edtDxMun.Text := FENDERDEST_NFE_Doc.TDxMun;
-
-        FENDERDEST_NFE_Doc.TDUF := nodeInfNfe_enderDest.ChildValues['UF'];
-        self.edtDUF.Text := FENDERDEST_NFE_Doc.TDUF;
-
-        FENDERDEST_NFE_Doc.TDCEP := nodeInfNfe_enderDest.ChildValues['CEP'];
-        self.edtDCEP.Text := FENDERDEST_NFE_Doc.TDCEP;
-
-        FENDERDEST_NFE_Doc.TDcPais := nodeInfNfe_enderDest.ChildValues['cPais'];
-        self.edtDcPais.Text := FENDERDEST_NFE_Doc.TDcPais;
-
-        FENDERDEST_NFE_Doc.TDxPais := nodeInfNfe_enderDest.ChildValues['xPais'];
-        self.edtDxPais.Text := FENDERDEST_NFE_Doc.TDxPais;
-
-        FENDERDEST_NFE_Doc.TDfone := nodeInfNfe_enderDest.ChildValues['fone'];
-        self.edtDfone.Text := FENDERDEST_NFE_Doc.TDfone;
+       self.edtDxLgr.Text := FENDERDEST_NFE_Doc.TDxLgr;
+       self.edtDnro.Text := FENDERDEST_NFE_Doc.TDnro;
+       self.edtDxCpl.Text := FENDERDEST_NFE_Doc.TDxCpl; //Opcional
+       self.edtDxBairro.Text := FENDERDEST_NFE_Doc.TDxBairro;
+       self.edtDcMun.Text := FENDERDEST_NFE_Doc.TDcMun;
+       self.edtDxMun.Text := FENDERDEST_NFE_Doc.TDxMun;
+       self.edtDUF.Text := FENDERDEST_NFE_Doc.TDUF;
+       self.edtDCEP.Text := FENDERDEST_NFE_Doc.TDCEP;
+       self.edtDcPais.Text := FENDERDEST_NFE_Doc.TDcPais;
+       self.edtDxPais.Text := FENDERDEST_NFE_Doc.TDxPais;
+       self.edtDfone.Text := FENDERDEST_NFE_Doc.TDfone;
 
      except on E: Exception do
      end;
