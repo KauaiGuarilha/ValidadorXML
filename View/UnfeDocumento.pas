@@ -198,340 +198,65 @@ begin
        self.edtIndFinal.Text := FIDE_NFE_Doc.TIndFinal;
        self.edtIndPres.Text := FIDE_NFE_Doc.TIndPres;
        self.edtProcEmi.Text := FIDE_NFE_Doc.TProcEmi;
-
-
-       if nodeInfNfe_ide.ChildValues['verProc'] = null then
-       begin
-           self.edtVerProc.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TVerProc := nodeInfNfe_ide.ChildValues['verProc'];
-           self.edtVerProc.Text := FIDE_NFE_Doc.TVerProc;
-       end;
+       self.edtVerProc.Text := FIDE_NFE_Doc.TVerProc;
 
        {emit}
 
-       if nodeInfNfe_emit.ChildValues['CNPJ'] = null then
-       begin
-           self.edtCnpj.Text := '';
-       end else
-       begin
-           FEMIT_NFE_Doc.TCNPJ := nodeInfNfe_emit.ChildValues['CNPJ'];
-           self.edtCnpj.Text := FEMIT_NFE_Doc.TCNPJ;
-       end;
+       FEMIT_NFE_Doc.NodeEmit := nodeInfNfe_emit;
+       FEMIT_NFE_Doc.PreencheEmit;
 
-       if nodeInfNfe_emit.ChildValues['xNome'] = null then
-       begin
-          self.edtXNome.Text := '';
-       end else
-       begin
-           FEMIT_NFE_Doc.TXNome := nodeInfNfe_emit.ChildValues['xNome'];
-           self.edtXNome.Text := FEMIT_NFE_Doc.TXNome;
-       end;
-
-       if nodeInfNfe_emit.ChildValues['xFant'] = null then
-       begin
-          self.edtXFant.Text := '';
-       end else
-       begin
-           FEMIT_NFE_Doc.TXFant := nodeInfNfe_emit.ChildValues['xFant'];
-           self.edtXFant.Text := FEMIT_NFE_Doc.TXFant;
-       end;
-
-       if nodeInfNfe_emit.ChildValues['IE'] = null then
-       begin
-           self.edtIE.Text := '';
-       end else
-       begin
-           FEMIT_NFE_Doc.TIE := nodeInfNfe_emit.ChildValues['IE'];
-           self.edtIE.Text := FEMIT_NFE_Doc.TIE;
-       end;
-
-       if nodeInfNfe_emit.ChildValues['IEST'] = null then
-       begin
-           self.edtIEST.Text := '';
-       end else
-       begin
-          FEMIT_NFE_Doc.TIEST := nodeInfNfe_emit.ChildValues['IEST'];
-          self.edtIEST.Text := FEMIT_NFE_Doc.TIEST;
-       end;
-
-       if nodeInfNfe_emit.ChildValues['CRT'] = null then
-       begin
-           self.edtCRT.Text := '';
-       end else
-       begin
-          FEMIT_NFE_Doc.TCRT := nodeInfNfe_emit.ChildValues['CRT'];
-          self.edtCRT.Text := FEMIT_NFE_Doc.TCRT;
-       end;
+       self.edtCnpj.Text := FEMIT_NFE_Doc.TCNPJ;
+       self.edtXNome.Text := FEMIT_NFE_Doc.TXNome;
+       self.edtXFant.Text := FEMIT_NFE_Doc.TXFant;
+       self.edtIE.Text := FEMIT_NFE_Doc.TIE;
+       self.edtIEST.Text := FEMIT_NFE_Doc.TIEST;
+       self.edtCRT.Text := FEMIT_NFE_Doc.TCRT;
 
        {enderEmit}
 
-        if nodeInfNfe_enderEmit.ChildValues['xLgr'] = null then
-        begin
-           self.edtXLgr.Text := '';
-        end else
-        begin
-           FENDEREMIT_NFE_Doc.TXLgr := nodeInfNfe_enderEmit.ChildValues['xLgr'];
-           self.edtXLgr.Text := FENDEREMIT_NFE_Doc.TXLgr;
-        end;
+       FENDEREMIT_NFE_Doc.NodeEnderEmit := nodeInfNfe_enderEmit;
+       FENDEREMIT_NFE_Doc.PreencherEnderEmit;
 
-        if nodeInfNfe_enderEmit.ChildValues['nro'] = null then
-        begin
-           self.edtNro.Text := '';
-        end else
-        begin
-           FENDEREMIT_NFE_Doc.TNro := nodeInfNfe_enderEmit.ChildValues['nro'];
-           self.edtNro.Text := FENDEREMIT_NFE_Doc.TNro;
-        end;
+       self.edtXLgr.Text := FENDEREMIT_NFE_Doc.TXLgr;
+       self.edtNro.Text := FENDEREMIT_NFE_Doc.TNro;
+       self.edtXCpl.Text := FENDEREMIT_NFE_Doc.TXCpl; //Opcional
+       self.edtXBairro.Text := FENDEREMIT_NFE_Doc.TXBairro;
+       self.edtCMun.Text := FENDEREMIT_NFE_Doc.TCMun;
+       self.edtXMun.Text := FENDEREMIT_NFE_Doc.TXMun;
+       self.edtEUF.Text := FENDEREMIT_NFE_Doc.TEUF;
+       self.edtCEP.Text := FENDEREMIT_NFE_Doc.TCEP;
+       self.edtCPais.Text := FENDEREMIT_NFE_Doc.TCPais;
+       self.edtXPais.Text := FENDEREMIT_NFE_Doc.TXPais;
+       self.edtFone.Text := FENDEREMIT_NFE_Doc.TFone;
 
-        if nodeInfNfe_enderEmit.ChildValues['xCpl'] = null then
-        begin
-           self.edtXCpl.Text := '';
-           self.edtXCpl.Visible :=  false;
-           self.lbnECpl.Visible := false;
-        end else
-        begin
-          FENDEREMIT_NFE_Doc.TXCpl := nodeInfNfe_enderEmit.ChildValues['xCpl'];
-          self.edtXCpl.Text := FENDEREMIT_NFE_Doc.TXCpl;
-        end;
+       {dest}
 
-        if nodeInfNfe_enderEmit.ChildValues['xBairro'] = null then
-        begin
-           self.edtXBairro.Text := '';
-        end else
-        begin
-          FENDEREMIT_NFE_Doc.TXBairro := nodeInfNfe_enderEmit.ChildValues['xBairro'];
-          self.edtXBairro.Text := FENDEREMIT_NFE_Doc.TXBairro;
-        end;
+       FDEST_NFE_Doc.NodeDest := nodeInfNfe_dest;
+       FDEST_NFE_Doc.PreencherDest;
 
-        if nodeInfNfe_enderEmit.ChildValues['cMun'] = null then
-        begin
-           self.edtCMun.Text := '';
-        end else
-        begin
-          FENDEREMIT_NFE_Doc.TCMun := nodeInfNfe_enderEmit.ChildValues['cMun'];
-          self.edtCMun.Text := FENDEREMIT_NFE_Doc.TCMun;
-        end;
+       self.edtCPF.Text := FDEST_NFE_Doc.TCPF; //Opcional
+       self.edtDCNPJ.Text := FDEST_NFE_Doc.TDCNPJ; //Opcional
+       self.edtDXNome.Text := FDEST_NFE_Doc.TDxNome;
+       self.edtIndIEDest.Text := FDEST_NFE_Doc.TIndIEDest;
+       self.edtDIE.Text := FDEST_NFE_Doc.TDIE; //Opcional
+       self.edtDEmail.Text := FDEST_NFE_Doc.TDEmail;
 
-        if nodeInfNfe_enderEmit.ChildValues['xMun'] = null then
-        begin
-           self.edtXMun.Text := '';
-        end else
-        begin
-          FENDEREMIT_NFE_Doc.TXMun :=  nodeInfNfe_enderEmit.ChildValues['xMun'];
-          self.edtXMun.Text := FENDEREMIT_NFE_Doc.TXMun;
-        end;
+       {enderDest}
 
-        if nodeInfNfe_enderEmit.ChildValues['UF'] = null then
-        begin
-           self.edtEUF.Text := '';
-        end else
-        begin
-           FENDEREMIT_NFE_Doc.TEUF := nodeInfNfe_enderEmit.ChildValues['UF'];
-           self.edtEUF.Text := FENDEREMIT_NFE_Doc.TEUF;
-        end;
+       FENDERDEST_NFE_Doc.NodeEnderDest := nodeInfNfe_enderDest;
+       FENDERDEST_NFE_Doc.PreencherEnderDest;
 
-        if nodeInfNfe_enderEmit.ChildValues['CEP'] = null then
-        begin
-           self.edtCEP.Text := '';
-        end else
-        begin
-           FENDEREMIT_NFE_Doc.TCEP := nodeInfNfe_enderEmit.ChildValues['CEP'];
-           self.edtCEP.Text := FENDEREMIT_NFE_Doc.TCEP;
-        end;
-
-        if nodeInfNfe_enderEmit.ChildValues['cPais'] = null then
-        begin
-           self.edtCPais.Text := '';
-        end else
-        begin
-           FENDEREMIT_NFE_Doc.TCPais := nodeInfNfe_enderEmit.ChildValues['cPais'];
-           self.edtCPais.Text := FENDEREMIT_NFE_Doc.TCPais;
-        end;
-
-        if nodeInfNfe_enderEmit.ChildValues['xPais'] = null then
-        begin
-           self.edtXPais.Text := '';
-        end else
-        begin
-           FENDEREMIT_NFE_Doc.TXPais := nodeInfNfe_enderEmit.ChildValues['xPais'];
-           self.edtXPais.Text := FENDEREMIT_NFE_Doc.TXPais;
-        end;
-
-        if nodeInfNfe_enderEmit.ChildValues['fone'] = null then
-        begin
-          self.edtFone.Text := '';
-        end else
-        begin
-          FENDEREMIT_NFE_Doc.TFone := nodeInfNfe_enderEmit.ChildValues['fone'];
-          self.edtFone.Text := FENDEREMIT_NFE_Doc.TFone;
-        end;
-
-        {dest}
-
-        if nodeInfNfe_dest.ChildValues['CPF'] = null then
-        begin
-           self.edtCPF.Text := '';
-           self.edtCPF.Visible := false;
-           self.lbnDCpf.Visible := false;
-        end else
-        begin
-          FDEST_NFE_Doc.TCPF := nodeInfNfe_dest.ChildValues['CPF'];
-          self.edtCPF.Text := FDEST_NFE_Doc.TCPF;
-        end;
-
-        if nodeInfNfe_dest.ChildValues['CNPJ'] = null then
-        begin
-           self.edtDCNPJ.Text := '';
-           self.edtDCNPJ.Visible := false;
-           self.lbnDCnpj.Visible := false;
-        end else
-        begin
-           FDEST_NFE_Doc.TDCNPJ := nodeInfNfe_dest.ChildValues['CNPJ'];
-           self.edtDCNPJ.Text := FDEST_NFE_Doc.TDCNPJ;
-        end;
-
-        if nodeInfNfe_dest.ChildValues['xNome'] = null then
-        begin
-           self.edtDXNome.Text := '';
-        end else
-        begin
-           FDEST_NFE_Doc.TDxNome := nodeInfNfe_dest.ChildValues['xNome'];
-           self.edtDXNome.Text := FDEST_NFE_Doc.TDxNome;
-        end;
-
-        if nodeInfNfe_dest.ChildValues['indIEDest'] = null then
-        begin
-           self.edtIndIEDest.Text := '';
-        end else
-        begin
-           FDEST_NFE_Doc.TIndIEDest := nodeInfNfe_dest.ChildValues['indIEDest'];
-           self.edtIndIEDest.Text := FDEST_NFE_Doc.TIndIEDest;
-        end;
-
-        if nodeInfNfe_dest.ChildValues['IE'] = null then
-        begin
-           self.edtDIE.Text := '';
-        end else
-        begin
-           FDEST_NFE_Doc.TDIE := nodeInfNfe_dest.ChildValues['IE'];
-           self.edtDIE.Text := FDEST_NFE_Doc.TDIE;
-        end;
-
-        if nodeInfNfe_dest.ChildValues['email'] = null then
-        begin
-           self.edtDEmail.Text := '';
-           self.edtDEmail.Visible := false;
-           self.lbnDEmail.Visible := false;
-        end else
-        begin
-           FDEST_NFE_Doc.TDEmail := nodeInfNfe_dest.ChildValues['email'];
-           self.edtDEmail.Text := FDEST_NFE_Doc.TDEmail;
-        end;
-
-        {enderDest}
-
-        if nodeInfNfe_enderDest.ChildValues['xLgr'] = null then
-        begin
-           self.edtDxLgr.Text := '';
-        end else
-        begin
-          FENDERDEST_NFE_Doc.TDxLgr := nodeInfNfe_enderDest.ChildValues['xLgr'];
-          self.edtDxLgr.Text := FENDERDEST_NFE_Doc.TDxLgr;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['nro'] = null then
-        begin
-           self.edtDnro.Text := '';
-        end else
-        begin
-          FENDERDEST_NFE_Doc.TDnro := nodeInfNfe_enderDest.ChildValues['nro'];
-          self.edtDnro.Text := FENDERDEST_NFE_Doc.TDnro;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['xCpl'] = null then
-        begin
-           self.edtDxCpl.Text := '';
-           self.edtDxCpl.Visible := false;
-           self.lbnDCpl.Visible := false;
-        end else
-        begin
-          FENDERDEST_NFE_Doc.TDxCpl := nodeInfNfe_enderDest.ChildValues['xCpl'];
-          self.edtDxCpl.Text := FENDERDEST_NFE_Doc.TDxCpl;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['xBairro'] = null then
-        begin
-           self.edtDxBairro.Text := '';
-        end else
-        begin
-           FENDERDEST_NFE_Doc.TDxBairro := nodeInfNfe_enderDest.ChildValues['xBairro'];
-           self.edtDxBairro.Text := FENDERDEST_NFE_Doc.TDxBairro;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['cMun'] = null then
-        begin
-           self.edtDcMun.Text := '';
-        end else
-        begin
-           FENDERDEST_NFE_Doc.TDcMun := nodeInfNfe_enderDest.ChildValues['cMun'];
-           self.edtDcMun.Text := FENDERDEST_NFE_Doc.TDcMun;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['xMun'] = null then
-        begin
-           self.edtDxMun.Text := '';
-        end else
-        begin
-           FENDERDEST_NFE_Doc.TDxMun := nodeInfNfe_enderDest.ChildValues['xMun'];
-           self.edtDxMun.Text := FENDERDEST_NFE_Doc.TDxMun;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['UF'] = null then
-        begin
-           self.edtDUF.Text := '';
-        end else
-        begin
-           FENDERDEST_NFE_Doc.TDUF := nodeInfNfe_enderDest.ChildValues['UF'];
-           self.edtDUF.Text := FENDERDEST_NFE_Doc.TDUF;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['CEP'] = null then
-        begin
-           self.edtDCEP.Text := '';
-        end else
-        begin
-           FENDERDEST_NFE_Doc.TDCEP := nodeInfNfe_enderDest.ChildValues['CEP'];
-           self.edtDCEP.Text := FENDERDEST_NFE_Doc.TDCEP;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['cPais'] = null then
-        begin
-           self.edtDcPais.Text := '';
-        end else
-        begin
-           FENDERDEST_NFE_Doc.TDcPais := nodeInfNfe_enderDest.ChildValues['cPais'];
-           self.edtDcPais.Text := FENDERDEST_NFE_Doc.TDcPais;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['xPais'] = null then
-        begin
-           self.edtDxPais.Text := '';
-        end else
-        begin
-           FENDERDEST_NFE_Doc.TDxPais := nodeInfNfe_enderDest.ChildValues['xPais'];
-           self.edtDxPais.Text := FENDERDEST_NFE_Doc.TDxPais;
-        end;
-
-        if nodeInfNfe_enderDest.ChildValues['fone'] = null then
-        begin
-           self.edtDfone.Text := '';
-        end else
-        begin
-           FENDERDEST_NFE_Doc.TDfone := nodeInfNfe_enderDest.ChildValues['fone'];
-           self.edtDfone.Text := FENDERDEST_NFE_Doc.TDfone;
-        end;
+       self.edtDxLgr.Text := FENDERDEST_NFE_Doc.TDxLgr;
+       self.edtDnro.Text := FENDERDEST_NFE_Doc.TDnro;
+       self.edtDxCpl.Text := FENDERDEST_NFE_Doc.TDxCpl; //Opcional
+       self.edtDxBairro.Text := FENDERDEST_NFE_Doc.TDxBairro;
+       self.edtDcMun.Text := FENDERDEST_NFE_Doc.TDcMun;
+       self.edtDxMun.Text := FENDERDEST_NFE_Doc.TDxMun;
+       self.edtDUF.Text := FENDERDEST_NFE_Doc.TDUF;
+       self.edtDCEP.Text := FENDERDEST_NFE_Doc.TDCEP;
+       self.edtDcPais.Text := FENDERDEST_NFE_Doc.TDcPais;
+       self.edtDxPais.Text := FENDERDEST_NFE_Doc.TDxPais;
+       self.edtDfone.Text := FENDERDEST_NFE_Doc.TDfone;
 
      except on E: Exception do
 

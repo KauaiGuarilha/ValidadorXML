@@ -2,10 +2,14 @@ unit ENDERDEST_NFE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TENDERDEST_NFE_Doc = class
 
   private
     DxLgr, Dnro, DxCpl, DxBairro, DcMun, DxMun, DUF, DCEP, DcPais, DxPais, Dfone: String;
+
+    FNodeEnderDest : IXMLNode;
 
     function getDCEP: String;
     function getDcMun: String;
@@ -35,6 +39,9 @@ type TENDERDEST_NFE_Doc = class
      Constructor Create_TENDERDEST_NFE_Doc;
      Destructor Destroy_TENDERDEST_NFE_Doc;
 
+     procedure PreencherEnderDest;
+
+     property NodeEnderDest : IXMLNode read FNodeEnderDest write FNodeEnderDest;
      property TDxLgr : String read getDxLgr write setDxLgr;
      property TDnro : String read getDnro write setDnro;
      property TDxCpl : String read getDxCpl write setDxCpl;
@@ -171,6 +178,46 @@ end;
 procedure TENDERDEST_NFE_Doc.setDxPais(const Value: String);
 begin
     DxPais := Value;
+end;
+
+procedure TENDERDEST_NFE_Doc.PreencherEnderDest;
+begin
+  if Assigned(FNodeEnderDest) then
+  begin
+    if FNodeEnderDest.ChildNodes.FindNode('xLgr') <> nil then
+        DxLgr := FNodeEnderDest.ChildNodes.FindNode('xLgr').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('nro') <> nil then
+        Dnro := FNodeEnderDest.ChildNodes.FindNode('nro').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('xCpl') <> nil then
+        DxCpl := FNodeEnderDest.ChildNodes.FindNode('xCpl').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('xBairro') <> nil then
+        DxBairro := FNodeEnderDest.ChildNodes.FindNode('xBairro').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('cMun') <> nil then
+        DcMun := FNodeEnderDest.ChildNodes.FindNode('cMun').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('xMun') <> nil then
+        DxMun := FNodeEnderDest.ChildNodes.FindNode('xMun').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('UF') <> nil then
+        DUF := FNodeEnderDest.ChildNodes.FindNode('UF').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('CEP') <> nil then
+        DCEP := FNodeEnderDest.ChildNodes.FindNode('CEP').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('cPais') <> nil then
+        DcPais := FNodeEnderDest.ChildNodes.FindNode('cPais').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('xPais') <> nil then
+        DxPais := FNodeEnderDest.ChildNodes.FindNode('xPais').Text;
+
+    if FNodeEnderDest.ChildNodes.FindNode('fone') <> nil then
+        Dfone := FNodeEnderDest.ChildNodes.FindNode('fone').Text;
+  end;
+
 end;
 
 end.

@@ -358,7 +358,8 @@ begin
     if FNodeIde.ChildNodes.FindNode('procEmi') <> nil then
        procEmi := FNodeIde.ChildNodes.FindNode('procEmi').Text;
 
-
+    if FNodeIde.ChildNodes.FindNode('verProc') <> nil then
+       verProc := FNodeIde.ChildNodes.FindNode('verProc').Text;
    end;
 
 end;

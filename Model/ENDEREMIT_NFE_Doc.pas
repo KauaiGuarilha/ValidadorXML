@@ -2,10 +2,14 @@ unit ENDEREMIT_NFE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TENDEREMIT_NFE_Doc = class
 
   private
     xLgr, nro, xCpl, xBairro, cMun, xMun, EUF, CEP, cPais, xPais, fone: String;
+
+    FNodeEnderEmit: IXMLNode;
 
     function getCEP: String;
     function getCMun: String;
@@ -30,12 +34,13 @@ type TENDEREMIT_NFE_Doc = class
     procedure setXLgr(const Value: String);
     procedure setXMun(const Value: String);
 
-
-
   public
     Constructor Create_TENDEREMIT_NFE_Doc;
     Destructor Destroy_TENDEREMIT_NFE_Doc;
 
+    procedure PreencherEnderEmit;
+
+    property NodeEnderEmit : IXMLNode read FNodeEnderEmit write FNodeEnderEmit;
     property TXLgr : String read getXLgr write setXLgr;
     property TNro : String read getNro write setNro;
     property TXCpl : String read getXCpl write setXCpl;
@@ -173,6 +178,45 @@ end;
 procedure TENDEREMIT_NFE_Doc.setXPais(const Value: String);
 begin
     xPais := Value;
+end;
+
+procedure TENDEREMIT_NFE_Doc.PreencherEnderEmit;
+begin
+   if Assigned(FNodeEnderEmit) then
+   begin
+     if FNodeEnderEmit.ChildNodes.FindNode('xLgr') <> nil then
+        xLgr := FNodeEnderEmit.ChildNodes.FindNode('xLgr').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('nro') <> nil then
+        nro := FNodeEnderEmit.ChildNodes.FindNode('nro').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('xCpl') <> nil then
+        xCpl := FNodeEnderEmit.ChildNodes.FindNode('xCpl').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('xBairro') <> nil then
+        xBairro := FNodeEnderEmit.ChildNodes.FindNode('xBairro').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('cMun') <> nil then
+        cMun := FNodeEnderEmit.ChildNodes.FindNode('cMun').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('xMun') <> nil then
+        xMun := FNodeEnderEmit.ChildNodes.FindNode('xMun').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('UF') <> nil then
+        EUF := FNodeEnderEmit.ChildNodes.FindNode('UF').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('CEP') <> nil then
+        CEP := FNodeEnderEmit.ChildNodes.FindNode('CEP').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('cPais') <> nil then
+        cPais := FNodeEnderEmit.ChildNodes.FindNode('cPais').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('xPais') <> nil then
+        xPais := FNodeEnderEmit.ChildNodes.FindNode('xPais').Text;
+
+     if FNodeEnderEmit.ChildNodes.FindNode('fone') <> nil then
+        fone := FNodeEnderEmit.ChildNodes.FindNode('fone').Text;
+   end;
 end;
 
 end.

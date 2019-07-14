@@ -2,10 +2,14 @@ unit DEST_NFE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TDEST_NFE_Doc = class
 
   private
     CPF, DxNome, indIEDest, DIE, DCNPJ, DEmail: String;
+
+    FNodeDest : IXMLNode;
 
     function getCPF: String;
     function getDCNPJ: String;
@@ -24,6 +28,9 @@ type TDEST_NFE_Doc = class
     Constructor Create_TDEST_NFE_Doc;
     Destructor Destroy_TDEST_NFE_Doc;
 
+    procedure PreencherDest;
+
+    property NodeDest : IXMLNode read FNodeDest write FNodeDest;
     property TCPF : String read getCPF write setCPF;
     property TDxNome : String read getDxNome write setDxNome;
     property TIndIEDest : String read getIndIEDest write setIndIEDest;
@@ -105,6 +112,31 @@ end;
 procedure TDEST_NFE_Doc.setIndIEDest(const Value: String);
 begin
     indIEDest := Value;
+end;
+
+procedure TDEST_NFE_Doc.PreencherDest;
+begin
+  if Assigned(FNodeDest) then
+  begin
+    if FNodeDest.ChildNodes.FindNode('CPF') <> nil then
+        CPF := FNodeDest.ChildNodes.FindNode('CPF').Text;
+
+    if FNodeDest.ChildNodes.FindNode('CNPJ') <> nil then
+        DCNPJ := FNodeDest.ChildNodes.FindNode('CNPJ').Text;
+
+    if FNodeDest.ChildNodes.FindNode('xNome') <> nil then
+        DxNome := FNodeDest.ChildNodes.FindNode('xNome').Text;
+
+    if FNodeDest.ChildNodes.FindNode('indIEDest') <> nil then
+        indIEDest := FNodeDest.ChildNodes.FindNode('indIEDest').Text;
+
+    if FNodeDest.ChildNodes.FindNode('IE') <> nil then
+        DIE := FNodeDest.ChildNodes.FindNode('IE').Text;
+
+    if FNodeDest.ChildNodes.FindNode('email') <> nil then
+        DEmail := FNodeDest.ChildNodes.FindNode('email').Text;
+  end;
+
 end;
 
 end.
