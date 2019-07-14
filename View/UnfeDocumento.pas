@@ -176,59 +176,16 @@ begin
 
        {ide}
 
-       if nodeInfNfe_ide.ChildValues['cUF'] = null then
-       begin
-           self.edtUF.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TcUf :=  nodeInfNfe_ide.ChildValues['cUF'];
-           self.edtUF.Text := FIDE_NFE_Doc.TcUf;
-       end;
+       FIDE_NFE_Doc.NodeIde := nodeInfNfe_ide;
+       FIDE_NFE_Doc.PreencherIDE;
 
-       if nodeInfNfe_ide.ChildValues['cNF'] = null then
-       begin
-           self.edtCnfe.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TcNF :=  nodeInfNfe_ide.ChildValues['cNF'];
-           self.edtCnfe.Text := FIDE_NFE_Doc.TcNF;
-       end;
+       self.edtUF.Text := FIDE_NFE_Doc.TcUf;
+       self.edtCnfe.Text := FIDE_NFE_Doc.TcNF;
+       self.edtNatOp.Text := FIDE_NFE_Doc.TNatOp;
+       self.edtMod.Text := FIDE_NFE_Doc.TMood;
+       self.edtSerie.Text := FIDE_NFE_Doc.TSerie;
+       self.edtNNF.Text := FIDE_NFE_Doc.TNNF;
 
-       if nodeInfNfe_ide.ChildValues['natOp'] = null then
-       begin
-           self.edtNatOp.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TNatOp := nodeInfNfe_ide.ChildValues['natOp'];
-           self.edtNatOp.Text := FIDE_NFE_Doc.TNatOp;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['mod'] = null then
-       begin
-           self.edtMod.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TMood := nodeInfNfe_ide.ChildValues['mod'];
-           self.edtMod.Text := FIDE_NFE_Doc.TMood;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['serie'] = null then
-       begin
-           self.edtSerie.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TSerie := nodeInfNfe_ide.ChildValues['serie'];
-           self.edtSerie.Text := FIDE_NFE_Doc.TSerie;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['nNF'] = null then
-       begin
-           self.edtNNF.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TNNF := nodeInfNfe_ide.ChildValues['nNF'];
-           self.edtNNF.Text := FIDE_NFE_Doc.TNNF;
-       end;
 
        if nodeInfNfe_ide.ChildValues['dhEmi'] = null then
        begin

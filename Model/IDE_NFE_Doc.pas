@@ -2,11 +2,15 @@ unit IDE_NFE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TIDE_NFE_Doc = class
 
   private
     cUf, cNF, natOp, mood, serie, nNF, dhEmi, dhSaiEnt, tpNF, idDest, cMunFG, tpImp, tpEmis, cDV, tpAmb, finNFe, indFinal,
     indPres, procEmi, verProc: String;
+
+    FNodeIde: IXMLNode;
 
     function getCUf: String;
     function getCNF: String;
@@ -53,6 +57,9 @@ type TIDE_NFE_Doc = class
     Constructor Create_TIDE_NFE_Doc;
     Destructor Destroy_TIDE_NFE_Doc;
 
+    procedure PreencherIDE;
+
+    property NodeIde : IXMLNode read FNodeIde write FNodeIde;
     property TcUf : String read getCUf write setCUf;
     property TcNF : String read getCNF write setCNF;
     property TNatOp : String read getNatOp write setNatOp;
@@ -288,6 +295,33 @@ end;
 procedure TIDE_NFE_Doc.setVerProc(const Value: String);
 begin
     verProc := Value;
+end;
+
+procedure TIDE_NFE_Doc.PreencherIDE;
+begin
+   if Assigned(FNodeIde) then
+   begin
+    if FNodeIde.ChildNodes.FindNode('cUF') <> nil then
+       cUf := FNodeIde.ChildNodes.FindNode('cUF').Text;
+
+    if FNodeIde.ChildNodes.FindNode('cNF') <> nil then
+       cNF := FNodeIde.ChildNodes.FindNode('cNF').Text;
+
+    if FNodeIde.ChildNodes.FindNode('natOp') <> nil then
+       natOp := FNodeIde.ChildNodes.FindNode('natOp').Text;
+
+    if FNodeIde.ChildNodes.FindNode('mod') <> nil then
+       mood := FNodeIde.ChildNodes.FindNode('mod').Text;
+
+    if FNodeIde.ChildNodes.FindNode('serie') <> nil then
+       serie := FNodeIde.ChildNodes.FindNode('serie').Text;
+
+    if FNodeIde.ChildNodes.FindNode('nNF') <> nil then
+       nNF := FNodeIde.ChildNodes.FindNode('nNF').Text;
+
+
+   end;
+
 end;
 
 end.
