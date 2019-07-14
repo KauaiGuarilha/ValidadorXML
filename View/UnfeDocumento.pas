@@ -185,124 +185,20 @@ begin
        self.edtMod.Text := FIDE_NFE_Doc.TMood;
        self.edtSerie.Text := FIDE_NFE_Doc.TSerie;
        self.edtNNF.Text := FIDE_NFE_Doc.TNNF;
+       self.edtDhEmi.Text := FIDE_NFE_Doc.TDhEmi;
+       self.edtDhSaiEnt.Text := FIDE_NFE_Doc.TDhSaiEnt;
+       self.edtTpNF.Text := FIDE_NFE_Doc.TTpNF;
+       self.edtIdDest.Text := FIDE_NFE_Doc.TIdDest;
+       self.edtCMunFG.Text := FIDE_NFE_Doc.TCMunFG;
+       self.edtTpImp.Text := FIDE_NFE_Doc.TTpImp;
+       self.edtTpEmis.Text := FIDE_NFE_Doc.TTpEmis;
+       self.edtCDV.Text := FIDE_NFE_Doc.TCDV;
+       self.edtTpAmb.Text := FIDE_NFE_Doc.TTpAmb;
+       self.edtFinNFe.Text := FIDE_NFE_Doc.TFinNFe;
+       self.edtIndFinal.Text := FIDE_NFE_Doc.TIndFinal;
+       self.edtIndPres.Text := FIDE_NFE_Doc.TIndPres;
+       self.edtProcEmi.Text := FIDE_NFE_Doc.TProcEmi;
 
-
-       if nodeInfNfe_ide.ChildValues['dhEmi'] = null then
-       begin
-           self.edtDhEmi.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TDhEmi := nodeInfNfe_ide.ChildValues['dhEmi'];
-           self.edtDhEmi.Text := FIDE_NFE_Doc.TDhEmi;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['dhSaiEnt'] = null then
-       begin
-           self.edtDhSaiEnt.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TDhSaiEnt := nodeInfNfe_ide.ChildValues['dhSaiEnt'];
-           self.edtDhSaiEnt.Text := FIDE_NFE_Doc.TDhSaiEnt;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['tpNF'] = null then
-       begin
-           self.edtTpNF.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TTpNF := nodeInfNfe_ide.ChildValues['tpNF'];
-           self.edtTpNF.Text := FIDE_NFE_Doc.TTpNF;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['idDest'] = null then
-       begin
-           self.edtIdDest.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TIdDest := nodeInfNfe_ide.ChildValues['idDest'];
-           self.edtIdDest.Text := FIDE_NFE_Doc.TIdDest;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['cMunFG'] = null then
-       begin
-           self.edtCMunFG.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TCMunFG := nodeInfNfe_ide.ChildValues['cMunFG'];
-           self.edtCMunFG.Text := FIDE_NFE_Doc.TCMunFG;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['tpImp'] = null then
-       begin
-           self.edtTpImp.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TTpImp := nodeInfNfe_ide.ChildValues['tpImp'];
-           self.edtTpImp.Text := FIDE_NFE_Doc.TTpImp;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['tpEmis'] = null then
-       begin
-           self.edtTpEmis.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TTpEmis := nodeInfNfe_ide.ChildValues['tpEmis'];
-           self.edtTpEmis.Text := FIDE_NFE_Doc.TTpEmis;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['cDV'] = null then
-       begin
-           self.edtCDV.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TCDV := nodeInfNfe_ide.ChildValues['cDV'];
-           self.edtCDV.Text := FIDE_NFE_Doc.TCDV;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['tpAmb'] = null then
-       begin
-           self.edtTpAmb.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TTpAmb := nodeInfNfe_ide.ChildValues['tpAmb'];
-           self.edtTpAmb.Text := FIDE_NFE_Doc.TTpAmb;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['finNFe'] = null then
-       begin
-           self.edtFinNFe.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TFinNFe := nodeInfNfe_ide.ChildValues['finNFe'];
-           self.edtFinNFe.Text := FIDE_NFE_Doc.TFinNFe;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['indFinal'] = null then
-       begin
-           self.edtIndFinal.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TIndFinal := nodeInfNfe_ide.ChildValues['indFinal'];
-           self.edtIndFinal.Text := FIDE_NFE_Doc.TIndFinal;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['indPres'] = null then
-       begin
-           self.edtIndPres.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TIndPres := nodeInfNfe_ide.ChildValues['indPres'];
-           self.edtIndPres.Text := FIDE_NFE_Doc.TIndPres;
-       end;
-
-       if nodeInfNfe_ide.ChildValues['procEmi'] = null then
-       begin
-           self.edtProcEmi.Text := '';
-       end else
-       begin
-           FIDE_NFE_Doc.TProcEmi := nodeInfNfe_ide.ChildValues['procEmi'];
-           self.edtProcEmi.Text := FIDE_NFE_Doc.TProcEmi;
-       end;
 
        if nodeInfNfe_ide.ChildValues['verProc'] = null then
        begin

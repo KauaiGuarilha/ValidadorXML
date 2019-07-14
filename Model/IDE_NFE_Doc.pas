@@ -319,6 +319,45 @@ begin
     if FNodeIde.ChildNodes.FindNode('nNF') <> nil then
        nNF := FNodeIde.ChildNodes.FindNode('nNF').Text;
 
+    if FNodeIde.ChildNodes.FindNode('dhEmi') <> nil then
+       dhEmi := FNodeIde.ChildNodes.FindNode('dhEmi').Text;
+
+    if FNodeIde.ChildNodes.FindNode('dhSaiEnt') <> nil then
+       dhSaiEnt := FNodeIde.ChildNodes.FindNode('dhSaiEnt').Text;
+
+    if FNodeIde.ChildNodes.FindNode('tpNF') <> nil then
+       tpNF := FNodeIde.ChildNodes.FindNode('tpNF').Text;
+
+    if FNodeIde.ChildNodes.FindNode('idDest') <> nil then
+       idDest := FNodeIde.ChildNodes.FindNode('idDest').Text;
+
+    if FNodeIde.ChildNodes.FindNode('cMunFG') <> nil then
+       cMunFG := FNodeIde.ChildNodes.FindNode('cMunFG').Text;
+
+    if FNodeIde.ChildNodes.FindNode('tpImp') <> nil then
+       tpImp := FNodeIde.ChildNodes.FindNode('tpImp').Text;
+
+    if FNodeIde.ChildNodes.FindNode('tpEmis') <> nil then
+       tpEmis := FNodeIde.ChildNodes.FindNode('tpEmis').Text;
+
+    if FNodeIde.ChildNodes.FindNode('cDV') <> nil then
+       cDV := FNodeIde.ChildNodes.FindNode('cDV').Text;
+
+    if FNodeIde.ChildNodes.FindNode('tpAmb') <> nil then
+       tpAmb := FNodeIde.ChildNodes.FindNode('tpAmb').Text;
+
+    if FNodeIde.ChildNodes.FindNode('finNFe') <> nil then
+       finNFe := FNodeIde.ChildNodes.FindNode('finNFe').Text;
+
+    if FNodeIde.ChildNodes.FindNode('indFinal') <> nil then
+       indFinal := FNodeIde.ChildNodes.FindNode('indFinal').Text;
+
+    if FNodeIde.ChildNodes.FindNode('indPres') <> nil then
+       indPres := FNodeIde.ChildNodes.FindNode('indPres').Text;
+
+    if FNodeIde.ChildNodes.FindNode('procEmi') <> nil then
+       procEmi := FNodeIde.ChildNodes.FindNode('procEmi').Text;
+
 
    end;
 
