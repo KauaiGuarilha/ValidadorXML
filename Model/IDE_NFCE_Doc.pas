@@ -2,11 +2,15 @@ unit IDE_NFCE_Doc;
 
 interface
 
+uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
+
 type TIDE_NFCE_Doc = class
 
   private
     cUf, cNF, natOp, mood, serie, nNF, dhEmi, dhCont, tpNF, idDest, cMunFG, tpImp, tpEmis, cDV, tpAmb, finNFe, indFinal,
     indPres, procEmi, verProc, xJust: String;
+
+    FNodeIde: IXMLNode;
 
     function getCDV: String;
     function getCMunFG: String;
@@ -55,6 +59,9 @@ type TIDE_NFCE_Doc = class
     Constructor Create_TIDE_NFCE_Doc;
     Destructor Destroy_TIDE_NFCE_Doc;
 
+    procedure PreencherIDE;
+
+    property NodeIde : IXMLNode read FNodeIde write FNodeIde;
     property TcUf : String read getCUf write setCUf;
     property TcNF : String read getCNF write setCNF;
     property TNatOp : String read getNatOp write setNatOp;
@@ -301,6 +308,76 @@ end;
 procedure TIDE_NFCE_Doc.setXJust(const Value: String);
 begin
     xJust := Value;
+end;
+
+procedure TIDE_NFCE_Doc.PreencherIDE;
+begin
+  if Assigned(FNodeIde) then
+  begin
+    if FNodeIde.ChildNodes.FindNode('cUF') <> nil then
+       cUf := FNodeIde.ChildNodes.FindNode('cUF').Text;
+
+    if FNodeIde.ChildNodes.FindNode('cNF') <> nil then
+       cNF := FNodeIde.ChildNodes.FindNode('cNF').Text;
+
+    if FNodeIde.ChildNodes.FindNode('natOp') <> nil then
+       natOp := FNodeIde.ChildNodes.FindNode('natOp').Text;
+
+    if FNodeIde.ChildNodes.FindNode('mod') <> nil then
+       mood := FNodeIde.ChildNodes.FindNode('mod').Text;
+
+    if FNodeIde.ChildNodes.FindNode('serie') <> nil then
+       serie := FNodeIde.ChildNodes.FindNode('serie').Text;
+
+    if FNodeIde.ChildNodes.FindNode('nNF') <> nil then
+       nNF := FNodeIde.ChildNodes.FindNode('nNF').Text;
+
+    if FNodeIde.ChildNodes.FindNode('dhEmi') <> nil then
+       dhEmi := FNodeIde.ChildNodes.FindNode('dhEmi').Text;
+
+    if FNodeIde.ChildNodes.FindNode('dhCont') <> nil then
+       dhCont := FNodeIde.ChildNodes.FindNode('dhCont').Text;
+
+    if FNodeIde.ChildNodes.FindNode('tpNF') <> nil then
+       tpNF := FNodeIde.ChildNodes.FindNode('tpNF').Text;
+
+    if FNodeIde.ChildNodes.FindNode('idDest') <> nil then
+       idDest := FNodeIde.ChildNodes.FindNode('idDest').Text;
+
+    if FNodeIde.ChildNodes.FindNode('cMunFG') <> nil then
+       cMunFG := FNodeIde.ChildNodes.FindNode('cMunFG').Text;
+
+    if FNodeIde.ChildNodes.FindNode('tpImp') <> nil then
+       tpImp := FNodeIde.ChildNodes.FindNode('tpImp').Text;
+
+    if FNodeIde.ChildNodes.FindNode('tpEmis') <> nil then
+       tpEmis := FNodeIde.ChildNodes.FindNode('tpEmis').Text;
+
+    if FNodeIde.ChildNodes.FindNode('cDV') <> nil then
+       cDV := FNodeIde.ChildNodes.FindNode('cDV').Text;
+
+    if FNodeIde.ChildNodes.FindNode('tpAmb') <> nil then
+       tpAmb := FNodeIde.ChildNodes.FindNode('tpAmb').Text;
+
+    if FNodeIde.ChildNodes.FindNode('finNFe') <> nil then
+       finNFe := FNodeIde.ChildNodes.FindNode('finNFe').Text;
+
+    if FNodeIde.ChildNodes.FindNode('indFinal') <> nil then
+       indFinal := FNodeIde.ChildNodes.FindNode('indFinal').Text;
+
+    if FNodeIde.ChildNodes.FindNode('indPres') <> nil then
+       indPres := FNodeIde.ChildNodes.FindNode('indPres').Text;
+
+    if FNodeIde.ChildNodes.FindNode('procEmi') <> nil then
+       procEmi := FNodeIde.ChildNodes.FindNode('procEmi').Text;
+
+    if FNodeIde.ChildNodes.FindNode('verProc') <> nil then
+       verProc := FNodeIde.ChildNodes.FindNode('verProc').Text;
+
+    if FNodeIde.ChildNodes.FindNode('xJust') <> nil then
+       xJust := FNodeIde.ChildNodes.FindNode('xJust').Text;
+  end;
+
 end;
 
 end.
