@@ -140,8 +140,6 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
-    nodeInfNfe_ide, nodeInfNfe_emit, nodeInfNfe_enderEmit, nodeInfNfe_dest, nodeInfNfe_enderDest: IXMLNode;
-
     FIDE_NFE_Doc : TIDE_NFE_Doc;
     FEMIT_NFE_Doc : TEMIT_NFE_Doc;
     FENDEREMIT_NFE_Doc : TENDEREMIT_NFE_Doc;
@@ -153,7 +151,6 @@ type
     procedure enderEmit_nfe_doc;
     procedure dest_nfe_doc;
     procedure enderDest_nfe_doc;
-
   public
 
   end;
@@ -212,6 +209,7 @@ begin
 end;
 
 procedure TfrmNFe_Documento.ide_nfe_doc;
+var nodeInfNfe_ide : IXMLNode;
 begin
   nodeInfNfe_ide := XMLDocument1.ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe').ChildNodes.FindNode('ide');
 
@@ -241,6 +239,7 @@ begin
 end;
 
 procedure TfrmNFe_Documento.emit_nfe_doc;
+var nodeInfNfe_emit : IXMLNode;
 begin
   nodeInfNfe_emit := XMLDocument1.ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe').ChildNodes.FindNode('emit');
 
@@ -257,6 +256,7 @@ begin
 end;
 
 procedure TfrmNFe_Documento.enderEmit_nfe_doc;
+var nodeInfNfe_enderEmit : IXMLNode;
 begin
   nodeInfNfe_enderEmit := XMLDocument1.ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe').ChildNodes.FindNode('emit').ChildNodes.FindNode('enderEmit');
 
@@ -277,6 +277,7 @@ begin
 end;
 
 procedure TfrmNFe_Documento.dest_nfe_doc;
+var nodeInfNfe_dest : IXMLNode;
 begin
   nodeInfNfe_dest := XMLDocument1.ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe').ChildNodes.FindNode('dest');
 
@@ -292,6 +293,7 @@ begin
 end;
 
 procedure TfrmNFe_Documento.enderDest_nfe_doc;
+var nodeInfNfe_enderDest : IXMLNode;
 begin
   nodeInfNfe_enderDest := XMLDocument1.ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe').ChildNodes.FindNode('dest').ChildNodes.FindNode('enderDest');
 
