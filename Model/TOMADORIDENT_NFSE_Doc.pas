@@ -51,7 +51,7 @@ end;
 
 function TTOMADORIDENT_NFSE_Doc.getTEmail: String;
 begin
-  result := TICnpj;
+  result := TEmail;
 end;
 
 function TTOMADORIDENT_NFSE_Doc.getTICnpj: String;
@@ -104,7 +104,6 @@ begin
 
     if FNodeTomador.ChildNodes.FindNode('Email') <> nil then
        TEmail := FNodeTomador.ChildNodes.FindNode('Email').Text;
-
   end;
 
 end;

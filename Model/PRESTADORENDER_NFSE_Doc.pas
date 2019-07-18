@@ -7,7 +7,7 @@ uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
 type TPRESTADORENDER_NFSE_Doc = class
 
   private
-    PEndereco, PENumero, PEBairro, PECodMun, PEDescMun, PEUf, PECEP, PETipoBairr : String;
+    PEndereco, PENumero, PEBairro, PECodMun, PEDescMun, PEUf, PECEP, PETipoBairr, PEEmail : String;
 
     FNodePrestadorEnder: IXMLNode;
 
@@ -27,6 +27,8 @@ type TPRESTADORENDER_NFSE_Doc = class
     procedure setPENumero(const Value: String);
     procedure setPETipoBairr(const Value: String);
     procedure setPEUf(const Value: String);
+    function getPEmail: String;
+    procedure setPEmail(const Value: String);
 
 
   public
@@ -44,6 +46,7 @@ type TPRESTADORENDER_NFSE_Doc = class
     property TPEUf : String read getPEUf write setPEUf;
     property TPECEP : String read getPECEP write setPECEP;
     property TPETipoBairr : String read getPETipoBairr write setPETipoBairr;
+    property TPEmail : String read getPEmail write setPEmail;
 
 end;
 
@@ -79,6 +82,11 @@ end;
 function TPRESTADORENDER_NFSE_Doc.getPEDescMun: String;
 begin
   result := PEDescMun;
+end;
+
+function TPRESTADORENDER_NFSE_Doc.getPEmail: String;
+begin
+  result := PEEmail;
 end;
 
 function TPRESTADORENDER_NFSE_Doc.getPEndereco: String;
@@ -119,6 +127,11 @@ end;
 procedure TPRESTADORENDER_NFSE_Doc.setPEDescMun(const Value: String);
 begin
   PEDescMun := Value;
+end;
+
+procedure TPRESTADORENDER_NFSE_Doc.setPEmail(const Value: String);
+begin
+  PEEmail := Value;
 end;
 
 procedure TPRESTADORENDER_NFSE_Doc.setPEndereco(const Value: String);
@@ -168,6 +181,9 @@ begin
 
     if FNodePrestadorEnder.ChildNodes.FindNode('Cep') <> nil then
        PECEP := FNodePrestadorEnder.ChildNodes.FindNode('Cep').Text;
+
+    if FNodePrestadorEnder.ChildNodes.FindNode('Email') <> nil then
+       PEEmail := FNodePrestadorEnder.ChildNodes.FindNode('Email').Text;
   end;
 
 end;
