@@ -1,5 +1,8 @@
 unit LOTERPS_NFSE_Doc;
-
+{**
+ *
+ * @author Kauai Guarilha
+ */}
 interface
 
 uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;

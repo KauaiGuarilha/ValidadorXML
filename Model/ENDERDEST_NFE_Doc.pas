@@ -1,5 +1,8 @@
 unit ENDERDEST_NFE_Doc;
-
+{**
+ *
+ * @author Kauai Guarilha
+ */}
 interface
 
 uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;

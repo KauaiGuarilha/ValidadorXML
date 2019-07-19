@@ -1,5 +1,8 @@
 unit UnfeAutorizada;
-
+{**
+ *
+ * @author Kauai Guarilha
+ */}
 interface
 
 uses
