@@ -27,7 +27,8 @@ uses
   PRESTADOR_NFSE_Doc in 'Model\PRESTADOR_NFSE_Doc.pas',
   PRESTADORENDER_NFSE_Doc in 'Model\PRESTADORENDER_NFSE_Doc.pas',
   TOMADORIDENT_NFSE_Doc in 'Model\TOMADORIDENT_NFSE_Doc.pas',
-  TOMADORENDER_NFSE_Doc in 'Model\TOMADORENDER_NFSE_Doc.pas';
+  TOMADORENDER_NFSE_Doc in 'Model\TOMADORENDER_NFSE_Doc.pas',
+  UmdfeDocumento in 'View\UmdfeDocumento.pas' {frmMdfeDocumento};
 
 {$R *.res}
 
@@ -46,5 +47,6 @@ begin
   Application.CreateForm(TfrmNFSe, frmNFSe);
   Application.CreateForm(TfrmMDFe, frmMDFe);
   Application.CreateForm(TfrmProd_NFe_Documento, frmProd_NFe_Documento);
+  Application.CreateForm(TfrmMdfeDocumento, frmMdfeDocumento);
   Application.Run;
 end.
