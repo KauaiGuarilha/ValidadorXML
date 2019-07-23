@@ -53,7 +53,7 @@ object frmProd_NFe_Autorizada: TfrmProd_NFe_Autorizada
     Top = 4
   end
   object XMLDocument1: TXMLDocument
-    Left = 448
-    Top = 4
+    Left = 472
+    Top = 12
   end
 end

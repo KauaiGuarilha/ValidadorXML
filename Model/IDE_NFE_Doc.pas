@@ -11,7 +11,7 @@ type TIDE_NFE_Doc = class
 
   private
     cUf, cNF, natOp, mood, serie, nNF, dhEmi, dhSaiEnt, tpNF, idDest, cMunFG, tpImp, tpEmis, cDV, tpAmb, finNFe, indFinal,
-    indPres, procEmi, verProc: String;
+    indPres, procEmi, verProc : String;
 
     FNodeIde: IXMLNode;
 

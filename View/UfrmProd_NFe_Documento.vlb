@@ -1,13 +1,4 @@
-﻿[MemoTrib]
-Coordinates=201,78,72,58
-
-[Label2]
-Coordinates=10,78,53,58
-
-[MemoProd]
-Coordinates=169,10,77,58
-
-[Panel1]
+﻿[Panel1]
 Coordinates=136,78,55,58
 
 [Label1]
@@ -26,6 +17,6 @@ Coordinates=299,1,106,36
 Coordinates=10,146,64,36
 
 []
-Coordinates=10,10,80,58
+Coordinates=10,78,53,58
 Visible=True
 

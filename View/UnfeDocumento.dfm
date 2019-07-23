@@ -831,6 +831,32 @@ object frmNFe_Documento: TfrmNFe_Documento
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label43: TLabel
+      Left = 478
+      Top = 16
+      Width = 69
+      Height = 15
+      Caption = '<infNFE id="'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label50: TLabel
+      Left = 1003
+      Top = 16
+      Width = 13
+      Height = 15
+      Caption = '">'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object btnOk: TButton
       Left = 785
       Top = 618
@@ -1303,18 +1329,26 @@ object frmNFe_Documento: TfrmNFe_Documento
       Height = 21
       TabOrder = 56
     end
+    object edtChaveAcesso: TEdit
+      Left = 550
+      Top = 14
+      Width = 450
+      Height = 21
+      ReadOnly = True
+      TabOrder = 57
+    end
   end
   object OpenDialog1: TOpenDialog
-    Left = 478
-    Top = 8
+    Left = 46
+    Top = 416
   end
   object XMLDocument1: TXMLDocument
-    Left = 550
-    Top = 8
+    Left = 110
+    Top = 416
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
-    Left = 614
-    Top = 8
+    Left = 182
+    Top = 416
   end
 end
