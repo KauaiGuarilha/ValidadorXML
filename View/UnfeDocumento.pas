@@ -136,9 +136,6 @@ type
     edtDEmail: TEdit;
     Label1: TLabel;
     Label34: TLabel;
-    edtChaveAcesso: TEdit;
-    Label43: TLabel;
-    Label50: TLabel;
     procedure Timer1Timer(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
