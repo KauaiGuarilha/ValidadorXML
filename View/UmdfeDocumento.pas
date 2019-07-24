@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Xml.xmldom, Xml.XMLIntf, Vcl.ExtCtrls,
-  Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls;
+  Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls, IDE_MDFE_Doc;
 
 type
   TfrmMdfeDocumento = class(TForm)
@@ -38,29 +38,9 @@ type
     ed: TLabel;
     Label40: TLabel;
     Label41: TLabel;
-    Label42: TLabel;
-    lbnDCpf: TLabel;
-    Label44: TLabel;
-    Label45: TLabel;
-    Label46: TLabel;
-    Label47: TLabel;
-    Label49: TLabel;
-    Label48: TLabel;
-    lbnDCpl: TLabel;
-    Label51: TLabel;
-    Label52: TLabel;
-    Label53: TLabel;
-    Label54: TLabel;
-    Label55: TLabel;
-    Label56: TLabel;
-    Label57: TLabel;
-    Label58: TLabel;
-    lbnDCnpj: TLabel;
-    lbnDEmail: TLabel;
     Label1: TLabel;
-    Label34: TLabel;
     btnOk: TButton;
-    edtUF: TEdit;
+    edtcUF: TEdit;
     edtNMDF: TEdit;
     edtMod: TEdit;
     edtSerie: TEdit;
@@ -83,25 +63,8 @@ type
     edtFone: TEdit;
     edtCEP: TEdit;
     edtEUF: TEdit;
-    edtDXNome: TEdit;
-    edtCPF: TEdit;
-    edtIndIEDest: TEdit;
-    edtDxLgr: TEdit;
-    edtDnro: TEdit;
-    edtDxBairro: TEdit;
-    edtDxCpl: TEdit;
-    edtDcMun: TEdit;
-    edtDxMun: TEdit;
-    edtDcPais: TEdit;
-    edtDxPais: TEdit;
-    edtDfone: TEdit;
-    edtDCEP: TEdit;
-    edtDUF: TEdit;
     StatusBar1: TStatusBar;
     Button1: TButton;
-    edtDIE: TEdit;
-    edtDCNPJ: TEdit;
-    edtDEmail: TEdit;
     XMLDocument1: TXMLDocument;
     Timer1: TTimer;
     OpenDialog1: TOpenDialog;
@@ -120,10 +83,18 @@ type
     Label15: TLabel;
     edtCMunCarrega: TEdit;
     edtXMunCarrega: TEdit;
+    Label19: TLabel;
+    edtUFPer: TEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Timer1Timer(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
   private
-    { Private declarations }
+    FIDE_MDFE_Doc : TIDE_MDFE_Doc;
+
   public
-    { Public declarations }
+    procedure ide_mfde_doc;
+
   end;
 
 var
@@ -132,5 +103,58 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmMdfeDocumento.btnOkClick(Sender: TObject);
+begin
+  try
+    OpenDialog1.Execute;
+    XMLDocument1.LoadFromFile(OpenDialog1.FileName);
+
+    ide_mfde_doc;
+  except on E: Exception do
+
+  end;
+end;
+
+procedure TfrmMdfeDocumento.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FIDE_MDFE_Doc.Destroy_TIDE_MDFE_Doc;
+end;
+
+procedure TfrmMdfeDocumento.FormCreate(Sender: TObject);
+begin
+  FIDE_MDFE_Doc := TIDE_MDFE_Doc.Create_TIDE_MDFE_Doc;
+end;
+
+procedure TfrmMdfeDocumento.ide_mfde_doc;
+var nodeInfNfe_ide : IXMLNode;
+begin
+  nodeInfNfe_ide := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('ide');
+
+  FIDE_MDFE_Doc.NodeIde := nodeInfNfe_ide;
+  FIDE_MDFE_Doc.PreencherIDE;
+
+  self.edtcUF.Text := FIDE_MDFE_Doc.TCUF;
+  self.edtTpAmb.Text := FIDE_MDFE_Doc.TTpAmb;
+  self.edtTpEmit.Text := FIDE_MDFE_Doc.TTpEmit;
+  self.edtMod.Text := FIDE_MDFE_Doc.TMood;
+  self.edtSerie.Text := FIDE_MDFE_Doc.TSerie;
+  self.edtNMDF.Text := FIDE_MDFE_Doc.TNMDF;
+  self.edtCMDF.Text := FIDE_MDFE_Doc.TCMDF;
+  self.edtCDV.Text := FIDE_MDFE_Doc.TCDV;
+  self.edtModal.Text := FIDE_MDFE_Doc.TModal;
+  self.edtDhEmi.Text := FIDE_MDFE_Doc.TDhEmi;
+  self.edtTpEmis.Text := FIDE_MDFE_Doc.TTpEmis;
+  self.edtProcEmi.Text := FIDE_MDFE_Doc.TProcEmi;
+  self.edtUFIni.Text := FIDE_MDFE_Doc.TUFIni;
+  self.edtUFFim.Text := FIDE_MDFE_Doc.TUFFim;
+  self.edtUFPer.Text := FIDE_MDFE_Doc.TUFPer;
+
+end;
+
+procedure TfrmMdfeDocumento.Timer1Timer(Sender: TObject);
+begin
+  StatusBar1.Panels.Items[0].Text := DateTimeToStr(now);
+end;
 
 end.

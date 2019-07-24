@@ -1,6 +1,7 @@
 object frmMdfeDocumento: TfrmMdfeDocumento
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Leitor de XML P/V.: 3.00 | Documento MDF-e'
   ClientHeight = 739
   ClientWidth = 1040
@@ -11,6 +12,9 @@ object frmMdfeDocumento: TfrmMdfeDocumento
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poOwnerFormCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object frmMdfeDocumento: TPanel
@@ -113,7 +117,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ParentFont = False
     end
     object Label12: TLabel
-      Left = 225
+      Left = 169
       Top = 220
       Width = 44
       Height = 15
@@ -385,268 +389,8 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label42: TLabel
-      Left = 704
-      Top = 52
-      Width = 88
-      Height = 21
-      Caption = 'Destinat'#225'rio'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lbnDCpf: TLabel
-      Left = 704
-      Top = 76
-      Width = 36
-      Height = 15
-      Caption = '<CPF>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label44: TLabel
-      Left = 705
-      Top = 172
-      Width = 55
-      Height = 15
-      Caption = '<xNome>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label45: TLabel
-      Left = 935
-      Top = 76
-      Width = 67
-      Height = 15
-      Caption = '<indIEDest>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label46: TLabel
-      Left = 704
-      Top = 268
-      Width = 88
-      Height = 21
-      Caption = 'Destinat'#225'rio'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label47: TLabel
-      Left = 704
-      Top = 295
-      Width = 39
-      Height = 15
-      Caption = '<xLgr>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label49: TLabel
-      Left = 896
-      Top = 291
-      Width = 34
-      Height = 15
-      Caption = '<nro>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label48: TLabel
-      Left = 706
-      Top = 343
-      Width = 53
-      Height = 15
-      Caption = '<xBairro>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lbnDCpl: TLabel
-      Left = 705
-      Top = 391
-      Width = 39
-      Height = 15
-      Caption = '<xCpl>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label51: TLabel
-      Left = 705
-      Top = 439
-      Width = 47
-      Height = 15
-      Caption = '<cMun>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label52: TLabel
-      Left = 785
-      Top = 439
-      Width = 47
-      Height = 15
-      Caption = '<xMun>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label53: TLabel
-      Left = 705
-      Top = 485
-      Width = 43
-      Height = 15
-      Caption = '<cPais>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label54: TLabel
-      Left = 785
-      Top = 485
-      Width = 43
-      Height = 15
-      Caption = '<xPais>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label55: TLabel
-      Left = 705
-      Top = 533
-      Width = 40
-      Height = 15
-      Caption = '<fone>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label56: TLabel
-      Left = 801
-      Top = 533
-      Width = 36
-      Height = 15
-      Caption = '<CEP>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label57: TLabel
-      Left = 952
-      Top = 533
-      Width = 30
-      Height = 15
-      Caption = '<UF>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label58: TLabel
-      Left = 831
-      Top = 76
-      Width = 26
-      Height = 15
-      Caption = '<IE>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lbnDCnpj: TLabel
-      Left = 705
-      Top = 124
-      Width = 43
-      Height = 15
-      Caption = '<CNPJ>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object lbnDEmail: TLabel
-      Left = 706
-      Top = 220
-      Width = 45
-      Height = 15
-      Caption = '<email>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
     object Label1: TLabel
       Left = 451
-      Top = 271
-      Width = 56
-      Height = 17
-      Caption = 'Endere'#231'o'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object Label34: TLabel
-      Left = 798
       Top = 271
       Width = 56
       Height = 17
@@ -698,7 +442,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ParentFont = False
     end
     object Label9: TLabel
-      Left = 281
+      Left = 225
       Top = 220
       Width = 50
       Height = 15
@@ -762,6 +506,19 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label19: TLabel
+      Left = 283
+      Top = 220
+      Width = 47
+      Height = 15
+      Caption = '<UFPer>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object btnOk: TButton
       Left = 785
       Top = 618
@@ -776,8 +533,9 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
+      OnClick = btnOkClick
     end
-    object edtUF: TEdit
+    object edtcUF: TEdit
       Left = 41
       Top = 97
       Width = 49
@@ -852,7 +610,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
     object edtVerProc: TEdit
       Left = 41
       Top = 241
-      Width = 178
+      Width = 120
       Height = 21
       ReadOnly = True
       TabOrder = 10
@@ -961,118 +719,6 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ReadOnly = True
       TabOrder = 23
     end
-    object edtDXNome: TEdit
-      Left = 705
-      Top = 193
-      Width = 297
-      Height = 21
-      ReadOnly = True
-      TabOrder = 24
-    end
-    object edtCPF: TEdit
-      Left = 704
-      Top = 97
-      Width = 123
-      Height = 21
-      ReadOnly = True
-      TabOrder = 25
-    end
-    object edtIndIEDest: TEdit
-      Left = 935
-      Top = 97
-      Width = 65
-      Height = 21
-      ReadOnly = True
-      TabOrder = 26
-    end
-    object edtDxLgr: TEdit
-      Left = 704
-      Top = 316
-      Width = 297
-      Height = 21
-      ReadOnly = True
-      TabOrder = 27
-    end
-    object edtDnro: TEdit
-      Left = 936
-      Top = 289
-      Width = 65
-      Height = 21
-      ReadOnly = True
-      TabOrder = 28
-    end
-    object edtDxBairro: TEdit
-      Left = 706
-      Top = 364
-      Width = 296
-      Height = 21
-      ReadOnly = True
-      TabOrder = 29
-    end
-    object edtDxCpl: TEdit
-      Left = 705
-      Top = 412
-      Width = 297
-      Height = 21
-      ReadOnly = True
-      TabOrder = 30
-    end
-    object edtDcMun: TEdit
-      Left = 705
-      Top = 460
-      Width = 74
-      Height = 21
-      ReadOnly = True
-      TabOrder = 31
-    end
-    object edtDxMun: TEdit
-      Left = 785
-      Top = 460
-      Width = 217
-      Height = 21
-      ReadOnly = True
-      TabOrder = 32
-    end
-    object edtDcPais: TEdit
-      Left = 705
-      Top = 508
-      Width = 74
-      Height = 21
-      ReadOnly = True
-      TabOrder = 33
-    end
-    object edtDxPais: TEdit
-      Left = 785
-      Top = 508
-      Width = 217
-      Height = 21
-      ReadOnly = True
-      TabOrder = 34
-    end
-    object edtDfone: TEdit
-      Left = 705
-      Top = 554
-      Width = 89
-      Height = 21
-      ReadOnly = True
-      TabOrder = 35
-    end
-    object edtDCEP: TEdit
-      Left = 800
-      Top = 554
-      Width = 146
-      Height = 21
-      ReadOnly = True
-      TabOrder = 36
-    end
-    object edtDUF: TEdit
-      Left = 952
-      Top = 554
-      Width = 50
-      Height = 21
-      ReadOnly = True
-      TabOrder = 37
-    end
     object StatusBar1: TStatusBar
       Left = 1
       Top = 712
@@ -1096,29 +742,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 39
-    end
-    object edtDIE: TEdit
-      Left = 833
-      Top = 97
-      Width = 96
-      Height = 21
-      TabOrder = 40
-    end
-    object edtDCNPJ: TEdit
-      Left = 705
-      Top = 145
-      Width = 295
-      Height = 21
-      ReadOnly = True
-      TabOrder = 41
-    end
-    object edtDEmail: TEdit
-      Left = 705
-      Top = 241
-      Width = 297
-      Height = 21
-      TabOrder = 42
+      TabOrder = 25
     end
     object edtTpEmit: TEdit
       Left = 166
@@ -1126,14 +750,14 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Width = 53
       Height = 21
       ReadOnly = True
-      TabOrder = 43
+      TabOrder = 26
     end
     object edtCMDF: TEdit
       Left = 96
       Top = 145
       Width = 123
       Height = 21
-      TabOrder = 44
+      TabOrder = 27
     end
     object edtModal: TEdit
       Left = 283
@@ -1141,46 +765,55 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Width = 54
       Height = 21
       ReadOnly = True
-      TabOrder = 45
+      TabOrder = 28
     end
     object edtUFIni: TEdit
+      Left = 169
+      Top = 241
+      Width = 50
+      Height = 21
+      TabOrder = 29
+    end
+    object edtUFFim: TEdit
       Left = 225
       Top = 241
       Width = 50
       Height = 21
-      TabOrder = 46
-    end
-    object edtUFFim: TEdit
-      Left = 283
-      Top = 241
-      Width = 54
-      Height = 21
-      TabOrder = 47
+      TabOrder = 30
     end
     object edtCMunCarrega: TEdit
       Left = 41
       Top = 319
       Width = 178
       Height = 21
-      TabOrder = 48
+      TabOrder = 31
     end
     object edtXMunCarrega: TEdit
       Left = 41
       Top = 367
       Width = 296
       Height = 21
-      TabOrder = 49
+      TabOrder = 32
+    end
+    object edtUFPer: TEdit
+      Left = 283
+      Top = 241
+      Width = 54
+      Height = 21
+      TabOrder = 33
     end
   end
   object XMLDocument1: TXMLDocument
     Left = 552
+    Top = 8
   end
   object Timer1: TTimer
+    OnTimer = Timer1Timer
     Left = 494
-    Top = 3
+    Top = 11
   end
   object OpenDialog1: TOpenDialog
     Left = 614
-    Top = 3
+    Top = 11
   end
 end

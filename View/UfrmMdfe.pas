@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, UmdfeDocumento,
   Vcl.ExtCtrls;
 
 type
@@ -17,9 +17,11 @@ type
     procedure NFe_RClick(Sender: TObject);
     procedure NFe_AClick(Sender: TObject);
   private
-    { Private declarations }
+
   public
-    { Public declarations }
+    umfrmMdfeDocumento : TfrmMdfeDocumento;
+
+
   end;
 
 var
@@ -38,9 +40,12 @@ end;
 
 procedure TfrmMDFe.NFe_RClick(Sender: TObject);
 begin
-    begin
-    ShowMessage('Módulo MDF-e Documento em contrução!');
-end;
+  umfrmMdfeDocumento := TfrmMdfeDocumento.Create(nil);
+  try
+    umfrmMdfeDocumento.ShowModal;
+  finally
+    FreeAndNil(umfrmMdfeDocumento);
+  end;
 end;
 
 end.

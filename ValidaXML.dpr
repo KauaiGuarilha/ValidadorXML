@@ -28,7 +28,8 @@ uses
   PRESTADORENDER_NFSE_Doc in 'Model\PRESTADORENDER_NFSE_Doc.pas',
   TOMADORIDENT_NFSE_Doc in 'Model\TOMADORIDENT_NFSE_Doc.pas',
   TOMADORENDER_NFSE_Doc in 'Model\TOMADORENDER_NFSE_Doc.pas',
-  UmdfeDocumento in 'View\UmdfeDocumento.pas' {frmMdfeDocumento};
+  UmdfeDocumento in 'View\UmdfeDocumento.pas' {frmMdfeDocumento},
+  IDE_MDFE_Doc in 'Model\IDE_MDFE_Doc.pas';
 
 {$R *.res}
 
