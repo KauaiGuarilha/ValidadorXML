@@ -29,7 +29,8 @@ uses
   TOMADORIDENT_NFSE_Doc in 'Model\TOMADORIDENT_NFSE_Doc.pas',
   TOMADORENDER_NFSE_Doc in 'Model\TOMADORENDER_NFSE_Doc.pas',
   UmdfeDocumento in 'View\UmdfeDocumento.pas' {frmMdfeDocumento},
-  IDE_MDFE_Doc in 'Model\IDE_MDFE_Doc.pas';
+  IDE_MDFE_Doc in 'Model\IDE_MDFE_Doc.pas',
+  EMIT_MDFE_Doc in 'Model\EMIT_MDFE_Doc.pas';
 
 {$R *.res}
 

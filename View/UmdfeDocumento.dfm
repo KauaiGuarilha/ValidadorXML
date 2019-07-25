@@ -615,7 +615,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ReadOnly = True
       TabOrder = 10
     end
-    object edtCnpj: TEdit
+    object edtECnpj: TEdit
       Left = 376
       Top = 97
       Width = 296
@@ -623,7 +623,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ReadOnly = True
       TabOrder = 11
     end
-    object edtXNome: TEdit
+    object edtEXNome: TEdit
       Left = 376
       Top = 145
       Width = 296
@@ -631,7 +631,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ReadOnly = True
       TabOrder = 12
     end
-    object edtXFant: TEdit
+    object edtEXFant: TEdit
       Left = 376
       Top = 193
       Width = 296
@@ -639,7 +639,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ReadOnly = True
       TabOrder = 13
     end
-    object edtIE: TEdit
+    object edtEIE: TEdit
       Left = 376
       Top = 241
       Width = 121
@@ -647,7 +647,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ReadOnly = True
       TabOrder = 14
     end
-    object edtIEST: TEdit
+    object edtEIEST: TEdit
       Left = 503
       Top = 241
       Width = 169
@@ -791,7 +791,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
     object edtXMunCarrega: TEdit
       Left = 41
       Top = 367
-      Width = 296
+      Width = 178
       Height = 21
       TabOrder = 32
     end

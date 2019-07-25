@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Xml.xmldom, Xml.XMLIntf, Vcl.ExtCtrls,
-  Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls, IDE_MDFE_Doc;
+  Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls, IDE_MDFE_Doc, EMIT_MDFE_Doc, IDE_INF_MDFE_Doc;
 
 type
   TfrmMdfeDocumento = class(TForm)
@@ -50,11 +50,11 @@ type
     edtTpAmb: TEdit;
     edtProcEmi: TEdit;
     edtVerProc: TEdit;
-    edtCnpj: TEdit;
-    edtXNome: TEdit;
-    edtXFant: TEdit;
-    edtIE: TEdit;
-    edtIEST: TEdit;
+    edtECnpj: TEdit;
+    edtEXNome: TEdit;
+    edtEXFant: TEdit;
+    edtEIE: TEdit;
+    edtEIEST: TEdit;
     edtXLgr: TEdit;
     edtXBairro: TEdit;
     edtCMun: TEdit;
@@ -91,10 +91,13 @@ type
     procedure btnOkClick(Sender: TObject);
   private
     FIDE_MDFE_Doc : TIDE_MDFE_Doc;
+    FEMIT_MDFE_Doc : TEMIT_MDFE_Doc;
+    FIDE_INF_MDFE_Doc : TIDE_INF_MDFE_Doc;
 
   public
     procedure ide_mfde_doc;
-
+    procedure ide_inf_mdfe_doc;
+    procedure emit_mdfe_doc;
   end;
 
 var
@@ -111,19 +114,25 @@ begin
     XMLDocument1.LoadFromFile(OpenDialog1.FileName);
 
     ide_mfde_doc;
+    ide_inf_mdfe_doc;
+    emit_mdfe_doc;
   except on E: Exception do
 
   end;
 end;
 
-procedure TfrmMdfeDocumento.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  FIDE_MDFE_Doc.Destroy_TIDE_MDFE_Doc;
-end;
-
 procedure TfrmMdfeDocumento.FormCreate(Sender: TObject);
 begin
   FIDE_MDFE_Doc := TIDE_MDFE_Doc.Create_TIDE_MDFE_Doc;
+  FEMIT_MDFE_Doc := TEMIT_MDFE_Doc.Create_TEMIT_MDFE_Doc;
+  FIDE_INF_MDFE_Doc := TIDE_INF_MDFE_Doc.Create_TIDE_INF_MDFE_Doc;
+end;
+
+procedure TfrmMdfeDocumento.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FIDE_MDFE_Doc.Destroy_TIDE_MDFE_Doc;
+  FEMIT_MDFE_Doc.Destroy_TEMIT_MDFE_Doc;
+  FIDE_INF_MDFE_Doc.Destroy_TIDE_INF_MDFE_Doc;
 end;
 
 procedure TfrmMdfeDocumento.ide_mfde_doc;
@@ -146,10 +155,44 @@ begin
   self.edtDhEmi.Text := FIDE_MDFE_Doc.TDhEmi;
   self.edtTpEmis.Text := FIDE_MDFE_Doc.TTpEmis;
   self.edtProcEmi.Text := FIDE_MDFE_Doc.TProcEmi;
+  self.edtVerProc.Text := FIDE_MDFE_Doc.TVerProc;
   self.edtUFIni.Text := FIDE_MDFE_Doc.TUFIni;
   self.edtUFFim.Text := FIDE_MDFE_Doc.TUFFim;
+
+  nodeInfNfe_ide := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('ide').ChildNodes.FindNode('infPercurso');
+
+  FIDE_MDFE_Doc.NodeIde := nodeInfNfe_ide;
+  FIDE_MDFE_Doc.PreencherIDE;
+
   self.edtUFPer.Text := FIDE_MDFE_Doc.TUFPer;
 
+end;
+
+procedure TfrmMdfeDocumento.ide_inf_mdfe_doc;
+var nodeInfNfe_ideInf : IXMLNode;
+begin
+   nodeInfNfe_ideInf := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('ide').ChildNodes.FindNode('infMunCarrega');
+
+   FIDE_INF_MDFE_Doc.NodeIdeInf := nodeInfNfe_ideInf;
+   FIDE_INF_MDFE_Doc.PreencheIdeInf;
+
+   self.edtCMunCarrega.Text := FIDE_INF_MDFE_Doc.TcMunCarrega;
+   self.edtXMunCarrega.Text := FIDE_INF_MDFE_Doc.TxMunCarrega;
+end;
+
+procedure TfrmMdfeDocumento.emit_mdfe_doc;
+var nodeInfNfe_emit : IXMLNode;
+begin
+  nodeInfNfe_emit := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('emit');
+
+  FEMIT_MDFE_Doc.NodeEmit := nodeInfNfe_emit;
+  FEMIT_MDFE_Doc.PreencheEmit;
+
+  self.edtECnpj.Text := FEMIT_MDFE_Doc.TCNPJ;
+  self.edtEIE.Text := FEMIT_MDFE_Doc.TIE;
+  self.edtEXNome.Text := FEMIT_MDFE_Doc.TXNome;
+  self.edtEXFant.Text := FEMIT_MDFE_Doc.TXFant;
+  self.edtEIEST.Text := FEMIT_MDFE_Doc.TIEST;
 end;
 
 procedure TfrmMdfeDocumento.Timer1Timer(Sender: TObject);

@@ -1,5 +1,8 @@
 unit IDE_MDFE_Doc;
-
+{**
+ *
+ * @author Kauai Guarilha
+ */}
 interface
 
 uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
@@ -260,6 +263,9 @@ begin
      if FNodeIde.ChildNodes.FindNode('mod') <> nil then
        mood := FNodeIde.ChildNodes.FindNode('mod').Text;
 
+     if FNodeIde.ChildNodes.FindNode('serie') <> nil then
+       serie := FNodeIde.ChildNodes.FindNode('serie').Text;
+
      if FNodeIde.ChildNodes.FindNode('nMDF') <> nil then
        nMDF := FNodeIde.ChildNodes.FindNode('nMDF').Text;
 
@@ -280,6 +286,9 @@ begin
 
      if FNodeIde.ChildNodes.FindNode('procEmi') <> nil then
        procEmi := FNodeIde.ChildNodes.FindNode('procEmi').Text;
+
+     if FNodeIde.ChildNodes.FindNode('verProc') <> nil then
+       verProc := FNodeIde.ChildNodes.FindNode('verProc').Text;
 
      if FNodeIde.ChildNodes.FindNode('UFIni') <> nil then
        UFIni := FNodeIde.ChildNodes.FindNode('UFIni').Text;
