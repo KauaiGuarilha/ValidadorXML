@@ -649,6 +649,253 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label47: TLabel
+      Left = 712
+      Top = 274
+      Width = 36
+      Height = 15
+      Caption = '<tara>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label48: TLabel
+      Left = 771
+      Top = 274
+      Width = 50
+      Height = 15
+      Caption = '<capKG>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label49: TLabel
+      Left = 835
+      Top = 274
+      Width = 53
+      Height = 15
+      Caption = '<capM3>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label51: TLabel
+      Left = 894
+      Top = 274
+      Width = 48
+      Height = 15
+      Caption = '<tpRod>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label52: TLabel
+      Left = 948
+      Top = 274
+      Width = 44
+      Height = 15
+      Caption = '<tpCar>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label53: TLabel
+      Left = 712
+      Top = 322
+      Width = 148
+      Height = 21
+      Caption = 'veicTracao condutor'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label54: TLabel
+      Left = 712
+      Top = 349
+      Width = 55
+      Height = 15
+      Caption = '<xNome>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label55: TLabel
+      Left = 712
+      Top = 397
+      Width = 36
+      Height = 15
+      Caption = '<CPF>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label56: TLabel
+      Left = 973
+      Top = 226
+      Width = 30
+      Height = 15
+      Caption = '<UF>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label57: TLabel
+      Left = 712
+      Top = 445
+      Width = 136
+      Height = 21
+      Caption = 'rodo veicReboque'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label58: TLabel
+      Left = 712
+      Top = 472
+      Width = 37
+      Height = 15
+      Caption = '<cInt>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label59: TLabel
+      Left = 799
+      Top = 472
+      Width = 44
+      Height = 15
+      Caption = '<placa>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label60: TLabel
+      Left = 896
+      Top = 472
+      Width = 71
+      Height = 15
+      Caption = '<RENAVAM>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label61: TLabel
+      Left = 973
+      Top = 472
+      Width = 30
+      Height = 15
+      Caption = '<UF>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label62: TLabel
+      Left = 712
+      Top = 520
+      Width = 36
+      Height = 15
+      Caption = '<tara>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label63: TLabel
+      Left = 771
+      Top = 520
+      Width = 50
+      Height = 15
+      Caption = '<capKG>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label64: TLabel
+      Left = 835
+      Top = 520
+      Width = 53
+      Height = 15
+      Caption = '<capM3>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label65: TLabel
+      Left = 894
+      Top = 520
+      Width = 48
+      Height = 15
+      Caption = '<tpRod>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label66: TLabel
+      Left = 948
+      Top = 520
+      Width = 44
+      Height = 15
+      Caption = '<tpCar>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object btnOk: TButton
       Left = 791
       Top = 657
@@ -975,10 +1222,140 @@ object frmMdfeDocumento: TfrmMdfeDocumento
     object edtRENAVAM: TEdit
       Left = 896
       Top = 247
-      Width = 112
+      Width = 71
       Height = 21
       ReadOnly = True
       TabOrder = 39
+    end
+    object edtTara: TEdit
+      Left = 712
+      Top = 295
+      Width = 53
+      Height = 21
+      ReadOnly = True
+      TabOrder = 40
+    end
+    object edtCapKG: TEdit
+      Left = 771
+      Top = 295
+      Width = 58
+      Height = 21
+      ReadOnly = True
+      TabOrder = 41
+    end
+    object edtCapM3: TEdit
+      Left = 835
+      Top = 295
+      Width = 53
+      Height = 21
+      ReadOnly = True
+      TabOrder = 42
+    end
+    object edtTpRod: TEdit
+      Left = 896
+      Top = 295
+      Width = 46
+      Height = 21
+      ReadOnly = True
+      TabOrder = 43
+    end
+    object edtTpCar: TEdit
+      Left = 948
+      Top = 295
+      Width = 60
+      Height = 21
+      TabOrder = 44
+    end
+    object edtCxNome: TEdit
+      Left = 712
+      Top = 370
+      Width = 296
+      Height = 21
+      TabOrder = 45
+    end
+    object edtCCPF: TEdit
+      Left = 712
+      Top = 418
+      Width = 153
+      Height = 21
+      TabOrder = 46
+    end
+    object edtVUF: TEdit
+      Left = 973
+      Top = 247
+      Width = 35
+      Height = 21
+      TabOrder = 47
+    end
+    object edtRCInt: TEdit
+      Left = 712
+      Top = 493
+      Width = 81
+      Height = 21
+      ReadOnly = True
+      TabOrder = 48
+    end
+    object edtRPlaca: TEdit
+      Left = 799
+      Top = 493
+      Width = 91
+      Height = 21
+      ReadOnly = True
+      TabOrder = 49
+    end
+    object edtRRENAVAM: TEdit
+      Left = 896
+      Top = 493
+      Width = 71
+      Height = 21
+      ReadOnly = True
+      TabOrder = 50
+    end
+    object edtRUF: TEdit
+      Left = 973
+      Top = 493
+      Width = 35
+      Height = 21
+      TabOrder = 51
+    end
+    object edtRTara: TEdit
+      Left = 712
+      Top = 541
+      Width = 53
+      Height = 21
+      ReadOnly = True
+      TabOrder = 52
+    end
+    object edtRCapKG: TEdit
+      Left = 771
+      Top = 541
+      Width = 58
+      Height = 21
+      ReadOnly = True
+      TabOrder = 53
+    end
+    object edtRCapM3: TEdit
+      Left = 835
+      Top = 541
+      Width = 53
+      Height = 21
+      ReadOnly = True
+      TabOrder = 54
+    end
+    object edtRTpRod: TEdit
+      Left = 896
+      Top = 541
+      Width = 46
+      Height = 21
+      ReadOnly = True
+      TabOrder = 55
+    end
+    object edtRTpCar: TEdit
+      Left = 948
+      Top = 541
+      Width = 60
+      Height = 21
+      TabOrder = 56
     end
   end
   object XMLDocument1: TXMLDocument
