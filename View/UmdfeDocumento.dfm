@@ -208,11 +208,11 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ParentFont = False
     end
     object Label25: TLabel
-      Left = 376
-      Top = 76
-      Width = 43
+      Left = 712
+      Top = 79
+      Width = 53
       Height = 15
-      Caption = '<CNPJ>'
+      Caption = '<RNTRC>'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -519,9 +519,139 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label20: TLabel
+      Left = 712
+      Top = 25
+      Width = 71
+      Height = 21
+      Caption = 'InfModal '
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label21: TLabel
+      Left = 712
+      Top = 52
+      Width = 100
+      Height = 21
+      Caption = 'rodo infANTT'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label30: TLabel
+      Left = 376
+      Top = 79
+      Width = 43
+      Height = 15
+      Caption = '<CNPJ>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label34: TLabel
+      Left = 712
+      Top = 124
+      Width = 94
+      Height = 21
+      Caption = 'rodo infCIOT'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label38: TLabel
+      Left = 712
+      Top = 151
+      Width = 42
+      Height = 15
+      Caption = '<CIOT>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label39: TLabel
+      Left = 854
+      Top = 151
+      Width = 36
+      Height = 15
+      Caption = '<CPF>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label42: TLabel
+      Left = 712
+      Top = 199
+      Width = 116
+      Height = 21
+      Caption = 'rodo veicTracao'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label44: TLabel
+      Left = 712
+      Top = 226
+      Width = 37
+      Height = 15
+      Caption = '<cInt>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label45: TLabel
+      Left = 799
+      Top = 226
+      Width = 44
+      Height = 15
+      Caption = '<placa>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label46: TLabel
+      Left = 896
+      Top = 226
+      Width = 71
+      Height = 15
+      Caption = '<RENAVAM>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object btnOk: TButton
-      Left = 785
-      Top = 618
+      Left = 791
+      Top = 657
       Width = 217
       Height = 33
       Cursor = crHandPoint
@@ -730,7 +860,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
         end>
     end
     object Button1: TButton
-      Left = 785
+      Left = 548
       Top = 657
       Width = 217
       Height = 33
@@ -801,6 +931,54 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Width = 54
       Height = 21
       TabOrder = 33
+    end
+    object edtRNTRC: TEdit
+      Left = 712
+      Top = 97
+      Width = 153
+      Height = 21
+      ReadOnly = True
+      TabOrder = 34
+    end
+    object edtCIOT: TEdit
+      Left = 712
+      Top = 172
+      Width = 136
+      Height = 21
+      ReadOnly = True
+      TabOrder = 35
+    end
+    object edtCPF: TEdit
+      Left = 854
+      Top = 172
+      Width = 154
+      Height = 21
+      ReadOnly = True
+      TabOrder = 36
+    end
+    object edtCInt: TEdit
+      Left = 712
+      Top = 247
+      Width = 81
+      Height = 21
+      ReadOnly = True
+      TabOrder = 37
+    end
+    object edtPlaca: TEdit
+      Left = 799
+      Top = 247
+      Width = 91
+      Height = 21
+      ReadOnly = True
+      TabOrder = 38
+    end
+    object edtRENAVAM: TEdit
+      Left = 896
+      Top = 247
+      Width = 112
+      Height = 21
+      ReadOnly = True
+      TabOrder = 39
     end
   end
   object XMLDocument1: TXMLDocument

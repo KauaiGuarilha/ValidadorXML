@@ -30,7 +30,8 @@ uses
   TOMADORENDER_NFSE_Doc in 'Model\TOMADORENDER_NFSE_Doc.pas',
   UmdfeDocumento in 'View\UmdfeDocumento.pas' {frmMdfeDocumento},
   IDE_MDFE_Doc in 'Model\IDE_MDFE_Doc.pas',
-  EMIT_MDFE_Doc in 'Model\EMIT_MDFE_Doc.pas';
+  EMIT_MDFE_Doc in 'Model\EMIT_MDFE_Doc.pas',
+  IDE_INF_MDFE_Doc in 'Model\IDE_INF_MDFE_Doc.pas';
 
 {$R *.res}
 
