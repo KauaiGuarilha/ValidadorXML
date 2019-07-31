@@ -1,5 +1,8 @@
 unit RODO_INF_MDFE_Doc;
-
+{**
+ *
+ * @author Kauai Guarilha
+ */}
 interface
 
 uses Xml.XMLDoc, Xml.xmldom, Xml.XMLIntf;
@@ -25,11 +28,10 @@ type TRODO_INF_MDFE_Doc = class
 
     procedure PreencheRodoInf;
 
-    property NodeEmit: IXMLNode read FNodeRodoInf write FNodeRodoInf;
+    property NodeRodoInf: IXMLNode read FNodeRodoInf write FNodeRodoInf;
     property TRNTRC : String read getRNTRC write setRNTRC;
     property TCIOT : String read getCIOT write setCIOT;
     property TCPF : String read getCPF write setCPF;
-
 end;
 
 implementation
@@ -78,7 +80,17 @@ end;
 
 procedure TRODO_INF_MDFE_Doc.PreencheRodoInf;
 begin
+  if Assigned(FNodeRodoInf) then
+    begin
+      if FNodeRodoInf.ChildNodes.FindNode('RNTRC') <> nil then
+        RNTRC := FNodeRodoInf.ChildNodes.FindNode('RNTRC').Text;
 
+      if FNodeRodoInf.ChildNodes.FindNode('CIOT') <> nil then
+        CIOT := FNodeRodoInf.ChildNodes.FindNode('CIOT').Text;
+
+      if FNodeRodoInf.ChildNodes.FindNode('CPF') <> nil then
+        CPF := FNodeRodoInf.ChildNodes.FindNode('CPF').Text;
+    end;
 end;
 
 end.

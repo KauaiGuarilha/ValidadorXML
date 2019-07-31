@@ -55,8 +55,6 @@ type TENDEREMIT_NFE_Doc = class
     property TCPais : String read getCPais write setCPais;
     property TXPais : String read getXPais write setXPais;
     property TFone : String read getFone write setFone;
-
-
 end;
 
 implementation

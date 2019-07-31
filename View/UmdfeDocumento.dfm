@@ -896,9 +896,22 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label67: TLabel
+      Left = 376
+      Top = 487
+      Width = 45
+      Height = 15
+      Caption = '<email>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object btnOk: TButton
       Left = 791
-      Top = 657
+      Top = 618
       Width = 217
       Height = 33
       Cursor = crHandPoint
@@ -1107,7 +1120,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
         end>
     end
     object Button1: TButton
-      Left = 548
+      Left = 791
       Top = 657
       Width = 217
       Height = 33
@@ -1356,6 +1369,14 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Width = 60
       Height = 21
       TabOrder = 56
+    end
+    object edtEEmail: TEdit
+      Left = 376
+      Top = 508
+      Width = 296
+      Height = 21
+      ReadOnly = True
+      TabOrder = 57
     end
   end
   object XMLDocument1: TXMLDocument
