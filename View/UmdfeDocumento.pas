@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Xml.xmldom, Xml.XMLIntf, Vcl.ExtCtrls,
-  Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls, IDE_MDFE_Doc, EMIT_MDFE_Doc, IDE_INF_MDFE_Doc;
+  Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls, IDE_MDFE_Doc, EMIT_MDFE_Doc, IDE_INF_MDFE_Doc, RODO_INF_MDFE_Doc;
 
 type
   TfrmMdfeDocumento = class(TForm)
@@ -145,6 +145,7 @@ type
     FIDE_MDFE_Doc : TIDE_MDFE_Doc;
     FEMIT_MDFE_Doc : TEMIT_MDFE_Doc;
     FIDE_INF_MDFE_Doc : TIDE_INF_MDFE_Doc;
+    FRODO_INF_MDFE_Doc : TRODO_INF_MDFE_Doc;
 
   public
     procedure ide_mfde_doc;
@@ -178,6 +179,7 @@ begin
   FIDE_MDFE_Doc := TIDE_MDFE_Doc.Create_TIDE_MDFE_Doc;
   FEMIT_MDFE_Doc := TEMIT_MDFE_Doc.Create_TEMIT_MDFE_Doc;
   FIDE_INF_MDFE_Doc := TIDE_INF_MDFE_Doc.Create_TIDE_INF_MDFE_Doc;
+  FRODO_INF_MDFE_Doc := TRODO_INF_MDFE_Doc.Create_TRODO_INF_MDFE_Doc;
 end;
 
 procedure TfrmMdfeDocumento.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -185,6 +187,7 @@ begin
   FIDE_MDFE_Doc.Destroy_TIDE_MDFE_Doc;
   FEMIT_MDFE_Doc.Destroy_TEMIT_MDFE_Doc;
   FIDE_INF_MDFE_Doc.Destroy_TIDE_INF_MDFE_Doc;
+  FRODO_INF_MDFE_Doc.Destroy_TRODO_INF_MDFE_Doc;
 end;
 
 procedure TfrmMdfeDocumento.ide_mfde_doc;
