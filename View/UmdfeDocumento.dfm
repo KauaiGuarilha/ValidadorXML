@@ -909,6 +909,84 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object Label68: TLabel
+      Left = 96
+      Top = 394
+      Width = 168
+      Height = 21
+      Caption = '________________________'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label69: TLabel
+      Left = 41
+      Top = 434
+      Width = 88
+      Height = 21
+      Caption = 'rodo infDoc'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label70: TLabel
+      Left = 40
+      Top = 461
+      Width = 96
+      Height = 15
+      Caption = '<cMunDescarga>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label71: TLabel
+      Left = 41
+      Top = 510
+      Width = 96
+      Height = 15
+      Caption = '<xMunDescarga>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label72: TLabel
+      Left = 40
+      Top = 558
+      Width = 88
+      Height = 21
+      Caption = 'rodo infNFe'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label73: TLabel
+      Left = 40
+      Top = 585
+      Width = 50
+      Height = 15
+      Caption = '<chNFe>'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object btnOk: TButton
       Left = 791
       Top = 618
@@ -1377,6 +1455,30 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Height = 21
       ReadOnly = True
       TabOrder = 57
+    end
+    object edtIcMunDescarga: TEdit
+      Left = 41
+      Top = 483
+      Width = 178
+      Height = 21
+      ReadOnly = True
+      TabOrder = 58
+    end
+    object edtIxMunDescarga: TEdit
+      Left = 41
+      Top = 531
+      Width = 178
+      Height = 21
+      ReadOnly = True
+      TabOrder = 59
+    end
+    object edtchNFe: TEdit
+      Left = 40
+      Top = 606
+      Width = 297
+      Height = 21
+      ReadOnly = True
+      TabOrder = 60
     end
   end
   object XMLDocument1: TXMLDocument

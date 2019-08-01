@@ -1,12 +1,15 @@
 unit UmdfeDocumento;
-
+{**
+ *
+ * @author Kauai Guarilha
+ */}
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Xml.xmldom, Xml.XMLIntf, Vcl.ExtCtrls,
   Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls, IDE_MDFE_Doc, EMIT_MDFE_Doc, IDE_INF_MDFE_Doc, RODO_INF_MDFE_Doc,
-  ENDEREMIT_MDFE_Doc, Vcl.Imaging.pngimage;
+  ENDEREMIT_MDFE_Doc, Vcl.Imaging.pngimage, INFDOC_MDFE_Doc;
 
 type
   TfrmMdfeDocumento = class(TForm)
@@ -140,6 +143,15 @@ type
     edtRTpCar: TEdit;
     edtEEmail: TEdit;
     Label67: TLabel;
+    Label68: TLabel;
+    Label69: TLabel;
+    Label70: TLabel;
+    Label71: TLabel;
+    edtIcMunDescarga: TEdit;
+    edtIxMunDescarga: TEdit;
+    Label72: TLabel;
+    Label73: TLabel;
+    edtchNFe: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Timer1Timer(Sender: TObject);
@@ -150,6 +162,7 @@ type
     FENDEREMIT_MDFE_Doc : TENDEREMIT_MDFE_Doc;
     FIDE_INF_MDFE_Doc : TIDE_INF_MDFE_Doc;
     FRODO_INF_MDFE_Doc : TRODO_INF_MDFE_Doc;
+    FINFDOC_MDFE_Doc : TINFDOC_MDFE_Doc;
 
   public
     procedure ide_mfde_doc;
@@ -157,6 +170,7 @@ type
     procedure emit_mdfe_doc;
     procedure ender_emit_mdfe_doc;
     procedure rodo_inf_mdfe_doc;
+    procedure infDoc_mdfe_doc;
   end;
 
 var
@@ -177,6 +191,7 @@ begin
     emit_mdfe_doc;
     ender_emit_mdfe_doc;
     rodo_inf_mdfe_doc;
+    infDoc_mdfe_doc;
   except on E: Exception do
 
   end;
@@ -189,6 +204,7 @@ begin
   FIDE_INF_MDFE_Doc := TIDE_INF_MDFE_Doc.Create_TIDE_INF_MDFE_Doc;
   FRODO_INF_MDFE_Doc := TRODO_INF_MDFE_Doc.Create_TRODO_INF_MDFE_Doc;
   FENDEREMIT_MDFE_Doc := TENDEREMIT_MDFE_Doc.Create_TENDEREMIT_MDFE_Doc;
+  FINFDOC_MDFE_Doc := TINFDOC_MDFE_Doc.Create_TINFDOC_MDFE_Doc;
 end;
 
 procedure TfrmMdfeDocumento.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -198,6 +214,7 @@ begin
   FENDEREMIT_MDFE_Doc.Destroy_TENDEREMIT_MDFE_Doc;
   FIDE_INF_MDFE_Doc.Destroy_TIDE_INF_MDFE_Doc;
   FRODO_INF_MDFE_Doc.Destroy_TRODO_INF_MDFE_Doc;
+  FINFDOC_MDFE_Doc.Destroy_TINFDOC_MDFE_Doc;
 end;
 
 procedure TfrmMdfeDocumento.ide_mfde_doc;
@@ -235,13 +252,13 @@ end;
 procedure TfrmMdfeDocumento.ide_inf_mdfe_doc;
 var nodeInfMdfe_ideInf : IXMLNode;
 begin
-   nodeInfMdfe_ideInf := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('ide').ChildNodes.FindNode('infMunCarrega');
+  nodeInfMdfe_ideInf := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('ide').ChildNodes.FindNode('infMunCarrega');
 
-   FIDE_INF_MDFE_Doc.NodeIdeInf := nodeInfMdfe_ideInf;
-   FIDE_INF_MDFE_Doc.PreencheIdeInf;
+  FIDE_INF_MDFE_Doc.NodeIdeInf := nodeInfMdfe_ideInf;
+  FIDE_INF_MDFE_Doc.PreencheIdeInf;
 
-   self.edtCMunCarrega.Text := FIDE_INF_MDFE_Doc.TcMunCarrega;
-   self.edtXMunCarrega.Text := FIDE_INF_MDFE_Doc.TxMunCarrega;
+  self.edtCMunCarrega.Text := FIDE_INF_MDFE_Doc.TcMunCarrega;
+  self.edtXMunCarrega.Text := FIDE_INF_MDFE_Doc.TxMunCarrega;
 end;
 
 procedure TfrmMdfeDocumento.emit_mdfe_doc;
@@ -262,39 +279,58 @@ end;
 procedure TfrmMdfeDocumento.ender_emit_mdfe_doc;
 var nodeInfMdfe_EnderEmit : IXMLNode;
 begin
-    nodeInfMdfe_EnderEmit := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('emit').ChildNodes.FindNode('enderEmit');
+  nodeInfMdfe_EnderEmit := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('emit').ChildNodes.FindNode('enderEmit');
 
-    FENDEREMIT_MDFE_Doc.NodeEnderEmit := nodeInfMdfe_EnderEmit;
-    FENDEREMIT_MDFE_Doc.PreencherEnderEmit;
+  FENDEREMIT_MDFE_Doc.NodeEnderEmit := nodeInfMdfe_EnderEmit;
+  FENDEREMIT_MDFE_Doc.PreencherEnderEmit;
 
-    self.edtXLgr.Text := FENDEREMIT_MDFE_Doc.TXLgr;
-    self.edtNro.Text := FENDEREMIT_MDFE_Doc.TNro;
-    self.edtXBairro.Text := FENDEREMIT_MDFE_Doc.TXBairro;
-    self.edtCMun.Text := FENDEREMIT_MDFE_Doc.TCMun;
-    self.edtXMun.Text := FENDEREMIT_MDFE_Doc.TXMun;
-    self.edtCEP.Text := FENDEREMIT_MDFE_Doc.TCEP;
-    self.edtEUF.Text := FENDEREMIT_MDFE_Doc.TEUF;
-    self.edtFone.Text := FENDEREMIT_MDFE_Doc.TFone;
-    self.edtEEmail.Text := FENDEREMIT_MDFE_Doc.TEmail;
+  self.edtXLgr.Text := FENDEREMIT_MDFE_Doc.TXLgr;
+  self.edtNro.Text := FENDEREMIT_MDFE_Doc.TNro;
+  self.edtXBairro.Text := FENDEREMIT_MDFE_Doc.TXBairro;
+  self.edtCMun.Text := FENDEREMIT_MDFE_Doc.TCMun;
+  self.edtXMun.Text := FENDEREMIT_MDFE_Doc.TXMun;
+  self.edtCEP.Text := FENDEREMIT_MDFE_Doc.TCEP;
+  self.edtEUF.Text := FENDEREMIT_MDFE_Doc.TEUF;
+  self.edtFone.Text := FENDEREMIT_MDFE_Doc.TFone;
+  self.edtEEmail.Text := FENDEREMIT_MDFE_Doc.TEmail;
 end;
 
 procedure TfrmMdfeDocumento.rodo_inf_mdfe_doc;
 var nodeInfNfe_rodo_inf : IXMLNode;
 begin
-   nodeInfNfe_rodo_inf := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('infModal').ChildNodes.FindNode('rodo').ChildNodes.FindNode('infANTT');
+  nodeInfNfe_rodo_inf := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('infModal').ChildNodes.FindNode('rodo').ChildNodes.FindNode('infANTT');
 
-   FRODO_INF_MDFE_Doc.NodeRodoInf :=  nodeInfNfe_rodo_inf;
-   FRODO_INF_MDFE_Doc.PreencheRodoInf;
+  FRODO_INF_MDFE_Doc.NodeRodoInf :=  nodeInfNfe_rodo_inf;
+  FRODO_INF_MDFE_Doc.PreencheRodoInf;
 
-   self.edtRNTRC.Text := FRODO_INF_MDFE_Doc.TRNTRC; //infANTT
+  self.edtRNTRC.Text := FRODO_INF_MDFE_Doc.TRNTRC; //infANTT
 
-   nodeInfNfe_rodo_inf := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('infModal').ChildNodes.FindNode('rodo').ChildNodes.FindNode('infANTT').ChildNodes.FindNode('infCIOT');
+  nodeInfNfe_rodo_inf := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('infModal').ChildNodes.FindNode('rodo').ChildNodes.FindNode('infANTT').ChildNodes.FindNode('infCIOT');
 
-   FRODO_INF_MDFE_Doc.NodeRodoInf :=  nodeInfNfe_rodo_inf;
-   FRODO_INF_MDFE_Doc.PreencheRodoInf;
+  FRODO_INF_MDFE_Doc.NodeRodoInf :=  nodeInfNfe_rodo_inf;
+  FRODO_INF_MDFE_Doc.PreencheRodoInf;
 
-   self.edtCIOT.Text := FRODO_INF_MDFE_Doc.TCIOT; // infCIOT
-   self.edtCPF.Text := FRODO_INF_MDFE_Doc.TCPF;
+  self.edtCIOT.Text := FRODO_INF_MDFE_Doc.TCIOT; // infCIOT
+  self.edtCPF.Text := FRODO_INF_MDFE_Doc.TCPF;
+end;
+
+procedure TfrmMdfeDocumento.infDoc_mdfe_doc;
+var nodeInfNfe_infDoc : IXMLNode;
+begin
+  nodeInfNfe_infDoc := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('infDoc').ChildNodes.FindNode('infMunDescarga');
+
+  FINFDOC_MDFE_Doc.NodeInfDoc := nodeInfNfe_infDoc;
+  FINFDOC_MDFE_Doc.PreencheInfDoc;
+
+  self.edtIcMunDescarga.Text := FINFDOC_MDFE_Doc.TCMunDescarga;  //infMunDescarga
+  self.edtIxMunDescarga.Text := FINFDOC_MDFE_Doc.TXMunDescarga;
+
+  nodeInfNfe_infDoc := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('infDoc').ChildNodes.FindNode('infMunDescarga').ChildNodes.FindNode('infNFe');
+
+  FINFDOC_MDFE_Doc.NodeInfDoc := nodeInfNfe_infDoc;
+  FINFDOC_MDFE_Doc.PreencheInfDoc;
+
+  self.edtchNFe.Text := FINFDOC_MDFE_Doc.TChNFe;   //infNFe
 end;
 
 procedure TfrmMdfeDocumento.Timer1Timer(Sender: TObject);
