@@ -1355,6 +1355,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Top = 295
       Width = 60
       Height = 21
+      ReadOnly = True
       TabOrder = 44
     end
     object edtCxNome: TEdit
@@ -1362,6 +1363,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Top = 370
       Width = 296
       Height = 21
+      ReadOnly = True
       TabOrder = 45
     end
     object edtCCPF: TEdit
@@ -1369,6 +1371,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Top = 418
       Width = 153
       Height = 21
+      ReadOnly = True
       TabOrder = 46
     end
     object edtVUF: TEdit
@@ -1407,6 +1410,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Top = 493
       Width = 35
       Height = 21
+      ReadOnly = True
       TabOrder = 51
     end
     object edtRTara: TEdit
@@ -1446,6 +1450,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Top = 541
       Width = 60
       Height = 21
+      ReadOnly = True
       TabOrder = 56
     end
     object edtEEmail: TEdit

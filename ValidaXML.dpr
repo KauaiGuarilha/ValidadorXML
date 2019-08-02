@@ -33,7 +33,9 @@ uses
   EMIT_MDFE_Doc in 'Model\EMIT_MDFE_Doc.pas',
   IDE_INF_MDFE_Doc in 'Model\IDE_INF_MDFE_Doc.pas',
   RODO_INF_MDFE_Doc in 'Model\RODO_INF_MDFE_Doc.pas',
-  ENDEREMIT_MDFE_Doc in 'Model\ENDEREMIT_MDFE_Doc.pas';
+  ENDEREMIT_MDFE_Doc in 'Model\ENDEREMIT_MDFE_Doc.pas',
+  INFDOC_MDFE_Doc in 'Model\INFDOC_MDFE_Doc.pas',
+  RODO_INF_VEICTRACAO_MDFE_Doc in 'Model\RODO_INF_VEICTRACAO_MDFE_Doc.pas';
 
 {$R *.res}
 

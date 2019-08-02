@@ -153,6 +153,8 @@
         <DCCReference Include="Model\IDE_INF_MDFE_Doc.pas"/>
         <DCCReference Include="Model\RODO_INF_MDFE_Doc.pas"/>
         <DCCReference Include="Model\ENDEREMIT_MDFE_Doc.pas"/>
+        <DCCReference Include="Model\INFDOC_MDFE_Doc.pas"/>
+        <DCCReference Include="Model\RODO_INF_VEICTRACAO_MDFE_Doc.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
