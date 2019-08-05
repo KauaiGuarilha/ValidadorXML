@@ -9,7 +9,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Xml.xmldom, Xml.XMLIntf, Vcl.ExtCtrls,
   Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls, IDE_MDFE_Doc, EMIT_MDFE_Doc, IDE_INF_MDFE_Doc, RODO_INF_MDFE_Doc,
-  ENDEREMIT_MDFE_Doc, Vcl.Imaging.pngimage, INFDOC_MDFE_Doc, RODO_INF_VEICTRACAO_MDFE_Doc;
+  ENDEREMIT_MDFE_Doc, Vcl.Imaging.pngimage, INFDOC_MDFE_Doc, RODO_INF_VEICTRACAO_MDFE_Doc, RODO_INF_VEICREBOQ_MDFE_Doc;
 
 type
   TfrmMdfeDocumento = class(TForm)
@@ -137,8 +137,6 @@ type
     edtRCapKG: TEdit;
     Label64: TLabel;
     edtRCapM3: TEdit;
-    Label65: TLabel;
-    edtRTpRod: TEdit;
     Label66: TLabel;
     edtRTpCar: TEdit;
     edtEEmail: TEdit;
@@ -164,6 +162,7 @@ type
     FRODO_INF_MDFE_Doc : TRODO_INF_MDFE_Doc;
     FINFDOC_MDFE_Doc : TINFDOC_MDFE_Doc;
     FRODO_INF_VEICTRACAO_MDFE_Doc : TRODO_INF_VEICTRACAO_MDFE_Doc;
+    FRODO_INF_VEICREBOQ_MDFE_Doc : TRODO_INF_VEICREBOQ_MDFE_Doc;
 
   public
     procedure ide_mfde_doc;
@@ -172,6 +171,7 @@ type
     procedure ender_emit_mdfe_doc;
     procedure rodo_inf_mdfe_doc;
     procedure rodo_inf_veicT_doc;
+    procedure rodo_inf_veicR_doc;
     procedure infDoc_mdfe_doc;
   end;
 
@@ -194,6 +194,7 @@ begin
     ender_emit_mdfe_doc;
     rodo_inf_mdfe_doc;
     rodo_inf_veicT_doc;
+    rodo_inf_veicR_doc;
     infDoc_mdfe_doc;
   except on E: Exception do
 
@@ -209,6 +210,7 @@ begin
   FENDEREMIT_MDFE_Doc := TENDEREMIT_MDFE_Doc.Create_TENDEREMIT_MDFE_Doc;
   FINFDOC_MDFE_Doc := TINFDOC_MDFE_Doc.Create_TINFDOC_MDFE_Doc;
   FRODO_INF_VEICTRACAO_MDFE_Doc := TRODO_INF_VEICTRACAO_MDFE_Doc.Create_TRODO_INF_VEICTRACAO_MDFE_Doc;
+  FRODO_INF_VEICREBOQ_MDFE_Doc := TRODO_INF_VEICREBOQ_MDFE_Doc.Create_TRODO_INF_VEICREBOQ_MDFE_Doc;
 end;
 
 procedure TfrmMdfeDocumento.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -220,6 +222,7 @@ begin
   FRODO_INF_MDFE_Doc.Destroy_TRODO_INF_MDFE_Doc;
   FINFDOC_MDFE_Doc.Destroy_TINFDOC_MDFE_Doc;
   FRODO_INF_VEICTRACAO_MDFE_Doc.Destroy_TRODO_INF_VEICTRACAO_MDFE_Doc;
+  FRODO_INF_VEICREBOQ_MDFE_Doc.Destroy_TRODO_INF_VEICREBOQ_MDFE_Doc;
 end;
 
 procedure TfrmMdfeDocumento.ide_mfde_doc;
@@ -344,6 +347,24 @@ begin
 
   self.edtCxNome.Text := FRODO_INF_VEICTRACAO_MDFE_Doc.TXNome;
   self.edtCCPF.Text := FRODO_INF_VEICTRACAO_MDFE_Doc.TCPF;
+end;
+
+procedure TfrmMdfeDocumento.rodo_inf_veicR_doc;
+var nodeInfNfe_rodo_veicR : IXMLNode;
+begin
+  nodeInfNfe_rodo_veicR := XMLDocument1.ChildNodes.FindNode('MDFe').ChildNodes.FindNode('infMDFe').ChildNodes.FindNode('infModal').ChildNodes.FindNode('rodo').ChildNodes.FindNode('veicReboque');
+
+  FRODO_INF_VEICREBOQ_MDFE_Doc.NodeRodoVeicR := nodeInfNfe_rodo_veicR;
+  FRODO_INF_VEICREBOQ_MDFE_Doc.PreencheRodoVeicR;
+
+  self.edtRCInt.Text := FRODO_INF_VEICREBOQ_MDFE_Doc.TCInt;
+  self.edtRPlaca.Text := FRODO_INF_VEICREBOQ_MDFE_Doc.TPlaca;
+  self.edtRRENAVAM.Text := FRODO_INF_VEICREBOQ_MDFE_Doc.TRENAVAM;
+  self.edtRUF.Text := FRODO_INF_VEICREBOQ_MDFE_Doc.TUF;
+  self.edtRTara.Text := FRODO_INF_VEICREBOQ_MDFE_Doc.TTara;
+  self.edtRCapKG.Text := FRODO_INF_VEICREBOQ_MDFE_Doc.TCapKG;
+  self.edtRCapM3.Text := FRODO_INF_VEICREBOQ_MDFE_Doc.TCapM3;
+  self.edtRTpCar.Text := FRODO_INF_VEICREBOQ_MDFE_Doc.TTpCar;
 end;
 
 procedure TfrmMdfeDocumento.infDoc_mdfe_doc;

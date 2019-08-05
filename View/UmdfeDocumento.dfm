@@ -870,21 +870,8 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label65: TLabel
-      Left = 894
-      Top = 520
-      Width = 48
-      Height = 15
-      Caption = '<tpRod>'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
     object Label66: TLabel
-      Left = 948
+      Left = 894
       Top = 520
       Width = 44
       Height = 15
@@ -1437,21 +1424,13 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       ReadOnly = True
       TabOrder = 54
     end
-    object edtRTpRod: TEdit
-      Left = 896
-      Top = 541
-      Width = 46
-      Height = 21
-      ReadOnly = True
-      TabOrder = 55
-    end
     object edtRTpCar: TEdit
-      Left = 948
+      Left = 894
       Top = 541
       Width = 60
       Height = 21
       ReadOnly = True
-      TabOrder = 56
+      TabOrder = 55
     end
     object edtEEmail: TEdit
       Left = 376
@@ -1459,7 +1438,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Width = 296
       Height = 21
       ReadOnly = True
-      TabOrder = 57
+      TabOrder = 56
     end
     object edtIcMunDescarga: TEdit
       Left = 41
@@ -1467,7 +1446,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Width = 178
       Height = 21
       ReadOnly = True
-      TabOrder = 58
+      TabOrder = 57
     end
     object edtIxMunDescarga: TEdit
       Left = 41
@@ -1475,7 +1454,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Width = 178
       Height = 21
       ReadOnly = True
-      TabOrder = 59
+      TabOrder = 58
     end
     object edtchNFe: TEdit
       Left = 40
@@ -1483,7 +1462,7 @@ object frmMdfeDocumento: TfrmMdfeDocumento
       Width = 297
       Height = 21
       ReadOnly = True
-      TabOrder = 60
+      TabOrder = 59
     end
   end
   object XMLDocument1: TXMLDocument
