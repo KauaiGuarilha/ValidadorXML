@@ -81,7 +81,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
     Top = 24
   end
   object XMLDocument1: TXMLDocument
-    Left = 576
-    Top = 32
+    Left = 592
+    Top = 24
   end
 end
