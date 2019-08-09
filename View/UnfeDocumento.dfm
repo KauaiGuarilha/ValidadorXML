@@ -1305,16 +1305,16 @@ object frmNFe_Documento: TfrmNFe_Documento
     end
   end
   object OpenDialog1: TOpenDialog
-    Left = 46
-    Top = 416
+    Left = 638
+    Top = 16
   end
   object XMLDocument1: TXMLDocument
-    Left = 110
-    Top = 416
+    Left = 566
+    Top = 16
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
-    Left = 182
-    Top = 416
+    Left = 502
+    Top = 16
   end
 end
