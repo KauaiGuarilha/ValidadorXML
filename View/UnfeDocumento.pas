@@ -186,6 +186,7 @@ procedure TfrmNFe_Documento.Button1Click(Sender: TObject);
 begin
     umfrmProd_NFe_Documento := TfrmProd_NFe_Documento.Create(nil);
     try
+      umfrmProd_NFe_Documento.NodeInfProd := XMLDocument1.ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe');
       umfrmProd_NFe_Documento.ShowModal;
     finally
       FreeAndNil(umfrmProd_NFe_Documento);

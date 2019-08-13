@@ -4,19 +4,10 @@ Coordinates=136,78,55,58
 [Label1]
 Coordinates=73,78,53,58
 
-[OpenDialog1]
-Coordinates=184,155,90,36
-
-[Button1]
-Coordinates=100,10,59,58
-
-[XMLDocument1]
-Coordinates=299,1,106,36
-
-[DBGrid1]
-Coordinates=10,146,64,36
-
 []
-Coordinates=10,78,53,58
+Coordinates=100,10,59,58
 Visible=True
+
+[DBGProduto]
+Coordinates=10,146,64,36
 
