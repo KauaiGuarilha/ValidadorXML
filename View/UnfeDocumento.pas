@@ -204,11 +204,11 @@ end;
 procedure TfrmNFe_Documento.FormClose(Sender: TObject;
 var Action: TCloseAction);
 begin
-  FIDE_NFE_Doc.Destroy_TIDE_NFE_Doc;
-  FEMIT_NFE_Doc.Destroy_TEMIT_NFE_Doc;
-  FENDEREMIT_NFE_Doc.Destroy_TENDEREMIT_NFE_Doc;
-  FDEST_NFE_Doc.Destroy_TDEST_NFE_Doc;
-  FENDERDEST_NFE_Doc.Destroy_TENDERDEST_NFE_Doc;
+  FIDE_NFE_Doc.Free;
+  FEMIT_NFE_Doc.Free;
+  FENDEREMIT_NFE_Doc.Free;
+  FDEST_NFE_Doc.Free;
+  FENDERDEST_NFE_Doc.Free;
 end;
 
 procedure TfrmNFe_Documento.ide_nfe_doc;

@@ -215,14 +215,14 @@ end;
 
 procedure TfrmMdfeDocumento.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FIDE_MDFE_Doc.Destroy_TIDE_MDFE_Doc;
-  FEMIT_MDFE_Doc.Destroy_TEMIT_MDFE_Doc;
-  FENDEREMIT_MDFE_Doc.Destroy_TENDEREMIT_MDFE_Doc;
-  FIDE_INF_MDFE_Doc.Destroy_TIDE_INF_MDFE_Doc;
-  FRODO_INF_MDFE_Doc.Destroy_TRODO_INF_MDFE_Doc;
-  FINFDOC_MDFE_Doc.Destroy_TINFDOC_MDFE_Doc;
-  FRODO_INF_VEICTRACAO_MDFE_Doc.Destroy_TRODO_INF_VEICTRACAO_MDFE_Doc;
-  FRODO_INF_VEICREBOQ_MDFE_Doc.Destroy_TRODO_INF_VEICREBOQ_MDFE_Doc;
+  FIDE_MDFE_Doc.Free;
+  FEMIT_MDFE_Doc.Free;
+  FENDEREMIT_MDFE_Doc.Free;
+  FIDE_INF_MDFE_Doc.Free;
+  FRODO_INF_MDFE_Doc.Free;
+  FINFDOC_MDFE_Doc.Free;
+  FRODO_INF_VEICTRACAO_MDFE_Doc.Free;
+  FRODO_INF_VEICREBOQ_MDFE_Doc.Free;
 end;
 
 procedure TfrmMdfeDocumento.ide_mfde_doc;
