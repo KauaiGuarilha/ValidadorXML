@@ -64,7 +64,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       OnCellClick = DBGProdutoCellClick
     end
     object MemoXmlProd: TMemo
-      Left = 0
+      Left = 6
       Top = 350
       Width = 827
       Height = 81
@@ -102,18 +102,6 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       FieldName = 'CFOP'
       Size = 4
     end
-    object cdsProdutoCSOSN: TStringField
-      FieldName = 'CSOSN'
-      Size = 3
-    end
-    object cdsProdutoPIS_CST: TStringField
-      FieldName = 'PIS_CST'
-      Size = 2
-    end
-    object cdsProdutoCOFINS_CST: TStringField
-      FieldName = 'COFINS_CST'
-      Size = 2
-    end
     object cdsProdutouCom: TStringField
       FieldName = 'uCom'
       Size = 2
@@ -124,6 +112,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
     end
     object cdsProdutoTagICMS: TMemoField
       FieldName = 'TagICMS'
+      Visible = False
       BlobType = ftMemo
     end
     object cdsProdutovUnCom: TStringField

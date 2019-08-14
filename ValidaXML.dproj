@@ -156,6 +156,7 @@
         <DCCReference Include="Model\INFDOC_MDFE_Doc.pas"/>
         <DCCReference Include="Model\RODO_INF_VEICTRACAO_MDFE_Doc.pas"/>
         <DCCReference Include="Model\RODO_INF_VEICREBOQ_MDFE_Doc.pas"/>
+        <DCCReference Include="Model\DET_PROD_ITEM.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

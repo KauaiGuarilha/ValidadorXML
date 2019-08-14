@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Xml.xmldom, Xml.XMLIntf,
-  Xml.XMLDoc, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Data.DB, Datasnap.DBClient;
+  Xml.XMLDoc, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Data.DB, Datasnap.DBClient, DET_PROD_ITEM;
 
 type
   TfrmProd_NFe_Documento = class(TForm)
@@ -31,9 +31,6 @@ type
     cdsProdutoqTrib: TStringField;
     cdsProdutovUnTrib: TStringField;
     cdsProdutoindTot: TStringField;
-    cdsProdutoCSOSN: TStringField;
-    cdsProdutoPIS_CST: TStringField;
-    cdsProdutoCOFINS_CST: TStringField;
     procedure FormShow(Sender: TObject);
     procedure DBGProdutoCellClick(Column: TColumn);
   private
@@ -58,7 +55,6 @@ end;
 procedure TfrmProd_NFe_Documento.FormShow(Sender: TObject);
 var lNodeDet: IXMLNode;
     lNodeProd: IXMLNode;
-    lNodeProdT : IXMLNode;
 begin
   cdsProduto.CreateDataSet;
   lNodeDet := FNodeInfProd.ChildNodes.FindNode('det');
@@ -69,7 +65,6 @@ begin
 
     cdsProdutocProd.AsString    := lNodeProd.ChildNodes.FindNode('cProd').Text;
     cdsProdutoEAN.AsString      := lNodeProd.ChildNodes.FindNode('cEAN').Text;
-    //cdsProduto.FieldByName('NmProduto').AsString := lNodeProd.ChildNodes.FindNode('xProd').Text;
     cdsProdutoxProd.AsString    := lNodeProd.ChildNodes.FindNode('xProd').Text;
     cdsProdutoNCM.AsString      := lNodeProd.ChildNodes.FindNode('NCM').Text;
     cdsProdutoCFOP.AsString     := lNodeProd.ChildNodes.FindNode('CFOP').Text;
@@ -84,6 +79,8 @@ begin
     cdsProdutoindTot.AsString   := lNodeProd.ChildNodes.FindNode('indTot').Text;
     cdsProdutoTagICMS.AsString  := lNodeDet.ChildNodes.FindNode('imposto').XML;
 
+    {cdsProduto.FieldByName('NmProduto').AsString := lNodeProd.ChildNodes.FindNode('xProd').Text;
+
     lNodeProd := lNodeDet.ChildNodes.FindNode('imposto').ChildNodes.FindNode('ICMS').ChildNodes.FindNode('ICMSSN101');
     cdsProdutoCSOSN.AsString    := lNodeProd.ChildNodes.FindNode('CSOSN').Text;
 
@@ -91,7 +88,7 @@ begin
     cdsProdutoPIS_CST.AsString  := lNodeProd.ChildNodes.FindNode('CST').Text;
 
     lNodeProd := lNodeDet.ChildNodes.FindNode('imposto').ChildNodes.FindNode('COFINS').ChildNodes.FindNode('COFINSOutr');
-    cdsProdutoCOFINS_CST.AsString := lNodeProd.ChildNodes.FindNode('CST').Text;
+    cdsProdutoCOFINS_CST.AsString := lNodeProd.ChildNodes.FindNode('CST').Text;}
 
     cdsProduto.Post;
     lNodeDet := lNodeDet.NextSibling;
