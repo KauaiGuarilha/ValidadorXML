@@ -2,7 +2,7 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'Validador XML 1.8.0'
+  Caption = 'Validador XML 2.5.0'
   ClientHeight = 443
   ClientWidth = 656
   Color = clBtnFace
