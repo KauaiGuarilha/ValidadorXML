@@ -2,9 +2,9 @@ object frmProd_NFe_Autorizada: TfrmProd_NFe_Autorizada
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'frmProd_NFe_Autorizada'
-  ClientHeight = 387
-  ClientWidth = 759
+  Caption = 'Informa'#231#227'o Produto'
+  ClientHeight = 609
+  ClientWidth = 840
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,48 +12,136 @@ object frmProd_NFe_Autorizada: TfrmProd_NFe_Autorizada
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poOwnerFormCenter
+  Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = -4
-    Width = 761
-    Height = 389
+    Top = 0
+    Width = 841
+    Height = 609
     TabOrder = 0
-    object Memo1: TMemo
-      Left = 16
-      Top = 64
-      Width = 521
-      Height = 236
-      Lines.Strings = (
-        'Memo1')
+    object Label1: TLabel
+      Left = 6
+      Top = 10
+      Width = 123
+      Height = 17
+      Caption = 'Informa'#231#227'o Produto'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 6
+      Top = 327
+      Width = 134
+      Height = 17
+      Caption = 'Informa'#231#227'o Detalhada'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DBGProduto: TDBGrid
+      Left = 6
+      Top = 33
+      Width = 827
+      Height = 288
+      DataSource = dsProduto
+      ReadOnly = True
       TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnCellClick = DBGProdutoCellClick
     end
-    object Button1: TButton
-      Left = 559
-      Top = 54
-      Width = 154
-      Height = 41
-      Caption = 'Button1'
+    object MemoXmlProd: TMemo
+      Left = 6
+      Top = 350
+      Width = 827
+      Height = 99
+      ReadOnly = True
       TabOrder = 1
-      OnClick = Button1Click
-    end
-    object Button2: TButton
-      Left = 559
-      Top = 119
-      Width = 154
-      Height = 37
-      Caption = 'Button2'
-      TabOrder = 2
     end
   end
-  object OpenDialog1: TOpenDialog
-    Left = 400
-    Top = 4
+  object dsProduto: TDataSource
+    DataSet = cdsProduto
+    Left = 464
+    Top = 176
   end
-  object XMLDocument1: TXMLDocument
-    Left = 472
-    Top = 12
+  object cdsProduto: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 544
+    Top = 172
+    object cdsProdutocProd: TStringField
+      FieldName = 'cProd'
+      Size = 10
+    end
+    object cdsProdutoEAN: TStringField
+      FieldName = 'EAN'
+      Size = 13
+    end
+    object cdsProdutoxProd: TStringField
+      FieldName = 'xProd'
+      Size = 50
+    end
+    object cdsProdutoNCM: TStringField
+      FieldName = 'NCM'
+      Size = 8
+    end
+    object cdsProdutoCFOP: TStringField
+      FieldName = 'CFOP'
+      Size = 4
+    end
+    object cdsProdutouCom: TStringField
+      FieldName = 'uCom'
+      Size = 2
+    end
+    object cdsProdutoqCom: TStringField
+      FieldName = 'qCom'
+      Size = 10
+    end
+    object cdsProdutoTagICMS: TMemoField
+      FieldName = 'TagICMS'
+      Visible = False
+      BlobType = ftMemo
+    end
+    object cdsProdutovUnCom: TStringField
+      FieldName = 'vUnCom'
+      Size = 7
+    end
+    object cdsProdutovProd: TStringField
+      FieldName = 'vProd'
+      Size = 7
+    end
+    object cdsProdutocEANTrib: TStringField
+      FieldName = 'cEANTrib'
+      Size = 13
+    end
+    object cdsProdutouTrib: TStringField
+      FieldName = 'uTrib'
+      Size = 2
+    end
+    object cdsProdutoqTrib: TStringField
+      FieldName = 'qTrib'
+      Size = 9
+    end
+    object cdsProdutovUnTrib: TStringField
+      FieldName = 'vUnTrib'
+      Size = 4
+    end
+    object cdsProdutoindTot: TStringField
+      FieldName = 'indTot'
+      Size = 2
+    end
   end
 end

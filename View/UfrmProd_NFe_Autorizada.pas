@@ -5,21 +5,38 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Xml.xmldom,
-  Xml.XMLIntf, Xml.XMLDoc;
+  Xml.XMLIntf, Xml.XMLDoc, Data.DB, Datasnap.DBClient, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmProd_NFe_Autorizada = class(TForm)
     Panel1: TPanel;
-    Memo1: TMemo;
-    Button1: TButton;
-    Button2: TButton;
-    OpenDialog1: TOpenDialog;
-    XMLDocument1: TXMLDocument;
-    procedure Button1Click(Sender: TObject);
+    Label1: TLabel;
+    Label2: TLabel;
+    DBGProduto: TDBGrid;
+    MemoXmlProd: TMemo;
+    dsProduto: TDataSource;
+    cdsProduto: TClientDataSet;
+    cdsProdutocProd: TStringField;
+    cdsProdutoEAN: TStringField;
+    cdsProdutoxProd: TStringField;
+    cdsProdutoNCM: TStringField;
+    cdsProdutoCFOP: TStringField;
+    cdsProdutouCom: TStringField;
+    cdsProdutoqCom: TStringField;
+    cdsProdutoTagICMS: TMemoField;
+    cdsProdutovUnCom: TStringField;
+    cdsProdutovProd: TStringField;
+    cdsProdutocEANTrib: TStringField;
+    cdsProdutouTrib: TStringField;
+    cdsProdutoqTrib: TStringField;
+    cdsProdutovUnTrib: TStringField;
+    cdsProdutoindTot: TStringField;
+    procedure DBGProdutoCellClick(Column: TColumn);
+    procedure FormShow(Sender: TObject);
   private
-    { Private declarations }
+    FNodeInfProd: IXMLNode;
   public
-    { Public declarations }
+    property NodeInfProd: IXMLNode read FNodeInfProd write FNodeInfProd;
 
   end;
 
@@ -30,27 +47,55 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmProd_NFe_Autorizada.Button1Click(Sender: TObject);
-var nodeInfNfe, nodeIde : IXMLNode;
-    i : Integer;
+
+procedure TfrmProd_NFe_Autorizada.DBGProdutoCellClick(Column: TColumn);
 begin
-     try
-         OpenDialog1.Execute;
+  MemoXmlProd.Lines.Clear;
+  MemoXmlProd.Lines.Text := cdsProdutoTagICMS.AsString;
+end;
 
-          XMLDocument1.LoadFromFile(OpenDialog1.FileName);
+procedure TfrmProd_NFe_Autorizada.FormShow(Sender: TObject);
+var lNodeDet: IXMLNode;
+    lNodeProd: IXMLNode;
+begin
+  cdsProduto.CreateDataSet;
+  lNodeDet := FNodeInfProd.ChildNodes.FindNode('det');
+  while Assigned(lNodeDet) and (lNodeDet.NodeName = 'det') do
+  begin
+    lNodeProd := lNodeDet.ChildNodes.FindNode('prod');
+    cdsProduto.Append;
 
-          //nodeInfNfe := XMLDocument1.ChildNodes.FindNode('nfeProc').ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe');
-          nodeInfNfe := XMLDocument1.ChildNodes[2].ChildNodes[0];
-          nodeIde := nodeInfNfe.ChildNodes.FindNode('infNFe');
+    cdsProdutocProd.AsString    := lNodeProd.ChildNodes.FindNode('cProd').Text;
+    cdsProdutoEAN.AsString      := lNodeProd.ChildNodes.FindNode('cEAN').Text;
+    cdsProdutoxProd.AsString    := lNodeProd.ChildNodes.FindNode('xProd').Text;
+    cdsProdutoNCM.AsString      := lNodeProd.ChildNodes.FindNode('NCM').Text;
+    cdsProdutoCFOP.AsString     := lNodeProd.ChildNodes.FindNode('CFOP').Text;
+    cdsProdutouCom.AsString     := lNodeProd.ChildNodes.FindNode('uCom').Text;
+    cdsProdutoqCom.AsString     := lNodeProd.ChildNodes.FindNode('qCom').Text;
+    cdsProdutovUnCom.AsString   := lNodeProd.ChildNodes.FindNode('vUnCom').Text;
+    cdsProdutovProd.AsString    := lNodeProd.ChildNodes.FindNode('vProd').Text;
+    cdsProdutocEANTrib.AsString := lNodeProd.ChildNodes.FindNode('cEANTrib').Text;
+    cdsProdutouTrib.AsString    := lNodeProd.ChildNodes.FindNode('uTrib').Text;
+    cdsProdutoqTrib.AsString    := lNodeProd.ChildNodes.FindNode('qTrib').Text;
+    cdsProdutovUnTrib.AsString  := lNodeProd.ChildNodes.FindNode('vUnTrib').Text;
+    cdsProdutoindTot.AsString   := lNodeProd.ChildNodes.FindNode('indTot').Text;
+    cdsProdutoTagICMS.AsString  := lNodeDet.ChildNodes.FindNode('imposto').XML;
 
-          for I := 0 to nodeIde.ChildNodes.Count-1 do
-            Memo1.Lines.Add(nodeIde.ChildNodes[i].NodeName);
-            //Memo1.Lines.Add(nodeIde.ChildNodes[i].NodeName + ' = ' + nodeIde.ChildNodes[i].Text);
+    {cdsProduto.FieldByName('NmProduto').AsString := lNodeProd.ChildNodes.FindNode('xProd').Text;
 
+    lNodeProd := lNodeDet.ChildNodes.FindNode('imposto').ChildNodes.FindNode('ICMS').ChildNodes.FindNode('ICMSSN101');
+    cdsProdutoCSOSN.AsString    := lNodeProd.ChildNodes.FindNode('CSOSN').Text;
 
+    lNodeProd := lNodeDet.ChildNodes.FindNode('imposto').ChildNodes.FindNode('PIS').ChildNodes.FindNode('PISOutr');
+    cdsProdutoPIS_CST.AsString  := lNodeProd.ChildNodes.FindNode('CST').Text;
 
-     except on E: Exception do
-     end;
+    lNodeProd := lNodeDet.ChildNodes.FindNode('imposto').ChildNodes.FindNode('COFINS').ChildNodes.FindNode('COFINSOutr');
+    cdsProdutoCOFINS_CST.AsString := lNodeProd.ChildNodes.FindNode('CST').Text;}
+
+    cdsProduto.Post;
+    lNodeDet := lNodeDet.NextSibling;
+  end;
+
 end;
 
 end.
