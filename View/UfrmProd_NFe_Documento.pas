@@ -31,10 +31,59 @@ type
     cdsProdutoqTrib: TStringField;
     cdsProdutovUnTrib: TStringField;
     cdsProdutoindTot: TStringField;
+    blbvTotTrib: TLabel;
+    edtvTotTrib: TEdit;
+    cdsProdutovTotTrib: TStringField;
+    btnCalcularTrib: TButton;
+    Label4: TLabel;
+    Label3: TLabel;
+    edtvBC: TEdit;
+    Label5: TLabel;
+    Label6: TLabel;
+    edtvICMS: TEdit;
+    Label7: TLabel;
+    edtvICMSDeson: TEdit;
+    Label8: TLabel;
+    edtvFCP: TEdit;
+    Label9: TLabel;
+    edtvBCST: TEdit;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    edtvST: TEdit;
+    edtvFCPST: TEdit;
+    edtvFCPSTRet: TEdit;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    edtvPIS: TEdit;
+    edtvCOFINS: TEdit;
+    edtvProd: TEdit;
+    edtvFrete: TEdit;
+    edtvSeg: TEdit;
+    edtvOutro: TEdit;
+    edtvIPIDevol: TEdit;
+    edtvDesc: TEdit;
+    edtvIPI: TEdit;
+    edtvII: TEdit;
+    edtvTotTribF: TEdit;
+    edtvNF: TEdit;
     procedure FormShow(Sender: TObject);
     procedure DBGProdutoCellClick(Column: TColumn);
+    procedure btnCalcularTribClick(Sender: TObject);
   private
     FNodeInfProd : IXMLNode;
+    tvTotTrib : Double;
+    tvTotTrib2 : Double;
   public
     property NodeInfProd: IXMLNode read FNodeInfProd write FNodeInfProd;
   end;
@@ -46,6 +95,27 @@ implementation
 
 {$R *.dfm}
 
+procedure TfrmProd_NFe_Documento.btnCalcularTribClick(Sender: TObject);
+var somar : Double;
+begin
+inherited;
+  somar := 0;
+  with cdsProduto do
+  begin
+    cdsProduto.DisableControls;
+    cdsProduto.First;
+
+    while not cdsProduto.Eof do
+    begin
+      somar := (somar + cdsProduto.FieldByName('vTotTrib').AsFloat);
+      cdsProduto.Next;
+    end;
+    cdsProduto.EnableControls;
+    self.edtvTotTrib.Text := FloatToStr(somar);
+  end;
+
+end;
+
 procedure TfrmProd_NFe_Documento.DBGProdutoCellClick(Column: TColumn);
 begin
   MemoXmlProd.Lines.Clear;
@@ -55,6 +125,7 @@ end;
 procedure TfrmProd_NFe_Documento.FormShow(Sender: TObject);
 var lNodeDet: IXMLNode;
     lNodeProd: IXMLNode;
+    lNodeImp : IXMLNode;
 begin
   cdsProduto.CreateDataSet;
   lNodeDet := FNodeInfProd.ChildNodes.FindNode('det');
@@ -79,21 +150,12 @@ begin
     cdsProdutoindTot.AsString   := lNodeProd.ChildNodes.FindNode('indTot').Text;
     cdsProdutoTagICMS.AsString  := lNodeDet.ChildNodes.FindNode('imposto').XML;
 
-    {cdsProduto.FieldByName('NmProduto').AsString := lNodeProd.ChildNodes.FindNode('xProd').Text;
-
-    lNodeProd := lNodeDet.ChildNodes.FindNode('imposto').ChildNodes.FindNode('ICMS').ChildNodes.FindNode('ICMSSN101');
-    cdsProdutoCSOSN.AsString    := lNodeProd.ChildNodes.FindNode('CSOSN').Text;
-
-    lNodeProd := lNodeDet.ChildNodes.FindNode('imposto').ChildNodes.FindNode('PIS').ChildNodes.FindNode('PISOutr');
-    cdsProdutoPIS_CST.AsString  := lNodeProd.ChildNodes.FindNode('CST').Text;
-
-    lNodeProd := lNodeDet.ChildNodes.FindNode('imposto').ChildNodes.FindNode('COFINS').ChildNodes.FindNode('COFINSOutr');
-    cdsProdutoCOFINS_CST.AsString := lNodeProd.ChildNodes.FindNode('CST').Text;}
+    lNodeImp := lNodeDet.ChildNodes.FindNode('imposto');
+    cdsProdutovTotTrib.AsFloat := lNodeImp.ChildNodes.FindNode('vTotTrib').NodeValue/100;
 
     cdsProduto.Post;
     lNodeDet := lNodeDet.NextSibling;
   end;
-
 end;
 
 end.

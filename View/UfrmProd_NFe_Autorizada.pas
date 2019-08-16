@@ -31,6 +31,7 @@ type
     cdsProdutoqTrib: TStringField;
     cdsProdutovUnTrib: TStringField;
     cdsProdutoindTot: TStringField;
+    cdsProdutovTotTrib: TIntegerField;
     procedure DBGProdutoCellClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
   private
@@ -47,7 +48,6 @@ implementation
 
 {$R *.dfm}
 
-
 procedure TfrmProd_NFe_Autorizada.DBGProdutoCellClick(Column: TColumn);
 begin
   MemoXmlProd.Lines.Clear;
@@ -57,6 +57,7 @@ end;
 procedure TfrmProd_NFe_Autorizada.FormShow(Sender: TObject);
 var lNodeDet: IXMLNode;
     lNodeProd: IXMLNode;
+    lNodeImp : IXMLNode;
 begin
   cdsProduto.CreateDataSet;
   lNodeDet := FNodeInfProd.ChildNodes.FindNode('det');

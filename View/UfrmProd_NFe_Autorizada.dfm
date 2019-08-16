@@ -3,7 +3,7 @@ object frmProd_NFe_Autorizada: TfrmProd_NFe_Autorizada
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Informa'#231#227'o Produto'
-  ClientHeight = 609
+  ClientHeight = 600
   ClientWidth = 840
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,14 +20,14 @@ object frmProd_NFe_Autorizada: TfrmProd_NFe_Autorizada
     Left = 0
     Top = 0
     Width = 841
-    Height = 609
+    Height = 602
     TabOrder = 0
     object Label1: TLabel
       Left = 6
       Top = 10
-      Width = 123
+      Width = 205
       Height = 17
-      Caption = 'Informa'#231#227'o Produto'
+      Caption = 'Informa'#231#227'o Produto <det nItem>'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -37,10 +37,10 @@ object frmProd_NFe_Autorizada: TfrmProd_NFe_Autorizada
     end
     object Label2: TLabel
       Left = 6
-      Top = 327
-      Width = 134
+      Top = 352
+      Width = 141
       Height = 17
-      Caption = 'Informa'#231#227'o Detalhada'
+      Caption = 'Informa'#231#227'o <imposto>'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -65,9 +65,9 @@ object frmProd_NFe_Autorizada: TfrmProd_NFe_Autorizada
     end
     object MemoXmlProd: TMemo
       Left = 6
-      Top = 350
+      Top = 375
       Width = 827
-      Height = 99
+      Height = 83
       ReadOnly = True
       TabOrder = 1
     end
@@ -93,6 +93,9 @@ object frmProd_NFe_Autorizada: TfrmProd_NFe_Autorizada
     object cdsProdutoxProd: TStringField
       FieldName = 'xProd'
       Size = 50
+    end
+    object cdsProdutovTotTrib: TIntegerField
+      FieldName = 'vTotTrib'
     end
     object cdsProdutoNCM: TStringField
       FieldName = 'NCM'
