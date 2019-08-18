@@ -147,7 +147,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       ParentFont = False
     end
     object Label10: TLabel
-      Left = 134
+      Left = 158
       Top = 494
       Width = 39
       Height = 17
@@ -160,7 +160,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       ParentFont = False
     end
     object Label11: TLabel
-      Left = 185
+      Left = 212
       Top = 494
       Width = 62
       Height = 17
@@ -173,7 +173,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       ParentFont = False
     end
     object Label12: TLabel
-      Left = 267
+      Left = 291
       Top = 544
       Width = 82
       Height = 17
@@ -372,23 +372,13 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       ReadOnly = True
       TabOrder = 2
     end
-    object btnCalcularTrib: TButton
-      Left = 698
-      Top = 332
-      Width = 123
-      Height = 26
-      Cursor = crHandPoint
-      Caption = 'Calcular <vTotTrib>'
-      TabOrder = 3
-      OnClick = btnCalcularTribClick
-    end
     object edtvBC: TEdit
       Left = 30
       Top = 517
       Width = 103
       Height = 21
       ReadOnly = True
-      TabOrder = 4
+      TabOrder = 3
     end
     object edtvICMS: TEdit
       Left = 30
@@ -396,7 +386,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 103
       Height = 21
       ReadOnly = True
-      TabOrder = 5
+      TabOrder = 4
     end
     object edtvICMSDeson: TEdit
       Left = 291
@@ -404,7 +394,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 114
       Height = 21
       ReadOnly = True
-      TabOrder = 6
+      TabOrder = 5
     end
     object edtvFCP: TEdit
       Left = 158
@@ -412,7 +402,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 51
       Height = 21
       ReadOnly = True
-      TabOrder = 7
+      TabOrder = 6
     end
     object edtvBCST: TEdit
       Left = 215
@@ -420,7 +410,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 53
       Height = 21
       ReadOnly = True
-      TabOrder = 8
+      TabOrder = 7
     end
     object edtvST: TEdit
       Left = 158
@@ -428,7 +418,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 51
       Height = 21
       ReadOnly = True
-      TabOrder = 9
+      TabOrder = 8
     end
     object edtvFCPST: TEdit
       Left = 215
@@ -436,7 +426,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 53
       Height = 21
       ReadOnly = True
-      TabOrder = 10
+      TabOrder = 9
     end
     object edtvFCPSTRet: TEdit
       Left = 291
@@ -444,7 +434,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 114
       Height = 21
       ReadOnly = True
-      TabOrder = 11
+      TabOrder = 10
     end
     object edtvPIS: TEdit
       Left = 425
@@ -452,14 +442,14 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 109
       Height = 21
       ReadOnly = True
-      TabOrder = 12
+      TabOrder = 11
     end
     object edtvCOFINS: TEdit
       Left = 425
       Top = 567
       Width = 109
       Height = 21
-      TabOrder = 13
+      TabOrder = 12
     end
     object edtvProd: TEdit
       Left = 31
@@ -467,14 +457,14 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 102
       Height = 21
       ReadOnly = True
-      TabOrder = 14
+      TabOrder = 13
     end
     object edtvFrete: TEdit
       Left = 158
       Top = 617
       Width = 51
       Height = 21
-      TabOrder = 15
+      TabOrder = 14
     end
     object edtvSeg: TEdit
       Left = 215
@@ -482,7 +472,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 53
       Height = 21
       ReadOnly = True
-      TabOrder = 16
+      TabOrder = 15
     end
     object edtvOutro: TEdit
       Left = 291
@@ -490,21 +480,21 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 114
       Height = 21
       ReadOnly = True
-      TabOrder = 17
+      TabOrder = 16
     end
     object edtvIPIDevol: TEdit
       Left = 425
       Top = 617
       Width = 109
       Height = 21
-      TabOrder = 18
+      TabOrder = 17
     end
     object edtvDesc: TEdit
       Left = 560
       Top = 517
       Width = 109
       Height = 21
-      TabOrder = 19
+      TabOrder = 18
     end
     object edtvIPI: TEdit
       Left = 560
@@ -512,7 +502,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 109
       Height = 21
       ReadOnly = True
-      TabOrder = 20
+      TabOrder = 19
     end
     object edtvII: TEdit
       Left = 560
@@ -520,7 +510,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 109
       Height = 21
       ReadOnly = True
-      TabOrder = 21
+      TabOrder = 20
     end
     object edtvTotTribF: TEdit
       Left = 693
@@ -528,7 +518,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 109
       Height = 21
       ReadOnly = True
-      TabOrder = 22
+      TabOrder = 21
     end
     object edtvNF: TEdit
       Left = 693
@@ -536,7 +526,7 @@ object frmProd_NFe_Documento: TfrmProd_NFe_Documento
       Width = 109
       Height = 21
       ReadOnly = True
-      TabOrder = 23
+      TabOrder = 22
     end
   end
   object dsProduto: TDataSource

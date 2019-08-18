@@ -37,7 +37,8 @@ uses
   INFDOC_MDFE_Doc in 'Model\INFDOC_MDFE_Doc.pas',
   RODO_INF_VEICTRACAO_MDFE_Doc in 'Model\RODO_INF_VEICTRACAO_MDFE_Doc.pas',
   RODO_INF_VEICREBOQ_MDFE_Doc in 'Model\RODO_INF_VEICREBOQ_MDFE_Doc.pas',
-  DET_PROD_ITEM in 'Model\DET_PROD_ITEM.pas';
+  DET_PROD_ITEM in 'Model\DET_PROD_ITEM.pas',
+  TOTAL_ICMSTOT_Doc in 'Model\TOTAL_ICMSTOT_Doc.pas';
 
 {$R *.res}
 

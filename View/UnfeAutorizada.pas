@@ -181,6 +181,7 @@ procedure TfrmNFe_Autorizada.Button1Click(Sender: TObject);
 begin
   umfrmProd_NFe_Autorizada := TfrmProd_NFe_Autorizada.Create(nil);
     try
+      umfrmProd_NFe_Autorizada.NodeTotICMS := XMLDocument1.ChildNodes.FindNode('nfeProc').ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe');
       umfrmProd_NFe_Autorizada.NodeInfProd := XMLDocument1.ChildNodes.FindNode('nfeProc').ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe');
       umfrmProd_NFe_Autorizada.ShowModal;
     finally

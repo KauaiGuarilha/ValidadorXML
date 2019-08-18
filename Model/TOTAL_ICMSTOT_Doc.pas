@@ -13,6 +13,8 @@ type TTOTAL_ICMSTOT_Doc = class
     vBC, vICMS, vICMSDeson, vFCP, vBCST, vST, vFCPST, vFCPSTRet, vProd, vFrete,
     vSeg, vDesc, vII, vIPI, vIPIDevol, vPIS, vCOFINS, vOutro, vNF, vTotTrib : String;
 
+    vFCPUFDest, vICMSUFDest  : String;
+
     FNodeInfTot : IXMLNode;
 
     function getVBC: String;
@@ -55,6 +57,10 @@ type TTOTAL_ICMSTOT_Doc = class
     procedure setVSeg(const Value: String);
     procedure setVST(const Value: String);
     procedure setVTotTrib(const Value: String);
+    function getVFCPUFDest: String;
+    function getVICMSUFDest: String;
+    procedure setVFCPUFDest(const Value: String);
+    procedure setVICMSUFDest(const Value: String);
 
   public
     Constructor Create_TTOTAL_ICMSTOT_Doc;
@@ -84,6 +90,8 @@ type TTOTAL_ICMSTOT_Doc = class
     property TVNF : String read getVNF write setVNF;
     property TVTotTrib : String read getVTotTrib write setVTotTrib;
 
+    property TVFCPUFDest : String read getVFCPUFDest write setVFCPUFDest;
+    property TVICMSUFDest : String read getVICMSUFDest write setVICMSUFDest;
 end;
 
 implementation
@@ -135,6 +143,11 @@ begin
   result := vFCPSTRet;
 end;
 
+function TTOTAL_ICMSTOT_Doc.getVFCPUFDest: String;
+begin
+  result := vFCPUFDest;
+end;
+
 function TTOTAL_ICMSTOT_Doc.getVFrete: String;
 begin
   result := vFrete;
@@ -148,6 +161,11 @@ end;
 function TTOTAL_ICMSTOT_Doc.getVICMSDeson: String;
 begin
   result := vICMSDeson;
+end;
+
+function TTOTAL_ICMSTOT_Doc.getVICMSUFDest: String;
+begin
+  result := vICMSUFDest
 end;
 
 function TTOTAL_ICMSTOT_Doc.getVII: String;
@@ -235,6 +253,11 @@ begin
   vFCPSTRet := Value;
 end;
 
+procedure TTOTAL_ICMSTOT_Doc.setVFCPUFDest(const Value: String);
+begin
+  vFCPUFDest := Value;
+end;
+
 procedure TTOTAL_ICMSTOT_Doc.setVFrete(const Value: String);
 begin
   vFrete := Value;
@@ -248,6 +271,11 @@ end;
 procedure TTOTAL_ICMSTOT_Doc.setVICMSDeson(const Value: String);
 begin
   vICMSDeson := Value;
+end;
+
+procedure TTOTAL_ICMSTOT_Doc.setVICMSUFDest(const Value: String);
+begin
+  vICMSUFDest := Value;
 end;
 
 procedure TTOTAL_ICMSTOT_Doc.setVII(const Value: String);
@@ -363,6 +391,13 @@ begin
 
     if FNodeInfTot.ChildNodes.FindNode('vTotTrib') <> nil then
         vTotTrib := FNodeInfTot.ChildNodes.FindNode('vTotTrib').Text;
+
+    if FNodeInfTot.ChildNodes.FindNode('vFCPUFDest') <> nil then
+        vFCPUFDest := FNodeInfTot.ChildNodes.FindNode('vFCPUFDest').Text;
+
+    if FNodeInfTot.ChildNodes.FindNode('vICMSUFDest') <> nil then
+        vICMSUFDest := FNodeInfTot.ChildNodes.FindNode('vICMSUFDest').Text;
+
   end;
 end;
 

@@ -9,7 +9,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Xml.xmldom, Xml.XMLIntf, Vcl.ExtCtrls,
   Xml.XMLDoc, Vcl.ComCtrls, Vcl.StdCtrls,UfrmProd_NFe_Documento, IDE_NFE_Doc, EMIT_NFE_Doc, ENDEREMIT_NFE_Doc,
-  DEST_NFE_Doc, ENDERDEST_NFE_Doc;
+  DEST_NFE_Doc, ENDERDEST_NFE_Doc, TOTAL_ICMSTOT_Doc;
 
 type
   TfrmNFe_Documento = class(TForm)
@@ -186,6 +186,7 @@ procedure TfrmNFe_Documento.Button1Click(Sender: TObject);
 begin
     umfrmProd_NFe_Documento := TfrmProd_NFe_Documento.Create(nil);
     try
+      umfrmProd_NFe_Documento.NodeTotICMS := XMLDocument1.ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe');
       umfrmProd_NFe_Documento.NodeInfProd := XMLDocument1.ChildNodes.FindNode('NFe').ChildNodes.FindNode('infNFe');
       umfrmProd_NFe_Documento.ShowModal;
     finally

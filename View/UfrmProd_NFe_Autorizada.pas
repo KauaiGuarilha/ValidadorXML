@@ -5,15 +5,11 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Xml.xmldom,
-  Xml.XMLIntf, Xml.XMLDoc, Data.DB, Datasnap.DBClient, Vcl.Grids, Vcl.DBGrids;
+  Xml.XMLIntf, Xml.XMLDoc, Data.DB, Datasnap.DBClient, Vcl.Grids, Vcl.DBGrids,
+  TOTAL_ICMSTOT_Doc;
 
 type
   TfrmProd_NFe_Autorizada = class(TForm)
-    Panel1: TPanel;
-    Label1: TLabel;
-    Label2: TLabel;
-    DBGProduto: TDBGrid;
-    MemoXmlProd: TMemo;
     dsProduto: TDataSource;
     cdsProduto: TClientDataSet;
     cdsProdutocProd: TStringField;
@@ -31,14 +27,64 @@ type
     cdsProdutoqTrib: TStringField;
     cdsProdutovUnTrib: TStringField;
     cdsProdutoindTot: TStringField;
-    cdsProdutovTotTrib: TIntegerField;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    DBGProduto: TDBGrid;
+    MemoXmlProd: TMemo;
+    edtvBC: TEdit;
+    edtvICMS: TEdit;
+    edtvICMSDeson: TEdit;
+    edtvFCP: TEdit;
+    edtvBCST: TEdit;
+    edtvST: TEdit;
+    edtvFCPST: TEdit;
+    edtvFCPSTRet: TEdit;
+    edtvPIS: TEdit;
+    edtvCOFINS: TEdit;
+    edtvProd: TEdit;
+    edtvFrete: TEdit;
+    edtvSeg: TEdit;
+    edtvOutro: TEdit;
+    edtvIPIDevol: TEdit;
+    edtvDesc: TEdit;
+    edtvIPI: TEdit;
+    edtvII: TEdit;
+    edtVFCPUFDest: TEdit;
+    edtvNF: TEdit;
+    Label25: TLabel;
+    edtVICMSUFDest: TEdit;
     procedure DBGProdutoCellClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
   private
     FNodeInfProd: IXMLNode;
+    FNodeTotICMS: IXMLNode;
   public
+    procedure PreencherTotICMS;
     property NodeInfProd: IXMLNode read FNodeInfProd write FNodeInfProd;
-
+    property NodeTotICMS : IXMLNode read FNodeTotICMS write FNodeTotICMS;
   end;
 
 var
@@ -96,7 +142,42 @@ begin
     cdsProduto.Post;
     lNodeDet := lNodeDet.NextSibling;
   end;
+  PreencherTotICMS;
+end;
 
+procedure TfrmProd_NFe_Autorizada.PreencherTotICMS;
+var  FTOTAL_ICMSTOT_Doc : TTOTAL_ICMSTOT_Doc;
+begin
+  FTOTAL_ICMSTOT_Doc := TTOTAL_ICMSTOT_Doc.Create_TTOTAL_ICMSTOT_Doc;
+  try
+    FTOTAL_ICMSTOT_Doc.NodeInfTot := NodeTotICMS.ChildNodes.FindNode('total').ChildNodes.FindNode('ICMSTot');
+    FTOTAL_ICMSTOT_Doc.PreencheTot;
+
+    self.edtvBC.Text := FTOTAL_ICMSTOT_Doc.TVBC;
+    self.edtvICMS.Text := FTOTAL_ICMSTOT_Doc.TVICMS;
+    self.edtvICMSDeson.Text := FTOTAL_ICMSTOT_Doc.TVICMSDeson;
+    self.edtvFCP.Text := FTOTAL_ICMSTOT_Doc.TVFCP;
+    self.edtvBCST.Text := FTOTAL_ICMSTOT_Doc.TVBCST;
+    self.edtvST.Text := FTOTAL_ICMSTOT_Doc.TVST;
+    self.edtvFCPST.Text := FTOTAL_ICMSTOT_Doc.TVFCPST;
+    self.edtvFCPSTRet.Text := FTOTAL_ICMSTOT_Doc.TVFCPSTRet;
+    self.edtvProd.Text := FTOTAL_ICMSTOT_Doc.TVProd;
+    self.edtvFrete.Text := FTOTAL_ICMSTOT_Doc.TVFrete;
+    self.edtvSeg.Text := FTOTAL_ICMSTOT_Doc.TVSeg;
+    self.edtvDesc.Text := FTOTAL_ICMSTOT_Doc.TVDesc;
+    self.edtvII.Text := FTOTAL_ICMSTOT_Doc.TVII;
+    self.edtvIPI.Text := FTOTAL_ICMSTOT_Doc.TVIPI;
+    self.edtvIPIDevol.Text := FTOTAL_ICMSTOT_Doc.TVIPIDevol;
+    self.edtvPIS.Text := FTOTAL_ICMSTOT_Doc.TVPIS;
+    self.edtvCOFINS.Text := FTOTAL_ICMSTOT_Doc.TVCOFINS;
+    self.edtvOutro.Text := FTOTAL_ICMSTOT_Doc.TVOutro;
+    self.edtvNF.Text := FTOTAL_ICMSTOT_Doc.TVNF;
+
+    self.edtVFCPUFDest.Text := FTOTAL_ICMSTOT_Doc.TVFCPUFDest;
+    self.edtVICMSUFDest.Text := FTOTAL_ICMSTOT_Doc.TVICMSUFDest;
+  finally
+    FTOTAL_ICMSTOT_Doc.Free;
+  end;
 end;
 
 end.

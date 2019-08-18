@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Xml.xmldom, Xml.XMLIntf,
-  Xml.XMLDoc, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Data.DB, Datasnap.DBClient;
+  Xml.XMLDoc, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Data.DB, Datasnap.DBClient,
+  TOTAL_ICMSTOT_Doc;
 
 type
   TfrmProd_NFe_Documento = class(TForm)
@@ -34,7 +35,6 @@ type
     blbvTotTrib: TLabel;
     edtvTotTrib: TEdit;
     cdsProdutovTotTrib: TStringField;
-    btnCalcularTrib: TButton;
     Label4: TLabel;
     Label3: TLabel;
     edtvBC: TEdit;
@@ -79,13 +79,14 @@ type
     edtvNF: TEdit;
     procedure FormShow(Sender: TObject);
     procedure DBGProdutoCellClick(Column: TColumn);
-    procedure btnCalcularTribClick(Sender: TObject);
   private
     FNodeInfProd : IXMLNode;
-    tvTotTrib : Double;
-    tvTotTrib2 : Double;
+    FNodeTotICMS: IXMLNode;
   public
+    procedure acharTotTrib;
+    procedure PreencherTotICMS;
     property NodeInfProd: IXMLNode read FNodeInfProd write FNodeInfProd;
+    property NodeTotICMS : IXMLNode read FNodeTotICMS write FNodeTotICMS;
   end;
 
 var
@@ -95,7 +96,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmProd_NFe_Documento.btnCalcularTribClick(Sender: TObject);
+procedure TfrmProd_NFe_Documento.acharTotTrib;
 var somar : Double;
 begin
 inherited;
@@ -113,7 +114,6 @@ inherited;
     cdsProduto.EnableControls;
     self.edtvTotTrib.Text := FloatToStr(somar);
   end;
-
 end;
 
 procedure TfrmProd_NFe_Documento.DBGProdutoCellClick(Column: TColumn);
@@ -155,6 +155,41 @@ begin
 
     cdsProduto.Post;
     lNodeDet := lNodeDet.NextSibling;
+  end;
+  acharTotTrib;
+  PreencherTotICMS
+end;
+
+procedure TfrmProd_NFe_Documento.PreencherTotICMS;
+var  FTOTAL_ICMSTOT_Doc : TTOTAL_ICMSTOT_Doc;
+begin
+  FTOTAL_ICMSTOT_Doc := TTOTAL_ICMSTOT_Doc.Create_TTOTAL_ICMSTOT_Doc;
+  try
+    FTOTAL_ICMSTOT_Doc.NodeInfTot := NodeTotICMS.ChildNodes.FindNode('total').ChildNodes.FindNode('ICMSTot');
+    FTOTAL_ICMSTOT_Doc.PreencheTot;
+
+    self.edtvBC.Text := FTOTAL_ICMSTOT_Doc.TVBC;
+    self.edtvICMS.Text := FTOTAL_ICMSTOT_Doc.TVICMS;
+    self.edtvICMSDeson.Text := FTOTAL_ICMSTOT_Doc.TVICMSDeson;
+    self.edtvFCP.Text := FTOTAL_ICMSTOT_Doc.TVFCP;
+    self.edtvBCST.Text := FTOTAL_ICMSTOT_Doc.TVBCST;
+    self.edtvST.Text := FTOTAL_ICMSTOT_Doc.TVST;
+    self.edtvFCPST.Text := FTOTAL_ICMSTOT_Doc.TVFCPST;
+    self.edtvFCPSTRet.Text := FTOTAL_ICMSTOT_Doc.TVFCPSTRet;
+    self.edtvProd.Text := FTOTAL_ICMSTOT_Doc.TVProd;
+    self.edtvFrete.Text := FTOTAL_ICMSTOT_Doc.TVFrete;
+    self.edtvSeg.Text := FTOTAL_ICMSTOT_Doc.TVSeg;
+    self.edtvDesc.Text := FTOTAL_ICMSTOT_Doc.TVDesc;
+    self.edtvII.Text := FTOTAL_ICMSTOT_Doc.TVII;
+    self.edtvIPI.Text := FTOTAL_ICMSTOT_Doc.TVIPI;
+    self.edtvIPIDevol.Text := FTOTAL_ICMSTOT_Doc.TVIPIDevol;
+    self.edtvPIS.Text := FTOTAL_ICMSTOT_Doc.TVPIS;
+    self.edtvCOFINS.Text := FTOTAL_ICMSTOT_Doc.TVCOFINS;
+    self.edtvOutro.Text := FTOTAL_ICMSTOT_Doc.TVOutro;
+    self.edtvNF.Text := FTOTAL_ICMSTOT_Doc.TVNF;
+    self.edtvTotTribF.Text := FTOTAL_ICMSTOT_Doc.TVTotTrib;
+  finally
+    FTOTAL_ICMSTOT_Doc.Free;
   end;
 end;
 
